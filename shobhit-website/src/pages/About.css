@@ -1,0 +1,318 @@
+.about-page {
+  padding-top: 72px;
+}
+
+/* ===== HERO ===== */
+.about-hero {
+  padding: var(--space-20) 0 var(--space-24);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about-hero__inner {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--space-20);
+  align-items: flex-start;
+}
+
+.about-hero__portrait-wrap {
+  flex-shrink: 0;
+}
+
+.about-hero__portrait {
+  width: 280px;
+  height: 340px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-bg-tertiary);
+  position: relative;
+}
+
+.about-hero__portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.about-hero__portrait-initials {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: var(--weight-light);
+  color: var(--color-text-muted);
+}
+
+.about-hero__name {
+  margin-bottom: var(--space-2);
+}
+
+.about-hero__title {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-6);
+}
+
+.about-hero__tagline {
+  color: var(--color-accent);
+  margin-bottom: var(--space-6);
+  line-height: var(--leading-snug);
+  font-style: italic;
+}
+
+.about-hero__intro {
+  margin-bottom: var(--space-8);
+  max-width: 580px;
+}
+
+.about-hero__linkedin {
+  text-decoration: none;
+}
+
+/* ===== BIO SECTIONS ===== */
+.about-bio {
+  padding: var(--space-24) 0;
+}
+
+.about-bio__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.about-bio__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.about-bio__section-heading {
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about-bio__para {
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+/* ===== FOCUS AREAS ===== */
+.about-focus {
+  padding: var(--space-16) 0 var(--space-24);
+  background: var(--color-bg-secondary);
+}
+
+.about-focus__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.about-focus__card {
+  padding: var(--space-8);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  transition: border-color var(--duration-normal) var(--ease-default);
+}
+
+.about-focus__card:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.about-focus__card-title {
+  color: var(--color-text-primary);
+}
+
+.about-focus__card-link {
+  text-decoration: none;
+  margin-top: auto;
+}
+
+/* ===== AFFILIATIONS ===== */
+.about-affiliations {
+  padding: var(--space-16) 0 var(--space-24);
+}
+
+.about-affiliations__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  list-style: none;
+}
+
+.about-affiliation-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.about-affiliation-item__role {
+  min-width: 120px;
+  flex-shrink: 0;
+}
+
+.about-affiliation-item__org {
+  color: var(--color-text-primary);
+}
+
+.about-affiliation-item__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
+  color: var(--color-text-primary);
+  transition: color var(--duration-fast) var(--ease-default);
+}
+
+.about-affiliation-item__link:hover {
+  color: var(--color-accent);
+}
+
+.about-affiliation-item__ext {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+}
+
+/* ===== EDUCATION ===== */
+.about-education {
+  padding: var(--space-8) 0 var(--space-16);
+}
+
+.about-education__list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.about-education__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.about-education__degree {
+  color: var(--color-text-primary);
+  font-weight: var(--weight-medium);
+}
+
+.about-education__inst {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* ===== GALLERY ===== */
+.about-gallery {
+  padding: var(--space-8) 0 var(--space-24);
+}
+
+.about-gallery__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+}
+
+.about-gallery__img-wrap {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  background: var(--color-bg-tertiary);
+  aspect-ratio: 3/2;
+}
+
+.about-gallery__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.about-gallery__img-wrap:hover .about-gallery__img {
+  transform: scale(1.02);
+}
+
+.about-gallery__img-wrap:nth-child(2) {
+  margin-top: var(--space-12);
+}
+
+/* ===== WRITINGS CTA ===== */
+.about-writings-cta {
+  background: var(--color-text-primary);
+  padding: var(--space-24) 0;
+}
+
+.about-writings-cta__inner {
+  text-align: center;
+}
+
+.about-writings-cta__title {
+  color: var(--color-white);
+  margin-bottom: var(--space-10);
+  font-style: italic;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .about-hero__inner {
+    grid-template-columns: 220px 1fr;
+    gap: var(--space-12);
+  }
+  .about-hero__portrait {
+    width: 220px;
+    height: 280px;
+  }
+  .about-focus__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+  .about-hero__portrait-wrap {
+    order: -1;
+  }
+  .about-hero__portrait {
+    width: 160px;
+    height: 200px;
+  }
+  .about-affiliation-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+  .about-affiliation-item__role {
+    min-width: unset;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero {
+    padding: var(--space-12) 0 var(--space-16);
+  }
+  .about-bio {
+    padding: var(--space-16) 0;
+  }
+  .about-gallery__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}

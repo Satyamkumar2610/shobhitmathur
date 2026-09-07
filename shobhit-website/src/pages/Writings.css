@@ -1,0 +1,278 @@
+.writings-page {
+  padding-top: 72px;
+  min-height: 100vh;
+}
+
+.writings-page__header {
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-16) 0 0;
+  margin-bottom: var(--space-12);
+}
+
+.writings-page__title-row {
+  margin-bottom: var(--space-10);
+}
+
+.writings-page__title {
+  margin-bottom: var(--space-4);
+}
+
+.writings-page__intro {
+  max-width: 600px;
+}
+
+/* ===== SEARCH ===== */
+.writings-search {
+  position: relative;
+  max-width: 480px;
+  margin-bottom: var(--space-8);
+}
+
+.writings-search__icon {
+  position: absolute;
+  left: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.writings-search__input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4) var(--space-3) var(--space-10);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-primary);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition:
+    border-color var(--duration-fast) var(--ease-default),
+    box-shadow var(--duration-fast) var(--ease-default);
+  -webkit-appearance: none;
+}
+
+.writings-search__input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.writings-search__input:focus {
+  border-color: var(--color-text-muted);
+  box-shadow: 0 0 0 3px var(--color-accent-light);
+}
+
+.writings-search__clear {
+  position: absolute;
+  right: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  transition: color var(--duration-fast);
+}
+
+.writings-search__clear:hover {
+  color: var(--color-text-primary);
+}
+
+/* ===== FILTERS ===== */
+.writings-filters {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  overflow-x: auto;
+  padding-bottom: 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-4);
+}
+
+.writings-filters::-webkit-scrollbar {
+  display: none;
+}
+
+.writings-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    color var(--duration-fast) var(--ease-default),
+    background var(--duration-fast) var(--ease-default),
+    border-color var(--duration-fast) var(--ease-default);
+  margin-bottom: calc(-1px);
+  padding-bottom: var(--space-4);
+}
+
+.writings-filter-btn:hover {
+  color: var(--color-text-primary);
+}
+
+.writings-filter-btn--active {
+  color: var(--color-text-primary);
+  border-bottom-color: var(--color-accent);
+  border-bottom-width: 2px;
+}
+
+.writings-filter-btn__count {
+  font-size: var(--text-xs);
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-muted);
+  padding: 1px 6px;
+  border-radius: 99px;
+  font-weight: var(--weight-regular);
+  letter-spacing: 0;
+}
+
+.writings-filter-btn--active .writings-filter-btn__count {
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+}
+
+/* ===== RESULTS META ===== */
+.writings-results-meta {
+  padding: var(--space-6) 0 var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-2);
+}
+
+/* ===== WRITINGS LIST ===== */
+.writings-list {
+  list-style: none;
+}
+
+.writings-list-item {
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.writings-list-item__inner {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  gap: var(--space-6);
+  align-items: flex-start;
+  padding: var(--space-8) var(--space-4);
+  text-decoration: none;
+  transition: background var(--duration-fast) var(--ease-default);
+  border-radius: var(--radius-md);
+}
+
+.writings-list-item:hover .writings-list-item__inner {
+  background: var(--color-bg-secondary);
+}
+
+.writings-list-item__number {
+  padding-top: 3px;
+  text-align: right;
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+}
+
+.writings-list-item__body {
+  min-width: 0;
+}
+
+.writings-list-item__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.writings-list-item__sub {
+  color: var(--color-text-muted);
+}
+
+.writings-list-item__pub {
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+.writings-list-item__rt {
+  color: var(--color-text-muted);
+}
+
+.writings-list-item__title {
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+  line-height: var(--leading-snug);
+}
+
+.writings-list-item__excerpt {
+  margin-bottom: var(--space-3);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.writings-list-item__coauthor {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.writings-list-item__arrow-wrap {
+  padding-top: 2px;
+  flex-shrink: 0;
+}
+
+.writings-list-item__arrow {
+  color: var(--color-text-muted);
+  transition: transform var(--duration-fast) var(--ease-out), color var(--duration-fast);
+}
+
+.writings-list-item:hover .writings-list-item__arrow {
+  transform: translateX(5px);
+  color: var(--color-accent);
+}
+
+/* ===== EMPTY STATE ===== */
+.writings-empty {
+  padding: var(--space-24) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  text-align: center;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .writings-page__header {
+    padding-top: var(--space-10);
+  }
+  .writings-list-item__inner {
+    grid-template-columns: 32px 1fr auto;
+    gap: var(--space-4);
+    padding: var(--space-6) var(--space-2);
+  }
+  .writings-list-item__meta {
+    gap: var(--space-2);
+  }
+}
+
+@media (max-width: 480px) {
+  .writings-list-item__inner {
+    grid-template-columns: 1fr auto;
+  }
+  .writings-list-item__number {
+    display: none;
+  }
+}
