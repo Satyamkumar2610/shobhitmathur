@@ -1,14 +1,23 @@
-import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowUpRight } from 'lucide-react';
-import { ARTICLES, getRecentArticles, formatDate } from '../data/articles';
-import { PROFILE } from '../data/profile';
-import { useInView } from '../hooks/useScroll';
-import './Home.css';
+import { Link } from "react-router-dom";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { getRecentArticles, formatDate } from "../data/articles";
+import { PROFILE } from "../data/profile";
+import { useInView } from "../hooks/useScroll";
+import "./Home.css";
 
-function FadeIn({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+function FadeIn({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   const { ref, inView } = useInView(0.1);
   return (
-    <div ref={ref as any} className={`fade-in ${inView ? 'fade-in--visible' : ''} ${className}`}>
+    <div
+      ref={ref as any}
+      className={`fade-in ${inView ? "fade-in--visible" : ""} ${className}`}
+    >
       {children}
     </div>
   );
@@ -16,12 +25,6 @@ function FadeIn({ children, className = '' }: { children: React.ReactNode; class
 
 export default function Home() {
   const recent = getRecentArticles(6);
-  const totalArticles = ARTICLES.length;
-
-  // Category counts
-  const eduCount = ARTICLES.filter(a => a.category === 'Education & Pedagogy').length;
-  const policyCount = ARTICLES.filter(a => a.category === 'Public Policy & Governance').length;
-  const techCount = ARTICLES.filter(a => a.category === 'Technology & Innovation').length;
 
   return (
     <div className="home">
@@ -34,21 +37,23 @@ export default function Home() {
                 <span key={d}>
                   <span className="label label--accent">{d}</span>
                   {i < PROFILE.descriptors.length - 1 && (
-                    <span className="hero__eyebrow-sep" aria-hidden="true">·</span>
+                    <span className="hero__eyebrow-sep" aria-hidden="true">
+                      ·
+                    </span>
                   )}
                 </span>
               ))}
             </div>
 
             <h1 className="hero__headline display-xl">
-              Building institutions<br />
-              <em>that expand human</em><br />
+              Building institutions
+              <br />
+              <em>that expand human</em>
+              <br />
               potential.
             </h1>
 
-            <p className="hero__bio body-lg">
-              {PROFILE.intro}
-            </p>
+            <p className="hero__bio body-lg">{PROFILE.intro}</p>
 
             <div className="hero__ctas">
               <Link to="/writings" className="btn btn--primary">
@@ -72,7 +77,7 @@ export default function Home() {
                   className="hero__portrait"
                   loading="eager"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = 'none';
+                    (e.target as HTMLImageElement).style.display = "none";
                   }}
                 />
                 <div className="hero__image-initials">SM</div>
@@ -82,37 +87,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── WRITING STATS ── */}
-      <section className="stats-strip" aria-label="Writing overview">
-        <div className="container stats-strip__inner">
-          <div className="stats-strip__item">
-            <span className="stats-strip__num">{totalArticles}</span>
-            <span className="stats-strip__label label">Published works</span>
-          </div>
-          <div className="stats-strip__divider" aria-hidden="true" />
-          <div className="stats-strip__item">
-            <span className="stats-strip__num">{eduCount}</span>
-            <span className="stats-strip__label label">Education & Pedagogy</span>
-          </div>
-          <div className="stats-strip__divider" aria-hidden="true" />
-          <div className="stats-strip__item">
-            <span className="stats-strip__num">{policyCount}</span>
-            <span className="stats-strip__label label">Public Policy & Governance</span>
-          </div>
-          <div className="stats-strip__divider" aria-hidden="true" />
-          <div className="stats-strip__item">
-            <span className="stats-strip__num">{techCount}</span>
-            <span className="stats-strip__label label">Technology & Innovation</span>
-          </div>
-        </div>
-      </section>
-
       {/* ── FEATURED WRITINGS ── */}
-      <section className="featured-writings" aria-labelledby="featured-writings-heading">
+      <section
+        className="featured-writings"
+        aria-labelledby="featured-writings-heading"
+      >
         <div className="container">
           <FadeIn>
             <div className="section-header">
-              <h2 className="section-header__title label" id="featured-writings-heading">
+              <h2
+                className="section-header__title label"
+                id="featured-writings-heading"
+              >
                 Recent Writings
               </h2>
               <Link to="/writings" className="section-header__link body-sm">
@@ -125,16 +111,30 @@ export default function Home() {
             {/* Hero article — first one */}
             <FadeIn>
               <article className="featured-article featured-article--hero">
-                <Link to={`/writings/${recent[0].slug}`} className="featured-article__inner">
+                <Link
+                  to={`/writings/${recent[0].slug}`}
+                  className="featured-article__inner"
+                >
                   <div className="featured-article__meta">
-                    <span className="label label--accent">{recent[0].category}</span>
+                    <span className="label label--accent">
+                      {recent[0].category}
+                    </span>
                     <span className="label">{recent[0].publication}</span>
                     <span className="label">{formatDate(recent[0].date)}</span>
                   </div>
-                  <h3 className="featured-article__title heading-xl">{recent[0].title}</h3>
-                  <p className="featured-article__excerpt body-lg">{recent[0].excerpt}</p>
+                  <h3 className="featured-article__title heading-xl">
+                    {recent[0].title}
+                  </h3>
+                  <p className="featured-article__excerpt body-lg">
+                    {recent[0].excerpt}
+                  </p>
                   <span className="featured-article__cta">
-                    Read <ArrowRight size={16} strokeWidth={2} className="featured-article__arrow" />
+                    Read{" "}
+                    <ArrowRight
+                      size={16}
+                      strokeWidth={2}
+                      className="featured-article__arrow"
+                    />
                   </span>
                 </Link>
               </article>
@@ -145,18 +145,33 @@ export default function Home() {
               {recent.slice(1, 4).map((article, idx) => (
                 <FadeIn key={article.id}>
                   <article className="writing-item">
-                    <Link to={`/writings/${article.slug}`} className="writing-item__inner">
-                      <div className="writing-item__num label">{String(idx + 2).padStart(2, '0')}</div>
+                    <Link
+                      to={`/writings/${article.slug}`}
+                      className="writing-item__inner"
+                    >
+                      <div className="writing-item__num label">
+                        {String(idx + 2).padStart(2, "0")}
+                      </div>
                       <div className="writing-item__body">
                         <div className="writing-item__meta">
-                          <span className="label label--accent">{article.category.split(' ')[0]}</span>
+                          <span className="label label--accent">
+                            {article.category.split(" ")[0]}
+                          </span>
                           <span className="label">{article.publication}</span>
                           <span className="label">{article.year}</span>
                         </div>
-                        <h3 className="writing-item__title heading-md">{article.title}</h3>
-                        <p className="writing-item__excerpt body-sm">{article.excerpt.slice(0, 140)}…</p>
+                        <h3 className="writing-item__title heading-md">
+                          {article.title}
+                        </h3>
+                        <p className="writing-item__excerpt body-sm">
+                          {article.excerpt.slice(0, 140)}…
+                        </p>
                       </div>
-                      <ArrowRight size={18} strokeWidth={1.5} className="writing-item__arrow" />
+                      <ArrowRight
+                        size={18}
+                        strokeWidth={1.5}
+                        className="writing-item__arrow"
+                      />
                     </Link>
                   </article>
                 </FadeIn>
@@ -172,7 +187,8 @@ export default function Home() {
           <div className="container--text mission-strip__inner">
             <blockquote className="mission-strip__quote">
               <p className="display-md">
-                "Institutions shape societies. Education shapes the people who build those institutions."
+                "Institutions shape societies. Education shapes the people who
+                build those institutions."
               </p>
               <footer className="mission-strip__attribution">
                 <cite className="label">— Shobhit Mathur</cite>
@@ -187,7 +203,9 @@ export default function Home() {
         <div className="container">
           <FadeIn>
             <div className="section-header">
-              <h2 className="section-header__title label" id="areas-heading">Areas of Focus</h2>
+              <h2 className="section-header__title label" id="areas-heading">
+                Areas of Focus
+              </h2>
             </div>
           </FadeIn>
 
@@ -215,9 +233,14 @@ export default function Home() {
         <section className="publications-strip" aria-label="Published in">
           <div className="container publications-strip__inner">
             <p className="publications-strip__label label">Published in</p>
-            <div className="publications-strip__logos" aria-label="Publications list">
-              {PROFILE.featuredPublications.map(pub => (
-                <span key={pub} className="publications-strip__pub">{pub}</span>
+            <div
+              className="publications-strip__logos"
+              aria-label="Publications list"
+            >
+              {PROFILE.featuredPublications.map((pub) => (
+                <span key={pub} className="publications-strip__pub">
+                  {pub}
+                </span>
               ))}
             </div>
           </div>
@@ -232,7 +255,9 @@ export default function Home() {
               Interested in the work?
             </h2>
             <p className="body-md cta-strip__text">
-              Explore over {totalArticles} published essays, research pieces, and opinion columns spanning education reform, public policy, and technology's role in India's future.
+              Explore published essays, research pieces, and opinion columns
+              spanning education reform, public policy, and technology's role in
+              India's future.
             </p>
             <div className="cta-strip__actions">
               <Link to="/writings" className="btn btn--primary btn--lg">

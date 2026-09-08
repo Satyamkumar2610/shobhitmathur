@@ -374,7 +374,9 @@
   flex-shrink: 0;
   color: var(--color-text-muted);
   margin-top: 4px;
-  transition: transform var(--duration-fast) var(--ease-out), color var(--duration-fast);
+  transition:
+    transform var(--duration-fast) var(--ease-out),
+    color var(--duration-fast);
 }
 
 .writing-item:hover .writing-item__arrow {
@@ -426,7 +428,8 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
-  transition: border-color var(--duration-normal) var(--ease-default),
+  transition:
+    border-color var(--duration-normal) var(--ease-default),
     box-shadow var(--duration-normal) var(--ease-default);
 }
 
@@ -528,13 +531,16 @@
     grid-template-columns: 1fr;
     gap: var(--space-12);
   }
+
   .hero__image-wrap {
     display: none;
   }
+
   .hero {
     min-height: auto;
     padding: calc(72px + var(--space-16)) 0 var(--space-20);
   }
+
   .areas__grid {
     grid-template-columns: 1fr;
     gap: var(--space-3);
@@ -545,20 +551,25 @@
   .featured-writings__list {
     grid-template-columns: 1fr;
   }
+
   .stats-strip__inner {
     gap: 0;
   }
+
   .stats-strip__item {
     padding: var(--space-4) var(--space-6);
   }
+
   .stats-strip__divider {
     display: none;
   }
+
   .stats-strip__inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0;
   }
+
   .stats-strip__item {
     border: 1px solid var(--color-border);
   }
@@ -568,26 +579,33 @@
   .hero {
     padding: calc(60px + var(--space-12)) 0 var(--space-16);
   }
+
   .hero__eyebrow {
     display: none;
   }
+
   .hero__ctas {
     flex-direction: column;
     align-items: flex-start;
   }
+
   .btn {
     width: 100%;
     justify-content: center;
   }
+
   .featured-article__inner {
     padding: var(--space-6);
   }
+
   .writing-item__inner {
     padding: var(--space-5) var(--space-5);
   }
+
   .mission-strip {
     padding: var(--space-16) 0;
   }
+
   .publications-strip__inner {
     flex-direction: column;
     gap: var(--space-4);
@@ -598,6 +616,7 @@
   .stats-strip__inner {
     grid-template-columns: 1fr 1fr;
   }
+
   .stats-strip__num {
     font-size: var(--text-4xl);
   }

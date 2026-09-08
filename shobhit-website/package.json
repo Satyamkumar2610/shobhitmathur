@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "update-videos": "python3 scripts/scrape_youtube.py"
   },
   "devDependencies": {
     "typescript": "~6.0.2",

@@ -23,12 +23,12 @@ Then open **http://localhost:5173** in your browser.
 
 ## Pages
 
-| Route | Description |
-|---|---|
-| `/` | Homepage — hero, featured writings, areas of focus |
-| `/about` | About — biography, affiliations, education |
-| `/writings` | Full writing archive (32 articles) — with search and category filters |
-| `/writings/:slug` | Individual article page — metadata, excerpt, link to original |
+| Route             | Description                                                           |
+| ----------------- | --------------------------------------------------------------------- |
+| `/`               | Homepage — hero, featured writings, areas of focus                    |
+| `/about`          | About — biography, affiliations, education                            |
+| `/writings`       | Full writing archive (32 articles) — with search and category filters |
+| `/writings/:slug` | Individual article page — metadata, excerpt, link to original         |
 
 ---
 
@@ -36,14 +36,15 @@ Then open **http://localhost:5173** in your browser.
 
 Place your photos in the `/public/images/` folder:
 
-| File path | Where it appears |
-|---|---|
-| `public/images/profile.jpg` | Homepage hero portrait |
-| `public/images/about-portrait.jpg` | About page portrait |
+| File path                          | Where it appears       |
+| ---------------------------------- | ---------------------- |
+| `public/images/profile.jpg`        | Homepage hero portrait |
+| `public/images/about-portrait.jpg` | About page portrait    |
 
 **How to replace:** Simply drop your photo file into `public/images/` using the exact filename above. The site will automatically pick it up. The site displays gracefully (with initials) if the image file is not yet present.
 
 **Recommended dimensions:**
+
 - `profile.jpg` — 680×840px (portrait orientation, top-aligned)
 - `about-portrait.jpg` — 560×680px (portrait orientation)
 
@@ -80,6 +81,7 @@ That's all — the article will immediately appear in the Writings archive and b
 ## How to Change Biographical Info
 
 Edit **`src/data/profile.ts`** — this file contains:
+
 - Name, title, tagline, mission statement
 - Full biography sections (used on the About page)
 - Areas of focus
@@ -121,14 +123,14 @@ public/
 
 ## Remaining Placeholders
 
-| What | Where | Status |
-|---|---|---|
-| Profile photograph | `public/images/profile.jpg` | ⬜ Upload your photo |
-| About page photo | `public/images/about-portrait.jpg` | ⬜ Upload your photo |
-| Email address | `src/data/profile.ts → social.email` | ⬜ Add your email |
-| PhD institution name | `src/data/profile.ts → education[0]` | ⬜ Confirm exact institution |
-| Custom domain | `index.html → canonical URL` | ⬜ Update to your actual domain |
-| Twitter/X handle | `src/data/profile.ts → social.twitter` | ⬜ Add if desired |
+| What                 | Where                                  | Status                          |
+| -------------------- | -------------------------------------- | ------------------------------- |
+| Profile photograph   | `public/images/profile.jpg`            | ⬜ Upload your photo            |
+| About page photo     | `public/images/about-portrait.jpg`     | ⬜ Upload your photo            |
+| Email address        | `src/data/profile.ts → social.email`   | ⬜ Add your email               |
+| PhD institution name | `src/data/profile.ts → education[0]`   | ⬜ Confirm exact institution    |
+| Custom domain        | `index.html → canonical URL`           | ⬜ Update to your actual domain |
+| Twitter/X handle     | `src/data/profile.ts → social.twitter` | ⬜ Add if desired               |
 
 ---
 

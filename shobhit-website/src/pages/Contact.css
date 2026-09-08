@@ -132,7 +132,9 @@
 .contact-info-card__arrow {
   color: var(--color-text-muted);
   flex-shrink: 0;
-  transition: color var(--duration-fast), transform var(--duration-fast) var(--ease-out);
+  transition:
+    color var(--duration-fast),
+    transform var(--duration-fast) var(--ease-out);
 }
 
 /* ===== DIVIDER ===== */
@@ -242,11 +244,11 @@
 }
 
 .contact-social-card__icon--linkedin {
-  background: #0A66C2;
+  background: #0a66c2;
 }
 
 .contact-social-card__icon--twitter {
-  background: #1DA1F2;
+  background: #1da1f2;
 }
 
 .contact-social-card__body {
@@ -272,7 +274,9 @@
 .contact-social-card__arrow {
   color: var(--color-text-muted);
   flex-shrink: 0;
-  transition: color var(--duration-fast), transform var(--duration-fast) var(--ease-out);
+  transition:
+    color var(--duration-fast),
+    transform var(--duration-fast) var(--ease-out);
 }
 
 /* ===== CLOSING STRIP ===== */

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 export function useScrollProgress() {
   const [progress, setProgress] = useState(0);
@@ -12,8 +12,8 @@ export function useScrollProgress() {
         setProgress((scrollTop / scrollHeight) * 100);
       }
     };
-    window.addEventListener('scroll', update, { passive: true });
-    return () => window.removeEventListener('scroll', update);
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
   }, []);
 
   return progress;
@@ -23,9 +23,9 @@ export function useScrolled(threshold = 60) {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const update = () => setScrolled(window.scrollY > threshold);
-    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener("scroll", update, { passive: true });
     update();
-    return () => window.removeEventListener('scroll', update);
+    return () => window.removeEventListener("scroll", update);
   }, [threshold]);
   return scrolled;
 }
@@ -43,7 +43,7 @@ export function useInView(threshold = 0.15) {
           observer.disconnect();
         }
       },
-      { threshold }
+      { threshold },
     );
     observer.observe(ref);
     return () => observer.disconnect();

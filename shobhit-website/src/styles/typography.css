@@ -198,6 +198,7 @@
   .prose {
     font-size: var(--text-base);
   }
+
   .prose blockquote p {
     font-size: var(--text-lg);
   }

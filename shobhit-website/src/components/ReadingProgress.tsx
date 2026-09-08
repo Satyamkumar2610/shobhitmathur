@@ -1,5 +1,5 @@
-import { useScrollProgress } from '../hooks/useScroll';
-import './ReadingProgress.css';
+import { useScrollProgress } from "../hooks/useScroll";
+import "./ReadingProgress.css";
 
 export default function ReadingProgress() {
   const progress = useScrollProgress();
@@ -12,7 +12,10 @@ export default function ReadingProgress() {
       aria-valuemax={100}
       aria-label="Reading progress"
     >
-      <div className="reading-progress__bar" style={{ width: `${progress}%` }} />
+      <div
+        className="reading-progress__bar"
+        style={{ width: `${progress}%` }}
+      />
     </div>
   );
 }

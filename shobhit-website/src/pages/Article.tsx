@@ -1,15 +1,26 @@
-import { useEffect } from 'react';
-import { useParams, Link, Navigate } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, ArrowUpRight, Copy, Clock, Calendar } from 'lucide-react';
-import { getArticleBySlug, getAdjacentArticles, formatDate } from '../data/articles';
-import ReadingProgress from '../components/ReadingProgress';
-import './Article.css';
+import { useEffect } from "react";
+import { useParams, Link, Navigate } from "react-router-dom";
+import {
+  ArrowLeft,
+  ArrowRight,
+  ArrowUpRight,
+  Copy,
+  Clock,
+  Calendar,
+} from "lucide-react";
+import {
+  getArticleBySlug,
+  getAdjacentArticles,
+  formatDate,
+} from "../data/articles";
+import ReadingProgress from "../components/ReadingProgress";
+import "./Article.css";
 
 function getCategoryShort(cat: string) {
   const map: Record<string, string> = {
-    'Education & Pedagogy': 'Education',
-    'Public Policy & Governance': 'Policy',
-    'Technology & Innovation': 'Technology',
+    "Education & Pedagogy": "Education",
+    "Public Policy & Governance": "Policy",
+    "Technology & Innovation": "Technology",
   };
   return map[cat] ?? cat;
 }
@@ -17,7 +28,9 @@ function getCategoryShort(cat: string) {
 export default function Article() {
   const { slug } = useParams<{ slug: string }>();
   const article = slug ? getArticleBySlug(slug) : undefined;
-  const { prev, next } = slug ? getAdjacentArticles(slug) : { prev: null, next: null };
+  const { prev, next } = slug
+    ? getAdjacentArticles(slug)
+    : { prev: null, next: null };
 
   // 404 if no article found
   if (!article) return <Navigate to="/writings" replace />;
@@ -29,7 +42,9 @@ export default function Article() {
   // Update page title for SEO
   useEffect(() => {
     document.title = `${article.title} — Shobhit Mathur`;
-    return () => { document.title = 'Shobhit Mathur — Writer, Researcher, Policy Thinker'; };
+    return () => {
+      document.title = "Shobhit Mathur — Writer, Researcher, Policy Thinker";
+    };
   }, [article.title]);
 
   return (
@@ -55,8 +70,12 @@ export default function Article() {
             >
               {getCategoryShort(article.category)}
             </Link>
-            <span className="label article-header__sep" aria-hidden="true">·</span>
-            <span className="label article-header__pub">{article.publication}</span>
+            <span className="label article-header__sep" aria-hidden="true">
+              ·
+            </span>
+            <span className="label article-header__pub">
+              {article.publication}
+            </span>
           </div>
 
           {/* Title */}
@@ -79,7 +98,7 @@ export default function Article() {
             )}
             {article.coAuthors && article.coAuthors.length > 0 && (
               <div className="article-header__info-item">
-                <span>With {article.coAuthors.join(', ')}</span>
+                <span>With {article.coAuthors.join(", ")}</span>
               </div>
             )}
           </div>
@@ -119,15 +138,23 @@ export default function Article() {
             </div>
 
             <p>
-              This article was originally published in <strong>{article.publication}</strong> on <strong>{formatDate(article.date)}</strong>.
+              This article was originally published in{" "}
+              <strong>{article.publication}</strong> on{" "}
+              <strong>{formatDate(article.date)}</strong>.
               {article.coAuthors && article.coAuthors.length > 0 && (
-                <> Co-authored with <strong>{article.coAuthors.join(' and ')}</strong>.</>
+                <>
+                  {" "}
+                  Co-authored with{" "}
+                  <strong>{article.coAuthors.join(" and ")}</strong>.
+                </>
               )}
             </p>
 
             <p>
-              The piece explores questions of {article.subcategory.toLowerCase()} within the broader context of {article.category.toLowerCase()}.
-              It is part of Shobhit Mathur's ongoing writing on how India can build stronger institutions,
+              The piece explores questions of{" "}
+              {article.subcategory.toLowerCase()} within the broader context of{" "}
+              {article.category.toLowerCase()}. It is part of Shobhit Mathur's
+              ongoing writing on how India can build stronger institutions,
               better education systems, and more effective governance.
             </p>
 
@@ -136,19 +163,30 @@ export default function Article() {
               <>
                 <h2>Themes explored</h2>
                 <ul>
-                  {article.tags.map(tag => <li key={tag}>{tag}</li>)}
+                  {article.tags.map((tag) => (
+                    <li key={tag}>{tag}</li>
+                  ))}
                 </ul>
               </>
             )}
 
             <blockquote>
               <p>
-                Institutions shape societies. Education shapes the people who build those institutions.
+                Institutions shape societies. Education shapes the people who
+                build those institutions.
               </p>
             </blockquote>
 
             <p>
-              Read the full article on <a href={article.externalUrl} target="_blank" rel="noopener noreferrer">{article.publication}</a> to engage with the complete argument.
+              Read the full article on{" "}
+              <a
+                href={article.externalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {article.publication}
+              </a>{" "}
+              to engage with the complete argument.
             </p>
           </div>
 
@@ -161,7 +199,11 @@ export default function Article() {
               className="article-read-full__link"
             >
               <span>Read full article on {article.publication}</span>
-              <ArrowUpRight size={20} strokeWidth={1.5} className="article-read-full__arrow" />
+              <ArrowUpRight
+                size={20}
+                strokeWidth={1.5}
+                className="article-read-full__arrow"
+              />
             </a>
           </div>
         </main>
@@ -171,13 +213,20 @@ export default function Article() {
           <div className="article-adjacent__inner">
             <div className="article-adjacent__item article-adjacent__item--prev">
               {prev && (
-                <Link to={`/writings/${prev.slug}`} className="article-adjacent__link">
+                <Link
+                  to={`/writings/${prev.slug}`}
+                  className="article-adjacent__link"
+                >
                   <div className="article-adjacent__dir">
                     <ArrowLeft size={14} strokeWidth={1.5} />
                     <span className="label">Previous</span>
                   </div>
-                  <div className="article-adjacent__title heading-md">{prev.title}</div>
-                  <div className="label article-adjacent__pub">{prev.publication} · {prev.year}</div>
+                  <div className="article-adjacent__title heading-md">
+                    {prev.title}
+                  </div>
+                  <div className="label article-adjacent__pub">
+                    {prev.publication} · {prev.year}
+                  </div>
                 </Link>
               )}
             </div>
@@ -186,13 +235,20 @@ export default function Article() {
 
             <div className="article-adjacent__item article-adjacent__item--next">
               {next && (
-                <Link to={`/writings/${next.slug}`} className="article-adjacent__link article-adjacent__link--next">
+                <Link
+                  to={`/writings/${next.slug}`}
+                  className="article-adjacent__link article-adjacent__link--next"
+                >
                   <div className="article-adjacent__dir article-adjacent__dir--next">
                     <span className="label">Next</span>
                     <ArrowRight size={14} strokeWidth={1.5} />
                   </div>
-                  <div className="article-adjacent__title heading-md">{next.title}</div>
-                  <div className="label article-adjacent__pub">{next.publication} · {next.year}</div>
+                  <div className="article-adjacent__title heading-md">
+                    {next.title}
+                  </div>
+                  <div className="label article-adjacent__pub">
+                    {next.publication} · {next.year}
+                  </div>
                 </Link>
               )}
             </div>

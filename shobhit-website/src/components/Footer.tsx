@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
-import { ExternalLink } from 'lucide-react';
-import { PROFILE } from '../data/profile';
-import './Footer.css';
+import { Link } from "react-router-dom";
+import { ExternalLink } from "lucide-react";
+import { PROFILE } from "../data/profile";
+import "./Footer.css";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -12,13 +12,19 @@ export default function Footer() {
         {/* Top row */}
         <div className="footer__top">
           <div className="footer__brand">
-            <Link to="/" className="footer__name">Shobhit Mathur</Link>
+            <Link to="/" className="footer__name">
+              Shobhit Mathur
+            </Link>
             <p className="footer__tagline">{PROFILE.title}</p>
           </div>
 
           <nav className="footer__nav" aria-label="Footer navigation">
-            <Link to="/about" className="footer__nav-link">About</Link>
-            <Link to="/writings" className="footer__nav-link">Writings</Link>
+            <Link to="/about" className="footer__nav-link">
+              About
+            </Link>
+            <Link to="/writings" className="footer__nav-link">
+              Writings
+            </Link>
             {PROFILE.social.linkedin && (
               <a
                 href={PROFILE.social.linkedin}
@@ -42,9 +48,7 @@ export default function Footer() {
           <p className="footer__copy label">
             © {year} Shobhit Mathur. All rights reserved.
           </p>
-          <p className="footer__site-note label">
-            Built with intention.
-          </p>
+          <p className="footer__site-note label">Built with intention.</p>
         </div>
       </div>
     </footer>
