@@ -6,8 +6,6 @@ import {
   ArrowUpRight,
   Send,
   CheckCircle,
-  GraduationCap,
-  Briefcase,
 } from "lucide-react";
 import { PROFILE } from "../data/profile";
 import { useInView } from "../hooks/useScroll";
@@ -50,16 +48,6 @@ export default function Contact() {
       setTimeout(() => setFormState("idle"), 4000);
     }, 1500);
   };
-
-  const institutions = [
-    { name: "Rishihood University", role: "Co-Founder & Vice Chancellor" },
-    { name: "Rashtram", role: "Initiative" },
-    { name: "Vision India Foundation", role: "Co-founder" },
-    { name: "Indian School of Business", role: "Alumni" },
-    { name: "University of Washington", role: "Alumni" },
-    { name: "IIT Bombay", role: "Alumni" },
-    { name: "Amazon", role: "Former" },
-  ];
 
   return (
     <div className="contact-page">
@@ -261,36 +249,6 @@ export default function Contact() {
                         strokeWidth={1.5}
                       />
                     </a>
-                  </div>
-                </div>
-              </FadeIn>
-
-              {/* Institutions Ticker */}
-              <FadeIn delay={200}>
-                <div className="contact-block">
-                  <h2 className="label contact-block__heading">
-                    Affiliated Institutions
-                  </h2>
-                  <div className="contact-institutions">
-                    {institutions.map((inst) => (
-                      <div className="contact-institution" key={inst.name}>
-                        <div className="contact-institution__icon">
-                          {inst.role.includes("Alumni") ? (
-                            <GraduationCap size={14} strokeWidth={1.5} />
-                          ) : (
-                            <Briefcase size={14} strokeWidth={1.5} />
-                          )}
-                        </div>
-                        <div className="contact-institution__body">
-                          <span className="contact-institution__name">
-                            {inst.name}
-                          </span>
-                          <span className="contact-institution__role">
-                            {inst.role}
-                          </span>
-                        </div>
-                      </div>
-                    ))}
                   </div>
                 </div>
               </FadeIn>
