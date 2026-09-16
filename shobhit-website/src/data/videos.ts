@@ -120,25 +120,7 @@ export const VIDEOS: Video[] = [
     date: "2026-07-12",
     category: "Talks & Panels",
   },
-  {
-    id: "txYTnXpnkrg",
-    title:
-      "Three Co-Founders, Making Education Accessible | Full Story in this Interview | ABP Live",
-    duration: "24:33",
-    channel: "ABPLIVE",
-    views: 110379,
-    date: "2024-10-11",
-    category: "Talks & Panels",
-  },
-  {
-    id: "bRE7tIHby1k",
-    title: "Shobhit Mathur Hero Cycles (Growing Up)",
-    duration: "1:01",
-    channel: "Shobhit Mathur",
-    views: 578586,
-    date: "2010-03-04",
-    category: "Talks & Panels",
-  },
+
   {
     id: "7JLHt_pkfyQ",
     title:
@@ -149,15 +131,7 @@ export const VIDEOS: Video[] = [
     date: "2020-05-27",
     category: "Talks & Panels",
   },
-  {
-    id: "fu9W6ulqWCQ",
-    title: "Shobhit Mathur Monster.com (Steward)",
-    duration: "17",
-    channel: "Shobhit Mathur",
-    views: 197,
-    date: "2010-03-04",
-    category: "Talks & Panels",
-  },
+
   {
     id: "ifAtfPRJnq0",
     title:
