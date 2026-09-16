@@ -40,7 +40,6 @@ export default function About() {
                   (e.target as HTMLImageElement).style.display = "none";
                 }}
               />
-              <div className="about-hero__portrait-initials">SM</div>
             </div>
           </div>
 

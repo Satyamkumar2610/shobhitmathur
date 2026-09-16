@@ -10,9 +10,9 @@
 
 .about-hero__inner {
   display: grid;
-  grid-template-columns: 260px 1fr;
+  grid-template-columns: 1fr 1.25fr;
   gap: var(--space-16);
-  align-items: flex-start;
+  align-items: center;
 }
 
 .about-hero__portrait-wrap {
@@ -20,8 +20,8 @@
 }
 
 .about-hero__portrait {
-  width: 260px;
-  height: 320px;
+  width: 100%;
+  aspect-ratio: 4 / 5;
   border-radius: var(--radius-md);
   overflow: hidden;
   background: var(--color-bg-tertiary);
@@ -271,13 +271,13 @@
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .about-hero__inner {
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 1fr 1.5fr;
     gap: var(--space-12);
   }
 
   .about-hero__portrait {
-    width: 200px;
-    height: 260px;
+    width: 100%;
+    height: auto;
   }
 
   .about-focus__grid {
@@ -300,8 +300,9 @@
   }
 
   .about-hero__portrait {
-    width: 140px;
-    height: 180px;
+    width: 60%;
+    margin: 0 auto;
+    height: auto;
   }
 
   .about-affiliation-item {
