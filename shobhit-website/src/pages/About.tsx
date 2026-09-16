@@ -7,15 +7,18 @@ import "./About.css";
 function FadeIn({
   children,
   className = "",
+  delay = 0,
 }: {
   children: React.ReactNode;
   className?: string;
+  delay?: number;
 }) {
   const { ref, inView } = useInView(0.1);
   return (
     <div
       ref={ref as any}
       className={`fade-in ${inView ? "fade-in--visible" : ""} ${className}`}
+      style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
     </div>
@@ -33,7 +36,7 @@ export default function About() {
             <div className="about-hero__portrait">
               {/* Add your photo: public/images/about-portrait.jpg */}
               <img
-                src="/images/about-portrait.jpg"
+                src="/images/new-portrait.png"
                 alt="Shobhit Mathur"
                 loading="eager"
                 onError={(e) => {
@@ -209,28 +212,26 @@ export default function About() {
       {/* ── GALLERY ── */}
       <section className="about-gallery" aria-label="Speaking and Engagements">
         <div className="container">
-          <div className="about-gallery__grid">
-            <FadeIn>
-              <div className="about-gallery__img-wrap">
-                <img
-                  src="/images/speaking-1.jpg"
-                  alt="Shobhit Mathur speaking to an audience"
-                  className="about-gallery__img"
-                  loading="lazy"
-                />
-              </div>
-            </FadeIn>
-            <FadeIn>
-              <div className="about-gallery__img-wrap">
-                <img
-                  src="/images/speaking-2.jpg"
-                  alt="Shobhit Mathur engaging with the audience"
-                  className="about-gallery__img"
-                  loading="lazy"
-                />
-              </div>
-            </FadeIn>
-          </div>
+          <FadeIn>
+            <div className="section-header">
+              <h2 className="section-header__title label">In Action</h2>
+            </div>
+          </FadeIn>
+          
+          <FadeIn delay={100}>
+            <div className="about-gallery__slider">
+              {[1, 2, 3, 4, 5].map((num) => (
+                <div key={num} className="about-gallery__slide">
+                  <img
+                    src={`/images/gallery-${num}.png`}
+                    alt={`Shobhit Mathur gallery image ${num}`}
+                    className="about-gallery__img"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </FadeIn>
         </div>
       </section>
 
