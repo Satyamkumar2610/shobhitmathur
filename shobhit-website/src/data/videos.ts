@@ -217,7 +217,6 @@ export const VIDEOS: Video[] = [
     date: "2022-12-09",
     category: "Talks & Panels",
   },
-  ,
   {
     id: "0Glw6iQvB-g",
     title:
