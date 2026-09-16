@@ -61,7 +61,7 @@ export default function Home() {
                 <ArrowRight size={16} strokeWidth={2} />
               </Link>
               <Link to="/about" className="btn btn--ghost">
-                About Shobhit
+                About Me
               </Link>
             </div>
           </div>
@@ -228,7 +228,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── PUBLICATIONS ── */}
+      {/* ── PUBLICATIONS ──
       <FadeIn>
         <section className="publications-strip" aria-label="Published in">
           <div className="container publications-strip__inner">
@@ -245,7 +245,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-      </FadeIn>
+      </FadeIn> */}
 
       {/* ── CTA STRIP ── */}
       <FadeIn>

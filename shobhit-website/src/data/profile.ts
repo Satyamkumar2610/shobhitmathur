@@ -81,8 +81,9 @@ export const PROFILE = {
   // Social / contact
   social: {
     linkedin: "https://www.linkedin.com/in/shobhitmathur/",
-    twitter: null,
-    email: null, // Add when available
+    twitter: "https://x.com/shobweet",
+    twitterHandle: "@shobweet",
+    email: "shobhit.mathur@gmail.com",
   },
 
   // Publications featured on site

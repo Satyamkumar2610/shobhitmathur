@@ -1,234 +1,433 @@
-import { Mail, MapPin, Building, ExternalLink, ArrowRight } from "lucide-react";
+import { useState, useRef } from "react";
+import {
+  Mail,
+  MapPin,
+  Building,
+  ArrowRight,
+  ArrowUpRight,
+  Send,
+  CheckCircle,
+  GraduationCap,
+  Briefcase,
+} from "lucide-react";
+import { PROFILE } from "../data/profile";
+import { useInView } from "../hooks/useScroll";
 import "./Contact.css";
 
+function FadeIn({
+  children,
+  className = "",
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  const { ref, inView } = useInView(0.1);
+  return (
+    <div
+      ref={ref as any}
+      className={`fade-in ${inView ? "fade-in--visible" : ""} ${className}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      {children}
+    </div>
+  );
+}
+
 export default function Contact() {
+  const [formState, setFormState] = useState<"idle" | "sending" | "sent">(
+    "idle"
+  );
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormState("sending");
+    // Simulate sending — in production, wire up to a backend
+    setTimeout(() => {
+      setFormState("sent");
+      formRef.current?.reset();
+      setTimeout(() => setFormState("idle"), 4000);
+    }, 1500);
+  };
+
+  const institutions = [
+    { name: "Rishihood University", role: "Co-Founder & Vice Chancellor" },
+    { name: "Rashtram", role: "Initiative" },
+    { name: "Vision India Foundation", role: "Co-founder" },
+    { name: "Indian School of Business", role: "Alumni" },
+    { name: "University of Washington", role: "Alumni" },
+    { name: "IIT Bombay", role: "Alumni" },
+    { name: "Amazon", role: "Former" },
+  ];
+
   return (
     <div className="contact-page">
       {/* ===== HERO ===== */}
       <section className="contact-hero">
         <div className="container">
-          <div className="contact-hero__inner">
-            <div className="contact-hero__text">
-              <p className="label label--accent contact-hero__eyebrow">
-                Contact
-              </p>
-              <h1 className="display-2xl contact-hero__title">Get in touch.</h1>
-              <p className="body-lg contact-hero__intro">
-                For speaking engagements, media inquiries, or conversations
-                about education and policy — reach out directly.
-              </p>
-            </div>
-            <div className="contact-hero__divider" aria-hidden="true" />
-          </div>
-        </div>
-      </section>
-
-      {/* ===== DIRECT CONTACT ===== */}
-      <section className="contact-direct">
-        <div className="container">
-          <div className="contact-direct__inner">
-            {/* Left: Label */}
-            <div className="contact-direct__label">
-              <h2 className="label contact-section-label">Direct Contact</h2>
-            </div>
-
-            {/* Right: Cards */}
-            <div className="contact-direct__cards">
-              {/* Email */}
-              <a
-                href="mailto:[EMAIL_PLACEHOLDER]"
-                className="contact-info-card contact-info-card--link"
-              >
-                <div className="contact-info-card__icon">
-                  <Mail size={20} strokeWidth={1.5} />
-                </div>
-                <div className="contact-info-card__body">
-                  <span className="contact-info-card__label">Email</span>
-                  <span className="contact-info-card__value">
-                    [EMAIL_PLACEHOLDER]
-                  </span>
-                </div>
-                <ArrowRight
-                  className="contact-info-card__arrow"
-                  size={18}
-                  strokeWidth={1.5}
-                />
-              </a>
-
-              {/* Office */}
-              <div className="contact-info-card">
-                <div className="contact-info-card__icon">
-                  <Building size={20} strokeWidth={1.5} />
-                </div>
-                <div className="contact-info-card__body">
-                  <span className="contact-info-card__label">Office</span>
-                  <span className="contact-info-card__value">
-                    Vice Chancellor's Office
-                    <br />
-                    Rishihood University
-                  </span>
-                </div>
-              </div>
-
-              {/* Location */}
-              <div className="contact-info-card">
-                <div className="contact-info-card__icon">
-                  <MapPin size={20} strokeWidth={1.5} />
-                </div>
-                <div className="contact-info-card__body">
-                  <span className="contact-info-card__label">Location</span>
-                  <span className="contact-info-card__value">
-                    [LOCATION_PLACEHOLDER]
-                  </span>
-                </div>
+          <FadeIn>
+            <div className="contact-hero__inner">
+              <div className="contact-hero__text">
+                <p className="label label--accent contact-hero__eyebrow">
+                  Get in Touch
+                </p>
+                <h1 className="display-2xl contact-hero__title">
+                  Let's start a
+                  <br />
+                  conversation.
+                </h1>
+                <p className="body-lg contact-hero__intro">
+                  For speaking engagements, media inquiries, collaboration on
+                  education and policy initiatives, or simply to connect —
+                  I&rsquo;d love to hear from you.
+                </p>
               </div>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
-      {/* ===== DIVIDER ===== */}
-      <div className="container">
-        <hr className="contact-rule" />
-      </div>
-
-      {/* ===== MEDIA & PRESS ===== */}
-      <section className="contact-press-section">
+      {/* ===== MAIN CONTENT: TWO-COLUMN ===== */}
+      <section className="contact-main">
         <div className="container">
-          <div className="contact-direct__inner">
-            <div className="contact-direct__label">
-              <h2 className="label contact-section-label">Media & Press</h2>
+          <div className="contact-main__grid">
+            {/* LEFT COLUMN — Info & Social */}
+            <div className="contact-main__left">
+              {/* Direct Contact */}
+              <FadeIn>
+                <div className="contact-block">
+                  <h2 className="label contact-block__heading">
+                    Direct Contact
+                  </h2>
+
+                  <div className="contact-info-stack">
+                    {/* Email */}
+                    <a
+                      href={`mailto:${PROFILE.social.email}`}
+                      className="contact-info-row contact-info-row--link"
+                    >
+                      <div className="contact-info-row__icon">
+                        <Mail size={18} strokeWidth={1.5} />
+                      </div>
+                      <div className="contact-info-row__body">
+                        <span className="contact-info-row__label">Email</span>
+                        <span className="contact-info-row__value">
+                          {PROFILE.social.email}
+                        </span>
+                      </div>
+                      <ArrowRight
+                        className="contact-info-row__arrow"
+                        size={16}
+                        strokeWidth={1.5}
+                      />
+                    </a>
+
+                    {/* Office */}
+                    <div className="contact-info-row">
+                      <div className="contact-info-row__icon">
+                        <Building size={18} strokeWidth={1.5} />
+                      </div>
+                      <div className="contact-info-row__body">
+                        <span className="contact-info-row__label">Office</span>
+                        <span className="contact-info-row__value">
+                          Vice Chancellor's Office
+                          <br />
+                          Rishihood University
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Location */}
+                    <div className="contact-info-row">
+                      <div className="contact-info-row__icon">
+                        <MapPin size={18} strokeWidth={1.5} />
+                      </div>
+                      <div className="contact-info-row__body">
+                        <span className="contact-info-row__label">
+                          Location
+                        </span>
+                        <span className="contact-info-row__value">
+                          Sonipat, Haryana, India
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </FadeIn>
+
+              {/* Connect Online */}
+              <FadeIn delay={100}>
+                <div className="contact-block">
+                  <h2 className="label contact-block__heading">
+                    Connect Online
+                  </h2>
+
+                  <div className="contact-social-stack">
+                    {/* LinkedIn */}
+                    <a
+                      href={PROFILE.social.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contact-social-row"
+                    >
+                      <div className="contact-social-row__icon contact-social-row__icon--linkedin">
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
+                          <circle cx="4" cy="4" r="2" />
+                        </svg>
+                      </div>
+                      <div className="contact-social-row__body">
+                        <span className="contact-social-row__name">
+                          LinkedIn
+                        </span>
+                        <span className="contact-social-row__handle">
+                          @shobhitmathur
+                        </span>
+                      </div>
+                      <ArrowUpRight
+                        className="contact-social-row__arrow"
+                        size={16}
+                        strokeWidth={1.5}
+                      />
+                    </a>
+
+                    {/* X (Twitter) */}
+                    <a
+                      href={PROFILE.social.twitter!}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contact-social-row"
+                    >
+                      <div className="contact-social-row__icon contact-social-row__icon--x">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        </svg>
+                      </div>
+                      <div className="contact-social-row__body">
+                        <span className="contact-social-row__name">
+                          X (Twitter)
+                        </span>
+                        <span className="contact-social-row__handle">
+                          {PROFILE.social.twitterHandle}
+                        </span>
+                      </div>
+                      <ArrowUpRight
+                        className="contact-social-row__arrow"
+                        size={16}
+                        strokeWidth={1.5}
+                      />
+                    </a>
+                  </div>
+                </div>
+              </FadeIn>
+
+              {/* Institutions Ticker */}
+              <FadeIn delay={200}>
+                <div className="contact-block">
+                  <h2 className="label contact-block__heading">
+                    Affiliated Institutions
+                  </h2>
+                  <div className="contact-institutions">
+                    {institutions.map((inst) => (
+                      <div className="contact-institution" key={inst.name}>
+                        <div className="contact-institution__icon">
+                          {inst.role.includes("Alumni") ? (
+                            <GraduationCap size={14} strokeWidth={1.5} />
+                          ) : (
+                            <Briefcase size={14} strokeWidth={1.5} />
+                          )}
+                        </div>
+                        <div className="contact-institution__body">
+                          <span className="contact-institution__name">
+                            {inst.name}
+                          </span>
+                          <span className="contact-institution__role">
+                            {inst.role}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </FadeIn>
             </div>
 
-            <div className="contact-press-block">
-              <p className="body-md contact-press-block__desc">
-                For press inquiries, interviews, or high-resolution portraits,
-                please contact the media team directly.
-              </p>
-              <div className="contact-press-block__items">
-                <div className="contact-press-item">
-                  <span className="label">Press Contact</span>
-                  <a
-                    href="mailto:[PRESS_EMAIL_PLACEHOLDER]"
-                    className="contact-press-item__link"
+            {/* RIGHT COLUMN — Contact Form */}
+            <div className="contact-main__right">
+              <FadeIn delay={150}>
+                <div className="contact-form-wrapper">
+                  <div className="contact-form-header">
+                    <h2 className="heading-md contact-form-header__title">
+                      Send a message
+                    </h2>
+                    <p className="body-sm contact-form-header__desc">
+                      I'll get back to you as soon as possible. All fields
+                      marked with * are required.
+                    </p>
+                  </div>
+
+                  <form
+                    ref={formRef}
+                    className="contact-form"
+                    onSubmit={handleSubmit}
                   >
-                    [PRESS_EMAIL_PLACEHOLDER]
-                  </a>
+                    <div className="contact-form__row contact-form__row--half">
+                      <div className="contact-form__field">
+                        <label
+                          htmlFor="contact-name"
+                          className="contact-form__label"
+                        >
+                          Full Name *
+                        </label>
+                        <input
+                          type="text"
+                          id="contact-name"
+                          name="name"
+                          required
+                          className="contact-form__input"
+                          placeholder="Your name"
+                          autoComplete="name"
+                        />
+                      </div>
+                      <div className="contact-form__field">
+                        <label
+                          htmlFor="contact-email"
+                          className="contact-form__label"
+                        >
+                          Email *
+                        </label>
+                        <input
+                          type="email"
+                          id="contact-email"
+                          name="email"
+                          required
+                          className="contact-form__input"
+                          placeholder="you@example.com"
+                          autoComplete="email"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="contact-form__field">
+                      <label
+                        htmlFor="contact-subject"
+                        className="contact-form__label"
+                      >
+                        Subject *
+                      </label>
+                      <select
+                        id="contact-subject"
+                        name="subject"
+                        required
+                        className="contact-form__input contact-form__select"
+                        defaultValue=""
+                      >
+                        <option value="" disabled>
+                          Select a topic
+                        </option>
+                        <option value="speaking">Speaking Engagement</option>
+                        <option value="media">Media & Press Inquiry</option>
+                        <option value="collaboration">Collaboration</option>
+                        <option value="education">
+                          Education & Policy Discussion
+                        </option>
+                        <option value="general">General Inquiry</option>
+                      </select>
+                    </div>
+
+                    <div className="contact-form__field">
+                      <label
+                        htmlFor="contact-org"
+                        className="contact-form__label"
+                      >
+                        Organization
+                      </label>
+                      <input
+                        type="text"
+                        id="contact-org"
+                        name="organization"
+                        className="contact-form__input"
+                        placeholder="Your organization (optional)"
+                        autoComplete="organization"
+                      />
+                    </div>
+
+                    <div className="contact-form__field">
+                      <label
+                        htmlFor="contact-message"
+                        className="contact-form__label"
+                      >
+                        Message *
+                      </label>
+                      <textarea
+                        id="contact-message"
+                        name="message"
+                        required
+                        rows={6}
+                        className="contact-form__input contact-form__textarea"
+                        placeholder="Tell me about your inquiry..."
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      className={`contact-form__submit btn btn--primary ${formState === "sending" ? "contact-form__submit--sending" : ""} ${formState === "sent" ? "contact-form__submit--sent" : ""}`}
+                      disabled={formState !== "idle"}
+                    >
+                      {formState === "idle" && (
+                        <>
+                          <Send size={16} strokeWidth={1.5} />
+                          Send Message
+                        </>
+                      )}
+                      {formState === "sending" && (
+                        <>
+                          <span className="contact-form__spinner" />
+                          Sending...
+                        </>
+                      )}
+                      {formState === "sent" && (
+                        <>
+                          <CheckCircle size={16} strokeWidth={1.5} />
+                          Message Sent!
+                        </>
+                      )}
+                    </button>
+                  </form>
                 </div>
-                <div className="contact-press-item__sep" aria-hidden="true" />
-                <div className="contact-press-item">
-                  <span className="label">Press Kit</span>
-                  <a
-                    href="#"
-                    className="contact-press-item__link contact-press-item__link--kit"
-                  >
-                    Download Press Kit
-                    <ExternalLink size={14} strokeWidth={1.5} />
-                  </a>
-                </div>
-              </div>
+              </FadeIn>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===== DIVIDER ===== */}
-      <div className="container">
-        <hr className="contact-rule" />
-      </div>
-
-      {/* ===== CONNECT ONLINE ===== */}
-      <section className="contact-social-section">
-        <div className="container">
-          <div className="contact-direct__inner">
-            <div className="contact-direct__label">
-              <h2 className="label contact-section-label">Online</h2>
-            </div>
-
-            <div className="contact-social-grid">
-              <a
-                href="https://linkedin.com/in/[LINKEDIN_PLACEHOLDER]"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="contact-social-card"
-              >
-                <div className="contact-social-card__icon contact-social-card__icon--linkedin">
-                  <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
-                    <circle cx="4" cy="4" r="2" />
-                  </svg>
-                </div>
-                <div className="contact-social-card__body">
-                  <span className="contact-social-card__name">LinkedIn</span>
-                  <span className="contact-social-card__handle">
-                    @[LINKEDIN_HANDLE_PLACEHOLDER]
-                  </span>
-                </div>
-                <ArrowRight
-                  className="contact-social-card__arrow"
-                  size={16}
-                  strokeWidth={1.5}
-                />
-              </a>
-
-              <a
-                href="[TWITTER_URL_PLACEHOLDER]"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="contact-social-card"
-              >
-                <div className="contact-social-card__icon contact-social-card__icon--twitter">
-                  <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M4 4l16 16M4 20L20 4"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                    <path d="M3 4h4l10 12.5L20 4h-3l-7 8.5L5 4H3z" />
-                  </svg>
-                </div>
-                <div className="contact-social-card__body">
-                  <span className="contact-social-card__name">X (Twitter)</span>
-                  <span className="contact-social-card__handle">
-                    @[TWITTER_HANDLE_PLACEHOLDER]
-                  </span>
-                </div>
-                <ArrowRight
-                  className="contact-social-card__arrow"
-                  size={16}
-                  strokeWidth={1.5}
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ===== CLOSING STRIP ===== */}
       <section className="contact-closing">
         <div className="container">
-          <div className="contact-closing__inner">
-            <p className="display-md contact-closing__quote">
-              "Institutions shape societies. Education shapes the people who
-              build those institutions."
-            </p>
-            <span className="label contact-closing__attr">
-              — Shobhit Mathur
-            </span>
-          </div>
+          <FadeIn>
+            <div className="contact-closing__inner">
+              <p className="display-md contact-closing__quote">
+                Institutions shape societies. Education shapes the people who
+                build those institutions.
+              </p>
+              <cite className="label contact-closing__attr">
+                — Shobhit Mathur
+              </cite>
+            </div>
+          </FadeIn>
         </div>
       </section>
     </div>

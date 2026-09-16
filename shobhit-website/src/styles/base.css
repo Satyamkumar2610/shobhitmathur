@@ -30,7 +30,7 @@ body {
 
 /* Focus styles — accessible */
 :focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--color-text-primary);
   outline-offset: 3px;
   border-radius: var(--radius-sm);
 }
@@ -121,6 +121,12 @@ main {
   padding: 0 var(--container-px);
 }
 
+.container--narrow {
+  max-width: var(--container-narrow);
+  margin: 0 auto;
+  padding: 0 var(--container-px);
+}
+
 /* Divider */
 .divider {
   height: 1px;
@@ -145,7 +151,7 @@ main {
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {

@@ -1,5 +1,5 @@
 .article-page {
-  padding-top: 72px;
+  padding-top: 76px;
   padding-bottom: var(--space-24);
 }
 
@@ -13,14 +13,14 @@
   align-items: center;
   gap: var(--space-2);
   font-size: var(--text-sm);
-  font-weight: var(--weight-medium);
+  font-weight: var(--weight-regular);
   letter-spacing: var(--tracking-wide);
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted);
   transition: color var(--duration-fast) var(--ease-default);
 }
 
 .article-back-link:hover {
-  color: var(--color-accent);
+  color: var(--color-text-primary);
 }
 
 /* ===== ARTICLE HEADER ===== */
@@ -59,7 +59,7 @@
 }
 
 .article-header__dek {
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-size: var(--text-xl);
   font-weight: var(--weight-regular);
   color: var(--color-text-secondary);
@@ -109,8 +109,7 @@
 
 .article-summary-note {
   background: var(--color-accent-light);
-  border: 1px solid rgba(181, 96, 60, 0.2);
-  border-radius: var(--radius-lg);
+  border-left: 3px solid var(--color-accent);
   padding: var(--space-6) var(--space-8);
   margin-bottom: var(--space-10);
 }
@@ -143,7 +142,7 @@
   font-weight: var(--weight-regular);
   color: var(--color-text-primary);
   text-decoration: none;
-  letter-spacing: var(--tracking-tight);
+  letter-spacing: -0.015em;
   transition: color var(--duration-fast) var(--ease-default);
 }
 
@@ -156,7 +155,7 @@
 }
 
 .article-read-full__link:hover .article-read-full__arrow {
-  transform: translate(4px, -4px);
+  transform: translate(3px, -3px);
 }
 
 /* ===== ADJACENT NAV ===== */
@@ -182,17 +181,12 @@
 .article-adjacent__link {
   display: block;
   text-decoration: none;
-  padding: var(--space-6);
-  border: 1px solid transparent;
-  border-radius: var(--radius-lg);
-  transition:
-    border-color var(--duration-normal) var(--ease-default),
-    background var(--duration-fast) var(--ease-default);
+  padding: var(--space-4) 0;
+  transition: color var(--duration-fast) var(--ease-default);
 }
 
-.article-adjacent__link:hover {
-  border-color: var(--color-border);
-  background: var(--color-bg-secondary);
+.article-adjacent__link:hover .article-adjacent__title {
+  color: var(--color-accent);
 }
 
 .article-adjacent__link--next {
@@ -215,6 +209,7 @@
   color: var(--color-text-primary);
   margin-bottom: var(--space-2);
   line-height: var(--leading-snug);
+  transition: color var(--duration-fast) var(--ease-default);
 }
 
 .article-adjacent__pub {
