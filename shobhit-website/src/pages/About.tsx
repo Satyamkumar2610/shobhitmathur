@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { PROFILE } from "../data/profile";
@@ -20,6 +21,37 @@ function FadeIn({
       className={`fade-in ${inView ? "fade-in--visible" : ""} ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
+      {children}
+    </div>
+  );
+}
+
+function AutoSlider({ children }: { children: React.ReactNode }) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const slider = scrollRef.current;
+    if (!slider) return;
+    let intervalId: ReturnType<typeof setInterval>;
+
+    const scrollNext = () => {
+      if (!slider) return;
+      const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
+      if (slider.scrollLeft >= maxScrollLeft - 10) {
+        slider.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        const slideWidth = slider.querySelector(".about-gallery__slide")?.clientWidth || 0;
+        slider.scrollBy({ left: slideWidth + 24, behavior: "smooth" });
+      }
+    };
+
+    intervalId = setInterval(scrollNext, 3000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  return (
+    <div className="about-gallery__slider" ref={scrollRef}>
       {children}
     </div>
   );
@@ -219,8 +251,8 @@ export default function About() {
           </FadeIn>
           
           <FadeIn delay={100}>
-            <div className="about-gallery__slider">
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+            <AutoSlider>
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
                 <div key={num} className="about-gallery__slide">
                   <img
                     src={`/images/gallery-${num}.jpg`}
@@ -230,7 +262,7 @@ export default function About() {
                   />
                 </div>
               ))}
-            </div>
+            </AutoSlider>
           </FadeIn>
         </div>
       </section>
