@@ -1,4 +1,4 @@
-export type VideoCategory = "Talks & Panels" | "Podcast";
+export type VideoCategory = "Talks & Panels" | "Podcast" | "Short Clips";
 
 export interface Video {
   id: string;
@@ -19,7 +19,7 @@ export const VIDEOS: Video[] = [
     channel: "Rishihood University",
     views: 422,
     date: "2023-01-21",
-    category: "Talks & Panels",
+    category: "Short Clips",
   },
   {
     id: "Hfmqltw3JX8",
@@ -29,7 +29,7 @@ export const VIDEOS: Video[] = [
     channel: "Rishihood University",
     views: 70,
     date: "2023-05-22",
-    category: "Talks & Panels",
+    category: "Short Clips",
   },
   {
     id: "BtfeMuBjYzo",
@@ -39,7 +39,7 @@ export const VIDEOS: Video[] = [
     channel: "Rishihood University",
     views: 591,
     date: "2023-06-20",
-    category: "Talks & Panels",
+    category: "Short Clips",
   },
   {
     id: "If2cHXEh3Ps",
@@ -49,7 +49,7 @@ export const VIDEOS: Video[] = [
     channel: "Rishihood University",
     views: 106,
     date: "2023-09-26",
-    category: "Talks & Panels",
+    category: "Short Clips",
   },
   {
     id: "n11OO7yQRbc",
@@ -88,7 +88,7 @@ export const VIDEOS: Video[] = [
     channel: "Him-eesh Madaan Clips",
     views: 67,
     date: "2026-07-04",
-    category: "Talks & Panels",
+    category: "Short Clips",
   },
   {
     id: "ET6vNPl5OCA",
@@ -98,7 +98,7 @@ export const VIDEOS: Video[] = [
     channel: "Him-eesh Madaan Clips",
     views: 27,
     date: "2026-07-02",
-    category: "Talks & Panels",
+    category: "Short Clips",
   },
   {
     id: "aGHFdnNTa4Y",
@@ -108,7 +108,7 @@ export const VIDEOS: Video[] = [
     channel: "Him-eesh Madaan Clips",
     views: 50,
     date: "2026-07-12",
-    category: "Talks & Panels",
+    category: "Short Clips",
   },
   {
     id: "8tjiSwazaSE",
@@ -118,7 +118,7 @@ export const VIDEOS: Video[] = [
     channel: "Him-eesh Madaan Clips",
     views: 388,
     date: "2026-07-12",
-    category: "Talks & Panels",
+    category: "Short Clips",
   },
 
   {
@@ -140,7 +140,7 @@ export const VIDEOS: Video[] = [
     channel: "Rishihood University",
     views: 100,
     date: "2023-08-07",
-    category: "Talks & Panels",
+    category: "Short Clips",
   },
   {
     id: "OQ03NQjzcR4",
@@ -179,7 +179,7 @@ export const VIDEOS: Video[] = [
     channel: "The Festival of Bharat",
     views: 4196,
     date: "2021-10-09",
-    category: "Talks & Panels",
+    category: "Short Clips",
   },
   {
     id: "dQZm4DhEQGI",

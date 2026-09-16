@@ -28,7 +28,7 @@ function FadeIn({
 export default function Talks() {
   const [activeVideo, setActiveVideo] = useState<Video | null>(null);
   const [activeCategory, setActiveCategory] = useState<
-    "All" | "Talks & Panels" | "Podcast"
+    "All" | "Talks & Panels" | "Podcast" | "Short Clips"
   >("All");
 
   // Format dates: YYYY-MM-DD to Month Year (e.g. 2023-05-12 to May 2023)
@@ -75,7 +75,7 @@ export default function Talks() {
             role="tablist"
             aria-label="Filter by category"
           >
-            {["All", "Talks & Panels", "Podcast"].map((cat) => (
+            {["All", "Talks & Panels", "Podcast", "Short Clips"].map((cat) => (
               <button
                 key={cat}
                 role="tab"
