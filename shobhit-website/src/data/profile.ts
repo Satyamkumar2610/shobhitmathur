@@ -1,7 +1,7 @@
 export const PROFILE = {
   name: "Shobhit Mathur",
   nameShort: "Shobhit",
-  title: "Vice Chancellor, Rishihood University",
+  title: "Vice Chancellor and Co-Founder, Rishihood University",
   tagline:
     "Education entrepreneur, institution builder, and thought leader working at the intersection of higher education, technology, and public policy.",
   mission:
@@ -30,7 +30,7 @@ export const PROFILE = {
     },
     {
       heading: "Research and Writing",
-      body: `My academic journey has moved across computer science, management, entrepreneurship, public policy and law. My PhD research examined delays in India's district courts. I continue to explore how technology, institutional design and public policy can be brought together to solve complex societal problems.\n\nI write regularly in national publications including The Hindu, ThePrint, The Economic Times, Livemint, The Indian Express, and others — on education reform, technology policy, governance, and the future of Indian institutions.`,
+      body: `My academic journey has moved across computer science, management, entrepreneurship, public policy and law. I continue to explore how technology, institutional design and public policy can be brought together to solve complex societal problems.\n\nI write regularly in national publications including The Hindu, ThePrint, The Economic Times, Livemint, The Indian Express, and others — on education reform, technology policy, governance, and the future of Indian institutions.`,
     },
     {
       heading: "A Constant Belief",
@@ -60,22 +60,20 @@ export const PROFILE = {
   // Affiliations
   affiliations: [
     {
-      role: "Vice Chancellor",
+      role: "Vice Chancellor & Co-Founder",
       org: "Rishihood University",
       url: "https://rishihood.edu.in",
     },
     { role: "Co-founder", org: "Vision India Foundation", url: null },
     { role: "Contributor", org: "Youth For Seva", url: null },
+    { role: "Former Contributor", org: "Amazon", url: null },
   ],
 
   // Academic background
   education: [
-    {
-      degree: "PhD (Research on Judicial Delays in District Courts)",
-      institution: "[Add institution]",
-    },
     { degree: "Alumni", institution: "Indian Institute of Technology Bombay" },
     { degree: "Alumni", institution: "University of Washington" },
+    { degree: "Alumni", institution: "Indian School of Business" },
   ],
 
   // Social / contact
