@@ -10,7 +10,6 @@ const NAV_LINKS = [
   { label: "Writings", href: "/writings" },
   { label: "Talks", href: "/talks" },
   { label: "Contact", href: "/contact" },
-  { label: "LinkedIn", href: PROFILE.social.linkedin, external: true },
 ];
 
 export default function Header() {
