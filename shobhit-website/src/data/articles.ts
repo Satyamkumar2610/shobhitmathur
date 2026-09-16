@@ -121,6 +121,7 @@ export const ARTICLES: Article[] = [
     featured: true,
     readingTime: 5,
     tags: ["Physics Olympiad", "Talent", "Gifted Education"],
+    thumbnail: "/images/articles/india-physics-olympiad-schools-built-for-exceptional-minds.jpg",
   },
   {
     id: "SM-004",
@@ -140,6 +141,7 @@ export const ARTICLES: Article[] = [
     featured: false,
     readingTime: 6,
     tags: ["Governance", "Nation-Building", "Constitutional Resilience"],
+    thumbnail: "/images/articles/what-india-can-learn-from-america-at-250.jpg",
   },
   {
     id: "SM-005",
@@ -160,6 +162,7 @@ export const ARTICLES: Article[] = [
     featured: false,
     readingTime: 7,
     tags: ["Digital Sovereignty", "Data Localisation", "Technology Policy"],
+    thumbnail: "/images/articles/india-digital-sovereignty-data-localisation-traffic-system.jpg",
   },
   {
     id: "SM-006",
@@ -236,6 +239,7 @@ export const ARTICLES: Article[] = [
     featured: false,
     readingTime: 6,
     tags: ["University Towns", "Higher Education", "Innovation"],
+    thumbnail: "/images/articles/university-townships-india-america.jpg",
   },
   {
     id: "SM-010",
@@ -256,6 +260,7 @@ export const ARTICLES: Article[] = [
     featured: false,
     readingTime: 5,
     tags: ["Medical Education", "Private Universities", "Healthcare"],
+    thumbnail: "/images/articles/for-profit-medical-colleges-education-defined-by-outcomes.jpg",
   },
   {
     id: "SM-011",
