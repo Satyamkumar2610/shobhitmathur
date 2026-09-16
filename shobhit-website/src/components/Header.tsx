@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useScrolled } from "../hooks/useScroll";
-import { PROFILE } from "../data/profile";
 import "./Header.css";
 
 const NAV_LINKS = [
@@ -54,25 +53,13 @@ export default function Header() {
             <ul className="header__nav-list" role="list">
               {NAV_LINKS.map((link) => (
                 <li key={link.label} className="header__nav-item">
-                  {link.external ? (
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="header__nav-link"
-                    >
-                      {link.label}
-                      <span className="header__nav-link-line" />
-                    </a>
-                  ) : (
-                    <Link
-                      to={link.href}
-                      className={`header__nav-link ${isActive(link.href) ? "header__nav-link--active" : ""}`}
-                    >
-                      {link.label}
-                      <span className="header__nav-link-line" />
-                    </Link>
-                  )}
+                  <Link
+                    to={link.href}
+                    className={`header__nav-link ${isActive(link.href) ? "header__nav-link--active" : ""}`}
+                  >
+                    {link.label}
+                    <span className="header__nav-link-line" />
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -129,23 +116,12 @@ export default function Header() {
             </li>
             {NAV_LINKS.map((link) => (
               <li key={link.label}>
-                {link.external ? (
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mobile-nav__link"
-                  >
-                    {link.label} ↗
-                  </a>
-                ) : (
-                  <Link
-                    to={link.href}
-                    className={`mobile-nav__link ${isActive(link.href) ? "mobile-nav__link--active" : ""}`}
-                  >
-                    {link.label}
-                  </Link>
-                )}
+                <Link
+                  to={link.href}
+                  className={`mobile-nav__link ${isActive(link.href) ? "mobile-nav__link--active" : ""}`}
+                >
+                  {link.label}
+                </Link>
               </li>
             ))}
           </ul>
