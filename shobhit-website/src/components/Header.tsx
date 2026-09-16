@@ -45,7 +45,6 @@ export default function Header() {
             aria-label="Shobhit Mathur — Home"
           >
             <span className="header__name-text">Shobhit Mathur</span>
-            <span className="header__name-sub">Vice Chancellor · Writer</span>
           </Link>
 
           {/* Desktop Nav */}
