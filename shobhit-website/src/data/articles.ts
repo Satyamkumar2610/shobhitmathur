@@ -79,6 +79,7 @@ export const ARTICLES: Article[] = [
     featured: true,
     readingTime: 5,
     tags: ["NEET", "Exam Reform", "Education Policy"],
+    thumbnail: "/images/articles/neet-restructured-end-question-paper-leaks.jpg",
   },
   {
     id: "SM-002",
@@ -99,6 +100,7 @@ export const ARTICLES: Article[] = [
     featured: true,
     readingTime: 6,
     tags: ["Gen Z", "Higher Education", "Universities", "NEP 2020"],
+    thumbnail: "/images/articles/gen-z-rules-workplace-universities-out-of-touch.jpg",
   },
   {
     id: "SM-003",
@@ -312,6 +314,7 @@ export const ARTICLES: Article[] = [
     featured: false,
     readingTime: 7,
     tags: ["Book Review", "Technology Philosophy", "Digital Sovereignty"],
+    thumbnail: "/images/articles/book-review-yuk-hui-technology-china.jpg",
   },
   {
     id: "SM-014",
@@ -350,6 +353,7 @@ export const ARTICLES: Article[] = [
     featured: false,
     readingTime: 6,
     tags: ["Public Policy Education", "Governance", "Higher Education"],
+    thumbnail: "/images/articles/emerging-trends-public-policy-education-india.jpg",
   },
   {
     id: "SM-016",
@@ -390,6 +394,7 @@ export const ARTICLES: Article[] = [
     featured: false,
     readingTime: 7,
     tags: ["Exam Reform", "JEE", "NEET", "Assessment"],
+    thumbnail: "/images/articles/annual-cycle-leaks-stress-india-needs-new-exam-design.jpg",
   },
   {
     id: "SM-018",
@@ -428,6 +433,7 @@ export const ARTICLES: Article[] = [
     featured: false,
     readingTime: 5,
     tags: ["Entrepreneurship", "Startup Ecosystem", "University Policy"],
+    thumbnail: "/images/articles/india-policy-support-entrepreneurial-universities.jpg",
   },
   {
     id: "SM-020",
@@ -563,6 +569,7 @@ export const ARTICLES: Article[] = [
     featured: false,
     readingTime: 5,
     tags: ["Foreign Universities", "Competition", "Higher Education"],
+    thumbnail: "/images/articles/indian-universities-prepare-foreign-competition-at-home.jpg",
   },
   {
     id: "SM-027",
@@ -623,6 +630,7 @@ export const ARTICLES: Article[] = [
     featured: false,
     readingTime: 9,
     tags: ["Judiciary", "Judicial Reform", "Court Delays"],
+    thumbnail: "/images/articles/haphazard-appointment-judges-high-court-delays.jpg",
   },
   {
     id: "SM-030",
@@ -642,6 +650,7 @@ export const ARTICLES: Article[] = [
     featured: false,
     readingTime: 6,
     tags: ["Judiciary", "Lower Courts", "Judicial Reform"],
+    thumbnail: "/images/articles/why-judicial-reform-should-start-lower-courts.jpg",
   },
   {
     id: "SM-031",
@@ -661,6 +670,7 @@ export const ARTICLES: Article[] = [
     featured: false,
     readingTime: 8,
     tags: ["MGNREGA", "Rural Policy", "Employment"],
+    thumbnail: "/images/articles/mgnrega-index-assessing-implementation-states.jpg",
   },
   {
     id: "SM-032",
@@ -681,6 +691,7 @@ export const ARTICLES: Article[] = [
     featured: false,
     readingTime: 5,
     tags: ["NGOs", "Civil Society", "Government"],
+    thumbnail: "/images/articles/more-ngos-india-work-with-government.jpg",
   },
 ];
 
