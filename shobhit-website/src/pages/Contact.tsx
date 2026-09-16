@@ -2,7 +2,6 @@ import { useState, useRef } from "react";
 import {
   Mail,
   MapPin,
-  Building,
   ArrowRight,
   ArrowUpRight,
   Send,
@@ -124,23 +123,13 @@ export default function Contact() {
                       />
                     </a>
 
-                    {/* Office */}
-                    <div className="contact-info-row">
-                      <div className="contact-info-row__icon">
-                        <Building size={18} strokeWidth={1.5} />
-                      </div>
-                      <div className="contact-info-row__body">
-                        <span className="contact-info-row__label">Office</span>
-                        <span className="contact-info-row__value">
-                          Vice Chancellor's Office
-                          <br />
-                          Rishihood University
-                        </span>
-                      </div>
-                    </div>
-
                     {/* Location */}
-                    <div className="contact-info-row">
+                    <a
+                      href="https://maps.app.goo.gl/LworjCYFD5Wei7iW7"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contact-info-row contact-info-row--link"
+                    >
                       <div className="contact-info-row__icon">
                         <MapPin size={18} strokeWidth={1.5} />
                       </div>
@@ -152,7 +141,12 @@ export default function Contact() {
                           Sonipat, Haryana, India
                         </span>
                       </div>
-                    </div>
+                      <ArrowUpRight
+                        className="contact-info-row__arrow"
+                        size={16}
+                        strokeWidth={1.5}
+                      />
+                    </a>
                   </div>
                 </div>
               </FadeIn>
@@ -221,6 +215,44 @@ export default function Contact() {
                         </span>
                         <span className="contact-social-row__handle">
                           {PROFILE.social.twitterHandle}
+                        </span>
+                      </div>
+                      <ArrowUpRight
+                        className="contact-social-row__arrow"
+                        size={16}
+                        strokeWidth={1.5}
+                      />
+                    </a>
+
+                    {/* Instagram */}
+                    <a
+                      href={PROFILE.social.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contact-social-row"
+                    >
+                      <div className="contact-social-row__icon contact-social-row__icon--instagram">
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                      </div>
+                      <div className="contact-social-row__body">
+                        <span className="contact-social-row__name">
+                          Instagram
+                        </span>
+                        <span className="contact-social-row__handle">
+                          @shob.hit.mathur
                         </span>
                       </div>
                       <ArrowUpRight

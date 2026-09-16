@@ -82,6 +82,7 @@ export const PROFILE = {
     linkedin: "https://www.linkedin.com/in/shobhitmathur/",
     twitter: "https://x.com/shobweet",
     twitterHandle: "@shobweet",
+    instagram: "https://www.instagram.com/shob.hit.mathur",
     email: "shobhit.mathur@gmail.com",
   },
 
