@@ -1,3 +1,5 @@
+export type VideoCategory = "Talks & Panels" | "Podcast";
+
 export interface Video {
   id: string;
   title: string;
@@ -5,6 +7,7 @@ export interface Video {
   channel: string;
   views?: number;
   date?: string;
+  category?: VideoCategory;
 }
 
 export const VIDEOS: Video[] = [
@@ -16,6 +19,7 @@ export const VIDEOS: Video[] = [
     channel: "Rishihood University",
     views: 422,
     date: "2023-01-21",
+    category: "Talks & Panels",
   },
   {
     id: "Hfmqltw3JX8",
@@ -25,6 +29,7 @@ export const VIDEOS: Video[] = [
     channel: "Rishihood University",
     views: 70,
     date: "2023-05-22",
+    category: "Talks & Panels",
   },
   {
     id: "BtfeMuBjYzo",
@@ -34,6 +39,7 @@ export const VIDEOS: Video[] = [
     channel: "Rishihood University",
     views: 591,
     date: "2023-06-20",
+    category: "Talks & Panels",
   },
   {
     id: "If2cHXEh3Ps",
@@ -43,6 +49,7 @@ export const VIDEOS: Video[] = [
     channel: "Rishihood University",
     views: 106,
     date: "2023-09-26",
+    category: "Talks & Panels",
   },
   {
     id: "n11OO7yQRbc",
@@ -52,6 +59,7 @@ export const VIDEOS: Video[] = [
     channel: "Rishihood University",
     views: 279,
     date: "2022-05-17",
+    category: "Talks & Panels",
   },
   {
     id: "2UnVG0oZANY",
@@ -60,6 +68,7 @@ export const VIDEOS: Video[] = [
     channel: "Him-eesh Madaan",
     views: 56718,
     date: "2026-06-30",
+    category: "Talks & Panels",
   },
   {
     id: "cFncr3jFaUI",
@@ -69,6 +78,7 @@ export const VIDEOS: Video[] = [
     channel: "I See India",
     views: 299,
     date: "2024-06-07",
+    category: "Talks & Panels",
   },
   {
     id: "y3eLq8bEuCI",
@@ -78,6 +88,7 @@ export const VIDEOS: Video[] = [
     channel: "Him-eesh Madaan Clips",
     views: 67,
     date: "2026-07-04",
+    category: "Talks & Panels",
   },
   {
     id: "ET6vNPl5OCA",
@@ -87,6 +98,7 @@ export const VIDEOS: Video[] = [
     channel: "Him-eesh Madaan Clips",
     views: 27,
     date: "2026-07-02",
+    category: "Talks & Panels",
   },
   {
     id: "aGHFdnNTa4Y",
@@ -96,6 +108,7 @@ export const VIDEOS: Video[] = [
     channel: "Him-eesh Madaan Clips",
     views: 50,
     date: "2026-07-12",
+    category: "Talks & Panels",
   },
   {
     id: "8tjiSwazaSE",
@@ -105,6 +118,7 @@ export const VIDEOS: Video[] = [
     channel: "Him-eesh Madaan Clips",
     views: 388,
     date: "2026-07-12",
+    category: "Talks & Panels",
   },
   {
     id: "txYTnXpnkrg",
@@ -114,6 +128,7 @@ export const VIDEOS: Video[] = [
     channel: "ABPLIVE",
     views: 110379,
     date: "2024-10-11",
+    category: "Talks & Panels",
   },
   {
     id: "bRE7tIHby1k",
@@ -122,6 +137,7 @@ export const VIDEOS: Video[] = [
     channel: "Shobhit Mathur",
     views: 578586,
     date: "2010-03-04",
+    category: "Talks & Panels",
   },
   {
     id: "7JLHt_pkfyQ",
@@ -131,6 +147,7 @@ export const VIDEOS: Video[] = [
     channel: "Collegedunia",
     views: 164,
     date: "2020-05-27",
+    category: "Talks & Panels",
   },
   {
     id: "fu9W6ulqWCQ",
@@ -139,6 +156,7 @@ export const VIDEOS: Video[] = [
     channel: "Shobhit Mathur",
     views: 197,
     date: "2010-03-04",
+    category: "Talks & Panels",
   },
   {
     id: "ifAtfPRJnq0",
@@ -148,6 +166,7 @@ export const VIDEOS: Video[] = [
     channel: "Rishihood University",
     views: 100,
     date: "2023-08-07",
+    category: "Talks & Panels",
   },
   {
     id: "OQ03NQjzcR4",
@@ -157,6 +176,7 @@ export const VIDEOS: Video[] = [
     channel: "Gateway Education",
     views: 295,
     date: "2018-10-24",
+    category: "Talks & Panels",
   },
   {
     id: "ghOPNvQ7jSg",
@@ -166,6 +186,7 @@ export const VIDEOS: Video[] = [
     channel: "Sangam Talks",
     views: 1271,
     date: "2023-09-24",
+    category: "Talks & Panels",
   },
   {
     id: "vVnS_H6I9xA",
@@ -174,6 +195,7 @@ export const VIDEOS: Video[] = [
     channel: "Rashtram School",
     views: 396,
     date: "2020-08-24",
+    category: "Talks & Panels",
   },
   {
     id: "bBe4UHLkMp4",
@@ -183,6 +205,7 @@ export const VIDEOS: Video[] = [
     channel: "The Festival of Bharat",
     views: 4196,
     date: "2021-10-09",
+    category: "Talks & Panels",
   },
   {
     id: "dQZm4DhEQGI",
@@ -192,5 +215,159 @@ export const VIDEOS: Video[] = [
     channel: "Citti Media",
     views: 556,
     date: "2022-12-09",
+    category: "Talks & Panels",
+  },
+  ,
+  {
+    id: "0Glw6iQvB-g",
+    title:
+      "Aadhaar & Beyond: Transforming Public Service with Technology - Shri Guru Malladi | Rashtram Podcast",
+    duration: "29:56",
+    channel: "Rashtram School",
+    category: "Podcast",
+  },
+  {
+    id: "2CWwFWxrXm4",
+    title:
+      "Accelerating India's Development: Transforming Governance with Prof. Karthik Muralidharan",
+    duration: "17:17",
+    channel: "Rashtram School",
+    category: "Podcast",
+  },
+  {
+    id: "ao2xehY-B5U",
+    title:
+      "UN Reforms & India's Role: Insights from Dr. Augusto Lopez-Claros | Rashtram Podcast",
+    duration: "16:32",
+    channel: "Rashtram School",
+    category: "Podcast",
+  },
+  {
+    id: "X5LgsqxRtqM",
+    title:
+      "Careers in Public Policy: Insights with Prof. Sridhar Pabbisetty | Rashtram Podcast",
+    duration: "25:29",
+    channel: "Rashtram School",
+    category: "Podcast",
+  },
+  {
+    id: "VZdsYbHF7m0",
+    title:
+      "How to Start a Career in Public Policy? | Shri Yash Agarwal | Rashtram Podcast",
+    duration: "7:46",
+    channel: "Rashtram School",
+    category: "Podcast",
+  },
+  {
+    id: "-n0ycZJ6SIo",
+    title:
+      "Rashtram Podcast with NIA's Shri Yogesh Chander Modi | Principles for a Purposeful Life",
+    duration: "11:59",
+    channel: "Rashtram School",
+    category: "Podcast",
+  },
+  {
+    id: "-6253uTaqFo",
+    title:
+      "Digital India: Revolution or Ruin? | Dr. Santosh K Misra | Rashtram Podcast",
+    duration: "21:22",
+    channel: "Rashtram School",
+    category: "Podcast",
+  },
+  {
+    id: "AktRzmJsnLE",
+    title:
+      "The Big Agricultural Debate: Reform & Solutions | Prof. (Dr.) Ashok Gulati | Rashtram Podcast",
+    duration: "19:58",
+    channel: "Rashtram School",
+    category: "Podcast",
+  },
+  {
+    id: "EsP3HkZgzE4",
+    title:
+      "Young & Bold: India’s Future in Global Affairs! | Professor Harsh V. Pant | Rashtram Podcast",
+    duration: "15:36",
+    channel: "Rashtram School",
+    category: "Podcast",
+  },
+  {
+    id: "YIRb5f7kLjs",
+    title:
+      "Public Policy Careers: Consultancy vs. Government! | Shri Prasanna Karthik | Rashtram Podcast",
+    duration: "21:55",
+    channel: "Rashtram School",
+    category: "Podcast",
+  },
+  {
+    id: "GnM6z9DSaK8",
+    title:
+      "The Secret Behind Jamsetji Tata’s Success! | Shri Ramabadran Gopalakrishnan | Rashtram Podcast",
+    duration: "23:26",
+    channel: "Rashtram School",
+    category: "Podcast",
+  },
+  {
+    id: "QdJyp68qCxY",
+    title:
+      "The Harsh Realities of Indian Politics | Dr. Vinay Sahasrabuddhe | Rashtram Podcast",
+    duration: "15:57",
+    channel: "Rashtram School",
+    category: "Podcast",
+  },
+  {
+    id: "BLXa1oPITzQ",
+    title:
+      "Shaping Global Policy: Diplomacy & India's Soft Power | Shri Asoke Kumar Mukerji | Rashtram Podcast",
+    duration: "15:55",
+    channel: "Rashtram School",
+    category: "Podcast",
+  },
+  {
+    id: "h7LGvgk_O3o",
+    title:
+      "Unveiling the Truth: Is the Indian Dream at Risk? | Prof. (Dr.) Hindol Sengupta | Rashtram Podcast",
+    duration: "21:52",
+    channel: "Rashtram School",
+    category: "Podcast",
+  },
+  {
+    id: "K4xCKNamCPs",
+    title:
+      "The Untold Story of NITI Aayog | Dr. Rajiv Kumar | Rashtram Podcast",
+    duration: "18:02",
+    channel: "Rashtram School",
+    category: "Podcast",
+  },
+  {
+    id: "gVlaJCcN810",
+    title:
+      "Transforming India: Decentralization & Local Governance  | Shri Amarjeet Sinha | Rashtram Podcast",
+    duration: "11:24",
+    channel: "Rashtram School",
+    category: "Podcast",
+  },
+  {
+    id: "8gn5mxX8mYM",
+    title:
+      "Yogi Adityanath's UP Transformation | Shri Shantanu Gupta | Rashtram Podcast",
+    duration: "16:06",
+    channel: "Rashtram School",
+    category: "Podcast",
+  },
+  {
+    id: "PmMyjNRI-po",
+    title:
+      "Pathway to Public Policy Careers | Shri Ajay Khanna | Rashtram Podcast",
+    duration: "11:51",
+    channel: "Rashtram School",
+    category: "Podcast",
+  },
+  {
+    id: "oPu5L_hBHkQ",
+    title:
+      "Life Lessons from the Indian Armed Forces | Air Marshal Anil Chopra (Retd.) | Rashtram Podcast",
+    duration: "12:11",
+    channel: "Rashtram School",
+    category: "Podcast",
   },
 ];

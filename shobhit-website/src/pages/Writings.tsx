@@ -112,6 +112,33 @@ export default function Writings() {
                 technology policy, and governance. Published in leading Indian
                 and international media since 2016.
               </p>
+
+              {/* Academic Profiles Section */}
+              <div className="writings-page__profiles">
+                <p className="label label--accent writings-page__profiles-label">
+                  Academic Profiles
+                </p>
+                <div className="writings-page__profiles-links">
+                  <a
+                    href="https://scholar.google.com/citations?hl=en&user=0_fGaLYAAAAJ"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="writings-page__profile-link"
+                  >
+                    Google Scholar
+                    <ArrowRight size={14} className="writings-page__profile-icon" />
+                  </a>
+                  <a
+                    href="https://orcid.org/0000-0002-2470-960X"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="writings-page__profile-link"
+                  >
+                    ORCID
+                    <ArrowRight size={14} className="writings-page__profile-icon" />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 

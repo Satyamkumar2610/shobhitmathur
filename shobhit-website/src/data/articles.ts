@@ -10,7 +10,8 @@ export interface Article {
   category:
     | "Education & Pedagogy"
     | "Public Policy & Governance"
-    | "Technology & Innovation";
+    | "Technology & Innovation"
+    | "Academic Research";
   subcategory: string;
   coAuthors?: string[];
   externalUrl: string;
@@ -20,6 +21,45 @@ export interface Article {
 }
 
 export const ARTICLES: Article[] = [
+  {
+    id: "SM-RP-001",
+    slug: "judicial-resistance-efficiency-reforms-indian-courts",
+    title:
+      "A qualitative study of judicial resistance to efficiency reforms in Indian courts",
+    excerpt:
+      "As a cornerstone of the world's largest democracy, the Indian judicial system, currently grappling with approximately 50 million cases, struggles with implementing court efficiency reforms. This pioneering qualitative study examines the experiences and perspectives of district court judges to comprehend these difficulties.",
+    date: "2026-08-06",
+    year: 2026,
+    publication:
+      "International Journal of Public Sector Performance Management",
+    publicationUrl: "https://www.inderscienceonline.com",
+    category: "Academic Research",
+    subcategory: "Public Policy & Governance",
+    coAuthors: [],
+    externalUrl:
+      "https://www.inderscienceonline.com/doi/abs/10.1504/IJPSPM.2026.155593",
+    featured: false,
+    tags: ["Judicial Experience", "Efficiency Reforms", "Indian Courts"],
+  },
+  {
+    id: "SM-RP-002",
+    slug: "community-justice-systems-in-india",
+    title:
+      "Community Justice Systems in India – The Urgent Need to Revive Them",
+    excerpt:
+      "An exploration of community justice systems in India and the urgent need to revive them for restorative justice and better civic governance.",
+    date: "2024-05-19",
+    year: 2024,
+    publication: "Internet Journal of Restorative Justice",
+    publicationUrl: "https://www.rj4allpublications.com",
+    category: "Academic Research",
+    subcategory: "Public Policy & Governance",
+    coAuthors: [],
+    externalUrl:
+      "https://www.rj4allpublications.com/product/community-justice-systems-india/",
+    featured: false,
+    tags: ["Restorative Justice", "Community Justice", "India"],
+  },
   {
     id: "SM-001",
     slug: "neet-restructured-end-question-paper-leaks",
@@ -649,6 +689,7 @@ export const CATEGORIES = [
   "Education & Pedagogy",
   "Public Policy & Governance",
   "Technology & Innovation",
+  "Academic Research",
 ] as const;
 export type Category = (typeof CATEGORIES)[number];
 
