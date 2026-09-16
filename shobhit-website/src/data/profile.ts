@@ -66,7 +66,7 @@ export const PROFILE = {
     },
     { role: "Co-founder", org: "Vision India Foundation", url: null },
     { role: "Contributor", org: "Youth For Seva", url: null },
-    { role: "Former Contributor", org: "Amazon.com", url: null },
+    { role: "Former Contributor", org: "amazon.com", url: null },
   ],
 
   // Academic background
