@@ -80,7 +80,6 @@ export default function Home() {
                     (e.target as HTMLImageElement).style.display = "none";
                   }}
                 />
-                <div className="hero__image-initials">SM</div>
               </div>
             </div>
           </div>

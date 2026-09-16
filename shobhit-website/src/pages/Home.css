@@ -98,13 +98,13 @@
 
 .hero__inner {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr 1fr;
   gap: var(--space-16);
   align-items: center;
 }
 
 .hero__content {
-  max-width: 680px;
+  max-width: 100%;
 }
 
 .hero__eyebrow {
@@ -143,13 +143,16 @@
 
 /* Portrait */
 .hero__image-wrap {
-  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .hero__image-placeholder {
-  width: 300px;
-  height: 380px;
-  border-radius: var(--radius-md);
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 4 / 5;
+  height: auto;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--color-bg-tertiary);
   position: relative;
@@ -168,18 +171,7 @@
   object-position: top center;
 }
 
-.hero__image-initials {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-size: 5rem;
-  font-weight: var(--weight-light);
-  color: var(--color-text-muted);
-  letter-spacing: -0.02em;
-}
+
 
 /* ===== STATS STRIP ===== */
 .stats-strip {
