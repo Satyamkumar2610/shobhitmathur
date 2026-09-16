@@ -18,6 +18,7 @@ export interface Article {
   featured: boolean;
   readingTime?: number; // minutes
   tags?: string[];
+  thumbnail?: string; // path relative to /public, e.g. "/images/articles/my-article.jpg"
 }
 
 export const ARTICLES: Article[] = [

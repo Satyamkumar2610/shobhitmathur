@@ -93,6 +93,16 @@ export default function Writings() {
     return map[cat] ?? cat;
   }
 
+  function getCategoryGradient(cat: string) {
+    const map: Record<string, string> = {
+      "Education & Pedagogy": "linear-gradient(135deg, #1a3a5c 0%, #2d6a4f 100%)",
+      "Public Policy & Governance": "linear-gradient(135deg, #2c3e6e 0%, #1a3a5c 100%)",
+      "Technology & Innovation": "linear-gradient(135deg, #1a3a5c 0%, #4a3060 100%)",
+      "Academic Research": "linear-gradient(135deg, #3d2b1f 0%, #1a3a5c 100%)",
+    };
+    return map[cat] ?? "linear-gradient(135deg, #1a3a5c 0%, #2c3e6e 100%)";
+  }
+
   return (
     <div className="writings-page">
       <div className="writings-page__header">
@@ -202,11 +212,23 @@ export default function Writings() {
                       to={`/writings/${article.slug}`}
                       className="writings-list-item__inner"
                     >
+                      {/* Thumbnail */}
                       <div
-                        className="writings-list-item__number label"
-                        aria-hidden="true"
+                        className="writings-list-item__thumbnail"
+                        style={!article.thumbnail ? { background: getCategoryGradient(article.category) } : undefined}
                       >
-                        {String(idx + 1).padStart(2, "0")}
+                        {article.thumbnail ? (
+                          <img
+                            src={article.thumbnail}
+                            alt=""
+                            className="writings-list-item__thumbnail-img"
+                            loading="lazy"
+                          />
+                        ) : (
+                          <span className="writings-list-item__thumbnail-label">
+                            {getCategoryShort(article.category)}
+                          </span>
+                        )}
                       </div>
 
                       <div className="writings-list-item__body">
