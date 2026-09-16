@@ -12,6 +12,15 @@ export interface Video {
 
 export const VIDEOS: Video[] = [
   {
+    id: "gETrQVwjGis",
+    title:
+      "Why an IIT Bombay Graduate Left Amazon to Build a University 🤯 | JEE 2026 | Harsh Sir",
+    duration: "42:35",
+    channel: "Vedantu College Connect",
+    date: "2026-06-27",
+    category: "Podcast",
+  },
+  {
     id: "7KwWti8H-84",
     title:
       "Shri Shobhit Mathur - Co-Founder and Vice Chancellor, Rishihood University | Convocation 2022",
