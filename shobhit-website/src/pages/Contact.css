@@ -6,7 +6,7 @@
 
 /* ===== HERO ===== */
 .contact-hero {
-  padding: var(--space-20) 0 var(--space-16);
+  padding: var(--space-16) 0 var(--space-10);
 }
 
 .contact-hero__inner {
@@ -21,8 +21,8 @@
 }
 
 .contact-hero__title {
-  margin-bottom: var(--space-6);
-  line-height: 1;
+  margin-bottom: 0;
+  line-height: 1.05;
   letter-spacing: var(--tracking-tight);
 }
 

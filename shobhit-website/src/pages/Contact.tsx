@@ -76,21 +76,12 @@ export default function Contact() {
         <div className="container">
           <FadeIn>
             <div className="contact-hero__inner">
-              <div className="contact-hero__text">
-                <p className="label label--accent contact-hero__eyebrow">
-                  Get in Touch
-                </p>
-                <h1 className="display-2xl contact-hero__title">
-                  Let's start a
-                  <br />
-                  conversation.
-                </h1>
-                <p className="body-lg contact-hero__intro">
-                  For speaking engagements, media inquiries, collaboration on
-                  education and policy initiatives, or simply to connect —
-                  I&rsquo;d love to hear from you.
-                </p>
-              </div>
+              <p className="label label--accent contact-hero__eyebrow">
+                Get in Touch
+              </p>
+              <h1 className="display-2xl contact-hero__title">
+                Let's start a conversation.
+              </h1>
             </div>
           </FadeIn>
         </div>
