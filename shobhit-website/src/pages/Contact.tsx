@@ -1,12 +1,5 @@
 import { useState, useRef } from "react";
-import {
-  Mail,
-  MapPin,
-  ArrowRight,
-  ArrowUpRight,
-  Send,
-  CheckCircle,
-} from "lucide-react";
+import { Send, CheckCircle } from "lucide-react";
 import { PROFILE } from "../data/profile";
 import { useInView } from "../hooks/useScroll";
 import "./Contact.css";
@@ -103,188 +96,12 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* ===== MAIN CONTENT: TWO-COLUMN ===== */}
+      {/* ===== MAIN CONTENT: SINGLE COLUMN ===== */}
       <section className="contact-main">
         <div className="container">
-          <div className="contact-main__grid">
-            {/* LEFT COLUMN — Info & Social */}
-            <div className="contact-main__left">
-              {/* Direct Contact */}
-              <FadeIn>
-                <div className="contact-block">
-                  <h2 className="label contact-block__heading">
-                    Direct Contact
-                  </h2>
-
-                  <div className="contact-info-stack">
-                    {/* Email */}
-                    <a
-                      href={`mailto:${PROFILE.social.email}`}
-                      className="contact-info-row contact-info-row--link"
-                    >
-                      <div className="contact-info-row__icon">
-                        <Mail size={18} strokeWidth={1.5} />
-                      </div>
-                      <div className="contact-info-row__body">
-                        <span className="contact-info-row__label">Email</span>
-                        <span className="contact-info-row__value">
-                          {PROFILE.social.email}
-                        </span>
-                      </div>
-                      <ArrowRight
-                        className="contact-info-row__arrow"
-                        size={16}
-                        strokeWidth={1.5}
-                      />
-                    </a>
-
-                    {/* Location */}
-                    <a
-                      href="https://maps.app.goo.gl/LworjCYFD5Wei7iW7"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="contact-info-row contact-info-row--link"
-                    >
-                      <div className="contact-info-row__icon">
-                        <MapPin size={18} strokeWidth={1.5} />
-                      </div>
-                      <div className="contact-info-row__body">
-                        <span className="contact-info-row__label">
-                          Location
-                        </span>
-                        <span className="contact-info-row__value">
-                          Sonipat, Haryana, India
-                        </span>
-                      </div>
-                      <ArrowUpRight
-                        className="contact-info-row__arrow"
-                        size={16}
-                        strokeWidth={1.5}
-                      />
-                    </a>
-                  </div>
-                </div>
-              </FadeIn>
-
-              {/* Connect Online */}
-              <FadeIn delay={100}>
-                <div className="contact-block">
-                  <h2 className="label contact-block__heading">
-                    Connect Online
-                  </h2>
-
-                  <div className="contact-social-stack">
-                    {/* LinkedIn */}
-                    <a
-                      href={PROFILE.social.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="contact-social-row"
-                    >
-                      <div className="contact-social-row__icon contact-social-row__icon--linkedin">
-                        <svg
-                          width="18"
-                          height="18"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                        >
-                          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
-                          <circle cx="4" cy="4" r="2" />
-                        </svg>
-                      </div>
-                      <div className="contact-social-row__body">
-                        <span className="contact-social-row__name">
-                          LinkedIn
-                        </span>
-                        <span className="contact-social-row__handle">
-                          @shobhitmathur
-                        </span>
-                      </div>
-                      <ArrowUpRight
-                        className="contact-social-row__arrow"
-                        size={16}
-                        strokeWidth={1.5}
-                      />
-                    </a>
-
-                    {/* X (Twitter) */}
-                    <a
-                      href={PROFILE.social.twitter!}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="contact-social-row"
-                    >
-                      <div className="contact-social-row__icon contact-social-row__icon--x">
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                        >
-                          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                        </svg>
-                      </div>
-                      <div className="contact-social-row__body">
-                        <span className="contact-social-row__name">
-                          X (Twitter)
-                        </span>
-                        <span className="contact-social-row__handle">
-                          {PROFILE.social.twitterHandle}
-                        </span>
-                      </div>
-                      <ArrowUpRight
-                        className="contact-social-row__arrow"
-                        size={16}
-                        strokeWidth={1.5}
-                      />
-                    </a>
-
-                    {/* Instagram */}
-                    <a
-                      href={PROFILE.social.instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="contact-social-row"
-                    >
-                      <div className="contact-social-row__icon contact-social-row__icon--instagram">
-                        <svg
-                          width="18"
-                          height="18"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                        </svg>
-                      </div>
-                      <div className="contact-social-row__body">
-                        <span className="contact-social-row__name">
-                          Instagram
-                        </span>
-                        <span className="contact-social-row__handle">
-                          @shob.hit.mathur
-                        </span>
-                      </div>
-                      <ArrowUpRight
-                        className="contact-social-row__arrow"
-                        size={16}
-                        strokeWidth={1.5}
-                      />
-                    </a>
-                  </div>
-                </div>
-              </FadeIn>
-            </div>
-
-            {/* RIGHT COLUMN — Contact Form */}
-            <div className="contact-main__right">
-              <FadeIn delay={150}>
-                <div className="contact-form-wrapper">
+          <div className="contact-main__single">
+            <FadeIn>
+              <div className="contact-form-wrapper">
                   <div className="contact-form-header">
                     <h2 className="heading-md contact-form-header__title">
                       Send a message
@@ -432,7 +249,67 @@ export default function Contact() {
                   </form>
                 </div>
               </FadeIn>
-            </div>
+
+              {/* Thumbnails of Social Icons Below Form */}
+              <FadeIn delay={100}>
+                <div className="contact-thumbnails">
+                  <a
+                    href={PROFILE.social.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-thumbnail"
+                    aria-label="LinkedIn"
+                  >
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
+                      <circle cx="4" cy="4" r="2" />
+                    </svg>
+                  </a>
+                  <a
+                    href={PROFILE.social.twitter!}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-thumbnail"
+                    aria-label="X (Twitter)"
+                  >
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                  </a>
+                  <a
+                    href={PROFILE.social.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-thumbnail"
+                    aria-label="Instagram"
+                  >
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                  </a>
+                </div>
+              </FadeIn>
           </div>
         </div>
       </section>
