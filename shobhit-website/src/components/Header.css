@@ -5,18 +5,21 @@
   left: 0;
   right: 0;
   z-index: var(--z-header);
-  background-color: var(--color-bg-slate);
+  background-color: transparent;
   border-bottom: 1px solid transparent;
   transition:
     background-color var(--duration-normal) var(--ease-default),
     border-color var(--duration-normal) var(--ease-default),
-    box-shadow var(--duration-normal) var(--ease-default);
+    box-shadow var(--duration-normal) var(--ease-default),
+    backdrop-filter var(--duration-normal) var(--ease-default);
 }
 
 .header--scrolled {
-  background-color: var(--color-bg-slate);
+  background-color: rgba(11, 18, 33, 0.85); /* Slate with opacity */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
 }
 
 .header__inner {

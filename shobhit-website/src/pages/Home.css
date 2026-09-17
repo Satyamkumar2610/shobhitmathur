@@ -20,6 +20,10 @@
   border: 1px solid transparent;
 }
 
+.btn:active {
+  transform: scale(0.97);
+}
+
 .btn--primary {
   background: var(--color-text-primary);
   color: var(--color-white);
@@ -420,11 +424,14 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
-  transition: border-color var(--duration-normal) var(--ease-default);
+  transition: 
+    border-color var(--duration-normal) var(--ease-default),
+    transform var(--duration-normal) var(--ease-out);
 }
 
 .area-card:hover {
   border-color: var(--color-accent);
+  transform: translateY(-4px);
 }
 
 .area-card__title {

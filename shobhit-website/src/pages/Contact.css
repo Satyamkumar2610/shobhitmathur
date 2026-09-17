@@ -365,6 +365,7 @@
 
 .contact-form__submit:active:not(:disabled) {
   opacity: 0.9;
+  transform: scale(0.97);
 }
 
 .contact-form__submit--sending {
