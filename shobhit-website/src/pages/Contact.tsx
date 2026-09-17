@@ -38,15 +38,42 @@ export default function Contact() {
   );
   const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormState("sending");
-    // Simulate sending — in production, wire up to a backend
-    setTimeout(() => {
-      setFormState("sent");
-      formRef.current?.reset();
-      setTimeout(() => setFormState("idle"), 4000);
-    }, 1500);
+
+    const formData = new FormData(formRef.current!);
+    // Anti-spam Honeypot Check
+    if (formData.get("botcheck")) {
+      setFormState("idle");
+      return; // Silently reject if botcheck field is filled
+    }
+
+    // Append Web3Forms Access Key (User needs to replace this)
+    formData.append("access_key", "YOUR_WEB3FORMS_ACCESS_KEY_HERE");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setFormState("sent");
+        formRef.current?.reset();
+        setTimeout(() => setFormState("idle"), 4000);
+      } else {
+        console.error("Form submission failed", data);
+        setFormState("idle");
+        alert("Something went wrong. Please try again later.");
+      }
+    } catch (error) {
+      console.error("Error submitting form", error);
+      setFormState("idle");
+      alert("Network error. Please try again later.");
+    }
   };
 
   return (
@@ -274,6 +301,13 @@ export default function Contact() {
                     onSubmit={handleSubmit}
                   >
                     <div className="contact-form__row contact-form__row--half">
+                      {/* Honeypot Spam Protection */}
+                      <input
+                        type="checkbox"
+                        name="botcheck"
+                        className="hidden"
+                        style={{ display: "none" }}
+                      />
                       <div className="contact-form__field">
                         <label
                           htmlFor="contact-name"
