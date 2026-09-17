@@ -95,8 +95,7 @@ export default function Contact() {
                       Send a message
                     </h2>
                     <p className="body-sm contact-form-header__desc">
-                      I'll get back to you as soon as possible. All fields
-                      marked with * are required.
+                      All fields marked with * are required.
                     </p>
                   </div>
 
@@ -181,14 +180,15 @@ export default function Contact() {
                         htmlFor="contact-org"
                         className="contact-form__label"
                       >
-                        Organization
+                        Organization *
                       </label>
                       <input
                         type="text"
                         id="contact-org"
                         name="organization"
+                        required
                         className="contact-form__input"
-                        placeholder="Your organization (optional)"
+                        placeholder="Your organization"
                         autoComplete="organization"
                       />
                     </div>
