@@ -267,6 +267,23 @@ export default function About() {
         </div>
       </section>
 
+      {/* ── CLOSING STRIP (Transferred from Contact) ── */}
+      <section className="about-closing">
+        <div className="container">
+          <FadeIn>
+            <div className="about-closing__inner">
+              <p className="display-md about-closing__quote">
+                Institutions shape societies. Education shapes the people who
+                build those institutions.
+              </p>
+              <cite className="label about-closing__attr">
+                — Shobhit Mathur
+              </cite>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* ── WRITINGS CTA ── */}
       <FadeIn>
         <section className="about-writings-cta" aria-label="Explore writings">

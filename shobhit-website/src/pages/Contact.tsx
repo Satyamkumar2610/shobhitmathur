@@ -438,22 +438,7 @@ export default function Contact() {
       </section>
 
 
-      {/* ===== CLOSING STRIP ===== */}
-      <section className="contact-closing">
-        <div className="container">
-          <FadeIn>
-            <div className="contact-closing__inner">
-              <p className="display-md contact-closing__quote">
-                Institutions shape societies. Education shapes the people who
-                build those institutions.
-              </p>
-              <cite className="label contact-closing__attr">
-                — Shobhit Mathur
-              </cite>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+
     </div>
   );
 }

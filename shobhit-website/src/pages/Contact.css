@@ -393,32 +393,6 @@
   }
 }
 
-/* ===== CLOSING STRIP ===== */
-.contact-closing {
-  background: var(--color-bg-slate);
-  padding: var(--space-24) 0;
-  border-top: 1px solid var(--color-border-dark);
-}
-
-.contact-closing__inner {
-  max-width: 720px;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
-}
-
-.contact-closing__quote {
-  color: var(--color-white);
-  font-style: italic;
-  line-height: var(--leading-snug);
-  opacity: 0.92;
-}
-
-.contact-closing__attr {
-  color: rgba(255, 255, 255, 0.4);
-  letter-spacing: var(--tracking-widest);
-  font-style: normal;
-}
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
@@ -455,9 +429,5 @@
   .contact-form-wrapper {
     padding: var(--space-6);
     border-radius: var(--radius-md);
-  }
-
-  .contact-closing {
-    padding: var(--space-16) 0;
   }
 }
