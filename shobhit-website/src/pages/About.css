@@ -292,21 +292,6 @@
   font-style: normal;
 }
 
-/* ===== WRITINGS CTA ===== */
-.about-writings-cta {
-  background: var(--color-bg-slate);
-  padding: var(--space-24) 0;
-}
-
-.about-writings-cta__inner {
-  text-align: center;
-}
-
-.about-writings-cta__title {
-  color: var(--color-white);
-  margin-bottom: var(--space-10);
-  font-style: italic;
-}
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {

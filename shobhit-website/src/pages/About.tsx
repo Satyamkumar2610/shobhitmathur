@@ -284,22 +284,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── WRITINGS CTA ── */}
-      <FadeIn>
-        <section className="about-writings-cta" aria-label="Explore writings">
-          <div className="container--narrow about-writings-cta__inner">
-            <p className="label" style={{ marginBottom: "var(--space-4)" }}>
-              The Work
-            </p>
-            <h2 className="heading-xl about-writings-cta__title">
-              Published writings across education, policy, and technology.
-            </h2>
-            <Link to="/writings" className="btn btn--primary btn--lg">
-              Explore the archive
-            </Link>
-          </div>
-        </section>
-      </FadeIn>
     </div>
   );
 }
