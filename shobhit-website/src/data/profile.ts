@@ -83,7 +83,7 @@ export const PROFILE = {
     twitter: "https://x.com/shobweet",
     twitterHandle: "@shobweet",
     instagram: "https://www.instagram.com/shob.hit.mathur",
-    email: "shobhit.mathur@gmail.com",
+    email: "vc@rishihood.edu.in",
   },
 
   // Publications featured on site
