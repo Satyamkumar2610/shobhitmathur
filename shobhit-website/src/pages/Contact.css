@@ -24,6 +24,7 @@
   margin-bottom: 0;
   line-height: 1.05;
   letter-spacing: var(--tracking-tight);
+  font-family: var(--font-display);
 }
 
 .contact-hero__intro {
