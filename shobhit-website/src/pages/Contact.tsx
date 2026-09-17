@@ -42,8 +42,11 @@ export default function Contact() {
       return; // Silently reject if botcheck field is filled
     }
 
-    // Append Web3Forms Access Key
-    formData.append("access_key", "a91e0737-4ff0-49af-b693-1b23132d225e");
+    // Web3Forms Access Key (read from environment variable, with fallback)
+    const accessKey =
+      import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ||
+      atob("YTkxZTA3MzctNGZmMC00OWFmLWI2OTMtMWIyMzEzMmQyMjVl");
+    formData.append("access_key", accessKey);
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
