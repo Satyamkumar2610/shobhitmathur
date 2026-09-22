@@ -33,6 +33,23 @@ function NotFound() {
   );
 }
 
+function AnimatedRoutes() {
+  const location = useLocation();
+  return (
+    <main id="main-content" key={location.pathname} className="route-view">
+      <Routes location={location}>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/writings" element={<Writings />} />
+        <Route path="/writings/:slug" element={<Article />} />
+        <Route path="/talks" element={<Talks />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </main>
+  );
+}
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -41,17 +58,7 @@ export default function App() {
         Skip to main content
       </a>
       <Header />
-      <main id="main-content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/writings" element={<Writings />} />
-          <Route path="/writings/:slug" element={<Article />} />
-          <Route path="/talks" element={<Talks />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </main>
+      <AnimatedRoutes />
       <Footer />
     </BrowserRouter>
   );

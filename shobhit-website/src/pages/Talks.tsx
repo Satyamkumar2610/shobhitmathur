@@ -1,29 +1,8 @@
 import { useState } from "react";
 import { Play, Calendar } from "lucide-react";
 import { VIDEOS, type Video } from "../data/videos";
-import { useInView } from "../hooks/useScroll";
+import FadeIn from "../components/FadeIn";
 import "./Talks.css";
-
-function FadeIn({
-  children,
-  delay = 0,
-  className = "",
-}: {
-  children: React.ReactNode;
-  delay?: number;
-  className?: string;
-}) {
-  const { ref, inView } = useInView(0.1);
-  return (
-    <div
-      ref={ref as any}
-      className={`fade-in ${inView ? "fade-in--visible" : ""} ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {children}
-    </div>
-  );
-}
 
 export default function Talks() {
   const [activeVideo, setActiveVideo] = useState<Video | null>(null);
@@ -48,45 +27,39 @@ export default function Talks() {
   return (
     <div className="talks-page">
       {/* ── HEADER ── */}
-      <div className="talks-page__header">
+      <header className="page-header">
         <div className="container">
-          <div className="talks-page__title-row">
-            <div>
-              <p
-                className="label label--accent"
-                style={{ marginBottom: "var(--space-3)" }}
-              >
-                Media
-              </p>
-              <h1 className="display-lg talks-page__title">
-                Talks & Interviews
-              </h1>
-              <p className="body-lg talks-page__intro">
-                A selection of keynote addresses, panel discussions, and
-                interviews on institutional building, public policy, and
-                education reform.
-              </p>
-            </div>
+          <div>
+            <p className="label label--accent page-header__eyebrow">Media</p>
+            <h1 className="display-lg page-header__title">
+              Talks &amp; Interviews
+            </h1>
+            <p className="body-lg page-header__intro">
+              A selection of keynote addresses, panel discussions, and
+              interviews on institutional building, public policy, and
+              education reform.
+            </p>
           </div>
+        </div>
+      </header>
 
-          {/* Category filters */}
-          <div
-            className="writings-filters"
-            role="tablist"
-            aria-label="Filter by category"
-          >
-            {["All", "Talks & Panels", "Podcast", "Short Clips"].map((cat) => (
-              <button
-                key={cat}
-                role="tab"
-                aria-selected={activeCategory === cat}
-                className={`writings-filter-btn ${activeCategory === cat ? "writings-filter-btn--active" : ""}`}
-                onClick={() => setActiveCategory(cat as any)}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
+      <div className="container">
+        <div
+          className="writings-filters talks-page__filters"
+          role="tablist"
+          aria-label="Filter by category"
+        >
+          {["All", "Talks & Panels", "Podcast", "Short Clips"].map((cat) => (
+            <button
+              key={cat}
+              role="tab"
+              aria-selected={activeCategory === cat}
+              className={`writings-filter-btn ${activeCategory === cat ? "writings-filter-btn--active" : ""}`}
+              onClick={() => setActiveCategory(cat as any)}
+            >
+              {cat}
+            </button>
+          ))}
         </div>
       </div>
 

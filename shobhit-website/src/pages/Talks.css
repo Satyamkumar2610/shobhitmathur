@@ -4,23 +4,15 @@
   padding-bottom: var(--space-24);
 }
 
-.talks-page__header {
-  background: var(--color-bg);
+.talks-page__filters {
+  border-top: none;
   border-bottom: 1px solid var(--color-border);
-  padding: var(--space-16) 0 var(--space-12);
-  margin-bottom: var(--space-16);
+  padding-top: var(--space-8);
+  margin-bottom: var(--space-12);
 }
 
-.talks-page__title-row {
-  max-width: 640px;
-}
-
-.talks-page__title {
-  margin-bottom: var(--space-6);
-}
-
-.talks-page__intro {
-  color: var(--color-text-secondary);
+.talks-page__filters .writings-filter-btn--active {
+  border-bottom-color: var(--color-accent);
 }
 
 /* ===== VIDEO GRID ===== */
@@ -206,6 +198,10 @@
 .video-modal__close {
   color: var(--color-white);
   border-color: rgba(255, 255, 255, 0.2);
+}
+
+.video-modal__close::before {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .video-modal__close:hover {

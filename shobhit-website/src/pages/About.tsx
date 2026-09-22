@@ -2,29 +2,8 @@ import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { PROFILE } from "../data/profile";
-import { useInView } from "../hooks/useScroll";
+import FadeIn from "../components/FadeIn";
 import "./About.css";
-
-function FadeIn({
-  children,
-  className = "",
-  delay = 0,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  delay?: number;
-}) {
-  const { ref, inView } = useInView(0.1);
-  return (
-    <div
-      ref={ref as any}
-      className={`fade-in ${inView ? "fade-in--visible" : ""} ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {children}
-    </div>
-  );
-}
 
 function AutoSlider({ children }: { children: React.ReactNode }) {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -65,8 +44,7 @@ export default function About() {
         <div className="container about-hero__inner">
           {/* Portrait placeholder */}
           <div className="about-hero__portrait-wrap" aria-hidden="true">
-            <div className="about-hero__portrait">
-              {/* Add your photo: public/images/about-portrait.jpg */}
+            <div className="about-hero__portrait img-reveal" style={{ "--d": "80ms" } as React.CSSProperties}>
               <img
                 src="/images/new-portrait.jpg"
                 alt="Shobhit Mathur"
@@ -109,20 +87,24 @@ export default function About() {
       </section>
 
       {/* ── BIO SECTIONS ── */}
-      <section className="about-bio" aria-labelledby="bio-heading">
-        <div className="container--text about-bio__inner">
+      <section className="about-bio" aria-label="Biography">
+        <div className="container">
           {PROFILE.bioSections.map((section) => (
             <FadeIn key={section.heading}>
-              <div className="about-bio__section">
-                <h2 className="heading-md about-bio__section-heading">
-                  {section.heading}
-                </h2>
-                {section.body.split("\n\n").map((para, i) => (
-                  <p key={i} className="body-lg about-bio__para">
-                    {para}
-                  </p>
-                ))}
-              </div>
+              <article className="about-chapter">
+                <header className="about-chapter__head">
+                  <h2 className="heading-lg about-chapter__title">
+                    {section.heading}
+                  </h2>
+                </header>
+                <div className="about-chapter__body">
+                  {section.body.split("\n\n").map((para, i) => (
+                    <p key={i} className="body-lg about-chapter__para">
+                      {para}
+                    </p>
+                  ))}
+                </div>
+              </article>
             </FadeIn>
           ))}
         </div>
@@ -140,8 +122,8 @@ export default function About() {
           </FadeIn>
 
           <div className="about-focus__grid">
-            {PROFILE.areasOfFocus.map((area) => (
-              <FadeIn key={area.area}>
+            {PROFILE.areasOfFocus.map((area, idx) => (
+              <FadeIn key={area.area} delay={idx * 100}>
                 <div className="about-focus__card">
                   <h3 className="heading-md about-focus__card-title">
                     {area.area}
@@ -178,33 +160,50 @@ export default function About() {
           </FadeIn>
 
           <FadeIn>
-            <ul className="about-affiliations__list" aria-label="Affiliations">
-              {PROFILE.affiliations.map((a, i) => (
-                <li key={i} className="about-affiliation-item">
-                  <div className="about-affiliation-item__role label label--accent">
-                    {a.role}
-                  </div>
-                  <div className="about-affiliation-item__org heading-md">
+            <ul className="about-roles" aria-label="Affiliations">
+              {PROFILE.affiliations.map((a, i) => {
+                const featured = i === 0;
+                const body = (
+                  <>
+                    {featured && (
+                      <span className="about-role__badge label">
+                        Current role
+                      </span>
+                    )}
+                    <span className="about-role__title label">{a.role}</span>
+                    <span
+                      className={`about-role__org ${featured ? "display-sm" : "heading-md"}`}
+                    >
+                      {a.org}
+                    </span>
+                    {a.url && (
+                      <span className="about-role__link body-sm">
+                        {a.url.replace(/^https?:\/\//, "")}
+                        <ArrowUpRight size={14} strokeWidth={1.5} />
+                      </span>
+                    )}
+                  </>
+                );
+                return (
+                  <li
+                    key={a.org}
+                    className={`about-role ${featured ? "about-role--featured" : ""}`}
+                  >
                     {a.url ? (
                       <a
                         href={a.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="about-affiliation-item__link"
+                        className="about-role__inner"
                       >
-                        {a.org}{" "}
-                        <ArrowUpRight
-                          size={16}
-                          strokeWidth={1.5}
-                          className="about-affiliation-item__ext"
-                        />
+                        {body}
                       </a>
                     ) : (
-                      a.org
+                      <div className="about-role__inner">{body}</div>
                     )}
-                  </div>
-                </li>
-              ))}
+                  </li>
+                );
+              })}
             </ul>
           </FadeIn>
         </div>
@@ -225,13 +224,13 @@ export default function About() {
           </FadeIn>
 
           <FadeIn>
-            <ul className="about-education__list" aria-label="Education">
-              {PROFILE.education.map((e, i) => (
-                <li key={i} className="about-education__item">
-                  <span className="about-education__degree body-md">
+            <ul className="about-education__grid" aria-label="Education">
+              {PROFILE.education.map((e) => (
+                <li key={e.institution} className="about-education__card">
+                  <span className="about-education__degree label">
                     {e.degree}
                   </span>
-                  <span className="about-education__inst label">
+                  <span className="about-education__inst heading-md">
                     {e.institution}
                   </span>
                 </li>
@@ -273,8 +272,7 @@ export default function About() {
           <FadeIn>
             <div className="about-closing__inner">
               <p className="display-md about-closing__quote">
-                Institutions shape societies. Education shapes the people who
-                build those institutions.
+                {PROFILE.mission}
               </p>
               <cite className="label about-closing__attr">
                 — Shobhit Mathur

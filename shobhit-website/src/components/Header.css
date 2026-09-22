@@ -1,4 +1,13 @@
 /* ===== HEADER ===== */
+@keyframes headerIn {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: none;
+  }
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -7,6 +16,7 @@
   z-index: var(--z-header);
   background-color: var(--color-bg-slate);
   border-bottom: 1px solid transparent;
+  animation: headerIn 0.8s var(--ease-expo) backwards;
   transition:
     background-color var(--duration-normal) var(--ease-default),
     border-color var(--duration-normal) var(--ease-default),
@@ -228,9 +238,25 @@
   font-weight: var(--weight-light);
   color: rgba(255, 255, 255, 0.7);
   letter-spacing: -0.01em;
-  transition: color var(--duration-fast) var(--ease-default);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  opacity: 0;
+  transform: translateX(24px);
+  transition:
+    color var(--duration-fast) var(--ease-default),
+    opacity 0.5s var(--ease-expo),
+    transform 0.7s var(--ease-expo);
 }
+
+.mobile-nav--open .mobile-nav__link {
+  opacity: 1;
+  transform: none;
+}
+
+.mobile-nav--open li:nth-child(1) .mobile-nav__link { transition-delay: 120ms; }
+.mobile-nav--open li:nth-child(2) .mobile-nav__link { transition-delay: 170ms; }
+.mobile-nav--open li:nth-child(3) .mobile-nav__link { transition-delay: 220ms; }
+.mobile-nav--open li:nth-child(4) .mobile-nav__link { transition-delay: 270ms; }
+.mobile-nav--open li:nth-child(5) .mobile-nav__link { transition-delay: 320ms; }
 
 .mobile-nav__link:hover,
 .mobile-nav__link--active {

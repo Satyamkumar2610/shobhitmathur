@@ -12,17 +12,17 @@
   
   /* Text */
   --color-text-primary: #0A1F44; /* Midnight Navy */
-  --color-text-secondary: #3B506E; /* Slate Blue */
-  --color-text-muted: #64748B;
+  --color-text-secondary: #334155; /* Slate */
+  --color-text-muted: #526174;
   --color-text-inverse: #ffffff;
   
   /* Accents */
-  --color-accent: #B08D57; /* Burnished Gold */
-  --color-accent-light: #F7F5F0; /* Very soft warm gold tint */
+  --color-accent: #8A682F; /* Burnished Gold */
+  --color-accent-light: #F4EFE5; /* Very soft warm gold tint */
   
   /* Borders */
-  --color-border: #D8D8D2;
-  --color-border-light: #EEEEE9;
+  --color-border: #C7C9C4;
+  --color-border-light: #E1E2DD;
   --color-border-dark: #1E293B;
   --color-white: #ffffff;
 
@@ -103,7 +103,7 @@
   --container-wide: 1080px;
   --container-text: 720px;
   --container-narrow: 560px;
-  --container-px: 2rem;
+  --container-px: clamp(1.25rem, 4vw, 2rem);
 
   /* Border Radius */
   --radius-sm: 2px;
@@ -114,6 +114,8 @@
   --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
   --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-reveal: 900ms;
   --duration-fast: 150ms;
   --duration-normal: 250ms;
   --duration-slow: 500ms;

@@ -2,26 +2,8 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { getRecentArticles, formatDate } from "../data/articles";
 import { PROFILE } from "../data/profile";
-import { useInView } from "../hooks/useScroll";
+import FadeIn from "../components/FadeIn";
 import "./Home.css";
-
-function FadeIn({
-  children,
-  className = "",
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  const { ref, inView } = useInView(0.1);
-  return (
-    <div
-      ref={ref as any}
-      className={`fade-in ${inView ? "fade-in--visible" : ""} ${className}`}
-    >
-      {children}
-    </div>
-  );
-}
 
 export default function Home() {
   const recent = getRecentArticles(6);
@@ -34,7 +16,7 @@ export default function Home() {
           <div className="hero__content">
             <div className="hero__eyebrow">
               {PROFILE.descriptors.map((d, i) => (
-                <span key={d}>
+                <span key={d} className="enter" style={{ "--d": `${80 + i * 70}ms` } as React.CSSProperties}>
                   <span className="label label--accent">{d}</span>
                   {i < PROFILE.descriptors.length - 1 && (
                     <span className="hero__eyebrow-sep" aria-hidden="true">
@@ -45,22 +27,36 @@ export default function Home() {
               ))}
             </div>
 
+            <span className="hero__rule" aria-hidden="true" />
+
             <h1 className="hero__headline display-xl">
-              Building institutions
-              <br />
-              <em>that expand human</em>
-              <br />
-              potential.
+              <span className="line-mask">
+                <span className="line-mask__inner" style={{ "--d": "300ms" } as React.CSSProperties}>
+                  Building institutions
+                </span>
+              </span>
+              <span className="line-mask">
+                <span className="line-mask__inner" style={{ "--d": "420ms" } as React.CSSProperties}>
+                  <em>that expand human</em>
+                </span>
+              </span>
+              <span className="line-mask">
+                <span className="line-mask__inner" style={{ "--d": "540ms" } as React.CSSProperties}>
+                  potential.
+                </span>
+              </span>
             </h1>
 
-            <p className="hero__bio body-lg">{PROFILE.intro}</p>
+            <p className="hero__bio body-lg enter" style={{ "--d": "680ms" } as React.CSSProperties}>
+              {PROFILE.intro}
+            </p>
 
             <div className="hero__ctas">
-              <Link to="/writings" className="btn btn--primary">
+              <Link to="/writings" className="btn btn--primary enter" style={{ "--d": "780ms" } as React.CSSProperties}>
                 Explore the writings
                 <ArrowRight size={16} strokeWidth={2} />
               </Link>
-              <Link to="/about" className="btn btn--ghost">
+              <Link to="/about" className="btn btn--ghost enter" style={{ "--d": "850ms" } as React.CSSProperties}>
                 About Me
               </Link>
             </div>
@@ -68,7 +64,7 @@ export default function Home() {
 
           {/* Portrait placeholder */}
           <div className="hero__image-wrap" aria-hidden="true">
-            <div className="hero__image-placeholder">
+            <div className="hero__image-placeholder img-reveal" style={{ "--d": "220ms" } as React.CSSProperties}>
               <div className="hero__image-placeholder-inner">
                 {/* Replace src with actual photo path: /images/profile.jpg */}
                 <img
@@ -142,7 +138,7 @@ export default function Home() {
             {/* Secondary articles */}
             <div className="featured-writings__secondary">
               {recent.slice(1, 4).map((article, idx) => (
-                <FadeIn key={article.id}>
+                <FadeIn key={article.id} delay={idx * 90}>
                   <article className="writing-item">
                     <Link
                       to={`/writings/${article.slug}`}
@@ -209,8 +205,8 @@ export default function Home() {
           </FadeIn>
 
           <div className="areas__grid">
-            {PROFILE.areasOfFocus.map((area) => (
-              <FadeIn key={area.area}>
+            {PROFILE.areasOfFocus.map((area, idx) => (
+              <FadeIn key={area.area} delay={idx * 100}>
                 <div className="area-card">
                   <h3 className="area-card__title heading-md">{area.area}</h3>
                   <p className="area-card__desc body-md">{area.description}</p>
@@ -246,36 +242,70 @@ export default function Home() {
         </section>
       </FadeIn> */}
 
-      {/* ── CTA STRIP ── */}
-      <FadeIn>
-        <section className="cta-strip" aria-label="Call to action">
-          <div className="container--narrow cta-strip__inner">
-            <h2 className="heading-lg cta-strip__title">
-              Interested in the work?
-            </h2>
-            <p className="body-md cta-strip__text">
-              Explore published essays, research pieces, and opinion columns
-              spanning education reform, public policy, and technology's role in
-              India's future.
-            </p>
-            <div className="cta-strip__actions">
-              <Link to="/writings" className="btn btn--primary btn--lg">
-                Browse all writings
-                <ArrowRight size={18} strokeWidth={2} />
-              </Link>
-              <a
-                href={PROFILE.social.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn--ghost"
-              >
-                Connect on LinkedIn
-                <ArrowUpRight size={16} strokeWidth={2} />
-              </a>
+      {/* ── CTA PANEL ── */}
+      <section className="cta-panel" aria-labelledby="cta-heading">
+        <div className="container cta-panel__inner">
+          <FadeIn>
+            <div className="cta-panel__intro">
+              <p className="label label--accent">Continue exploring</p>
+              <h2 id="cta-heading" className="display-md cta-panel__title">
+                Interested in the work?
+              </h2>
+              <p className="body-md cta-panel__text">
+                Explore published essays, research pieces, and opinion columns
+                spanning education reform, public policy, and technology's role
+                in India's future.
+              </p>
             </div>
-          </div>
-        </section>
-      </FadeIn>
+          </FadeIn>
+
+          <FadeIn>
+            <ul className="cta-panel__links">
+              <li>
+                <Link to="/writings" className="cta-link">
+                  <span className="cta-link__kicker label">Archive</span>
+                  <span className="cta-link__title heading-md">
+                    Browse all writings
+                  </span>
+                  <ArrowRight size={20} strokeWidth={1.5} className="cta-link__icon" />
+                </Link>
+              </li>
+              <li>
+                <Link to="/talks" className="cta-link">
+                  <span className="cta-link__kicker label">Media</span>
+                  <span className="cta-link__title heading-md">
+                    Watch talks &amp; interviews
+                  </span>
+                  <ArrowRight size={20} strokeWidth={1.5} className="cta-link__icon" />
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="cta-link">
+                  <span className="cta-link__kicker label">Contact</span>
+                  <span className="cta-link__title heading-md">
+                    Invite for a talk or collaboration
+                  </span>
+                  <ArrowRight size={20} strokeWidth={1.5} className="cta-link__icon" />
+                </Link>
+              </li>
+              <li>
+                <a
+                  href={PROFILE.social.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cta-link"
+                >
+                  <span className="cta-link__kicker label">Network</span>
+                  <span className="cta-link__title heading-md">
+                    Connect on LinkedIn
+                  </span>
+                  <ArrowUpRight size={20} strokeWidth={1.5} className="cta-link__icon" />
+                </a>
+              </li>
+            </ul>
+          </FadeIn>
+        </div>
+      </section>
     </div>
   );
 }

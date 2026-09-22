@@ -127,6 +127,11 @@ main {
   padding: 0 var(--container-px);
 }
 
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* Divider */
 .divider {
   height: 1px;
@@ -134,14 +139,139 @@ main {
   border: none;
 }
 
+/* ===========================================
+   MOTION SYSTEM
+   =========================================== */
+@keyframes enterUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes lineUp {
+  from {
+    transform: translateY(110%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes ruleGrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes imgReveal {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes imgSettle {
+  from {
+    transform: scale(1.12);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* "backwards" fill: hold the start frame during the delay, then hand
+   control back to normal styles so hover/active transforms still work. */
+.enter {
+  animation: enterUp var(--duration-reveal) var(--ease-expo) backwards;
+  animation-delay: var(--d, 0ms);
+}
+
+.line-mask {
+  display: block;
+  overflow: hidden;
+  padding: 0 0.12em 0.14em 0;
+  margin-bottom: -0.14em;
+}
+
+.line-mask__inner {
+  display: block;
+  animation: lineUp 1.1s var(--ease-expo) backwards;
+  animation-delay: var(--d, 0ms);
+}
+
+.img-reveal {
+  animation: imgReveal 1.3s var(--ease-expo) backwards;
+  animation-delay: var(--d, 0ms);
+}
+
+.img-reveal img {
+  animation: imgSettle 1.8s var(--ease-expo) backwards;
+  animation-delay: var(--d, 0ms);
+}
+
+.route-view {
+  animation: pageIn 0.6s var(--ease-default) backwards;
+}
+
+/* Scroll-triggered reveal (see components/FadeIn.tsx) */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity var(--duration-reveal) var(--ease-expo),
+    transform var(--duration-reveal) var(--ease-expo);
+}
+
+.fade-in--visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Page intros: stagger direct children on load */
+.page-header .container > div > *,
+.about-hero__content > * {
+  animation: enterUp var(--duration-reveal) var(--ease-expo) backwards;
+}
+
+.page-header .container > div > :nth-child(1),
+.about-hero__content > :nth-child(1) { animation-delay: 120ms; }
+.page-header .container > div > :nth-child(2),
+.about-hero__content > :nth-child(2) { animation-delay: 200ms; }
+.page-header .container > div > :nth-child(3),
+.about-hero__content > :nth-child(3) { animation-delay: 280ms; }
+.about-hero__content > :nth-child(4) { animation-delay: 360ms; }
+.about-hero__content > :nth-child(5) { animation-delay: 440ms; }
+.about-hero__content > :nth-child(6) { animation-delay: 520ms; }
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
   }
 
   html {

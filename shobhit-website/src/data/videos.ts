@@ -233,34 +233,10 @@ export const VIDEOS: Video[] = [
     category: "Podcast",
   },
   {
-    id: "VZdsYbHF7m0",
-    title:
-      "How to Start a Career in Public Policy? | Shri Yash Agarwal | Rashtram Podcast",
-    duration: "7:46",
-    channel: "Rashtram School",
-    category: "Podcast",
-  },
-  {
     id: "-n0ycZJ6SIo",
     title:
       "Rashtram Podcast with NIA's Shri Yogesh Chander Modi | Principles for a Purposeful Life",
     duration: "11:59",
-    channel: "Rashtram School",
-    category: "Podcast",
-  },
-  {
-    id: "-6253uTaqFo",
-    title:
-      "Digital India: Revolution or Ruin? | Dr. Santosh K Misra | Rashtram Podcast",
-    duration: "21:22",
-    channel: "Rashtram School",
-    category: "Podcast",
-  },
-  {
-    id: "AktRzmJsnLE",
-    title:
-      "The Big Agricultural Debate: Reform & Solutions | Prof. (Dr.) Ashok Gulati | Rashtram Podcast",
-    duration: "19:58",
     channel: "Rashtram School",
     category: "Podcast",
   },

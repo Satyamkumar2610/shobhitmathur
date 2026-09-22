@@ -1,6 +1,6 @@
 import { useEffect, useState, useMemo } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { ArrowRight, Search, X } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Search, X } from "lucide-react";
 import Fuse from "fuse.js";
 import {
   ARTICLES,
@@ -9,27 +9,12 @@ import {
   formatDate,
 } from "../data/articles";
 import type { Article } from "../data/articles";
-import { useInView } from "../hooks/useScroll";
+import FadeIn from "../components/FadeIn";
 import "./Writings.css";
 
-function FadeIn({
-  children,
-  delay = 0,
-}: {
-  children: React.ReactNode;
-  delay?: number;
-}) {
-  const { ref, inView } = useInView(0.05);
-  return (
-    <div
-      ref={ref as any}
-      className={`fade-in ${inView ? "fade-in--visible" : ""}`}
-      style={{ transitionDelay: inView ? `${delay}ms` : "0ms" }}
-    >
-      {children}
-    </div>
-  );
-}
+const firstYear = Math.min(
+  ...ARTICLES.map((a) => new Date(a.date).getFullYear()),
+);
 
 export default function Writings() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -93,66 +78,57 @@ export default function Writings() {
     return map[cat] ?? cat;
   }
 
-  function getCategoryGradient(cat: string) {
-    const map: Record<string, string> = {
-      "Education & Pedagogy": "linear-gradient(135deg, #1a3a5c 0%, #2d6a4f 100%)",
-      "Public Policy & Governance": "linear-gradient(135deg, #2c3e6e 0%, #1a3a5c 100%)",
-      "Technology & Innovation": "linear-gradient(135deg, #1a3a5c 0%, #4a3060 100%)",
-      "Academic Research": "linear-gradient(135deg, #3d2b1f 0%, #1a3a5c 100%)",
+  function getPublicationDomain(publication: string) {
+    const domains: Record<string, string> = {
+      "The Hindu": "thehindu.com",
+      ThePrint: "theprint.in",
+      "The Economic Times": "economictimes.indiatimes.com",
+      "LinkedIn / ThePrint": "linkedin.com",
+      "LinkedIn Pulse": "linkedin.com",
+      NDTV: "ndtv.com",
+      "Financial Express": "financialexpress.com",
+      "The Indian Express": "indianexpress.com",
+      Livemint: "livemint.com",
+      "Hindustan Times": "hindustantimes.com",
+      Swarajya: "swarajyamag.com",
+      IndiaSpend: "indiaspend.com",
+      "The Quint": "thequint.com",
+      "International Journal of Public Sector Performance Management":
+        "inderscienceonline.com",
+      "Internet Journal of Restorative Justice": "rj4allpublications.com",
     };
-    return map[cat] ?? "linear-gradient(135deg, #1a3a5c 0%, #2c3e6e 100%)";
+    return domains[publication] ?? "";
+  }
+
+  function getPublicationMark(publication: string) {
+    return publication
+      .replace(/The |LinkedIn \/ /g, "")
+      .split(/\s+/)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((word) => word[0])
+      .join("")
+      .toUpperCase();
   }
 
   return (
     <div className="writings-page">
-      <div className="writings-page__header">
+      <header className="page-header">
         <div className="container">
-          {/* Page title */}
-          <div className="writings-page__title-row">
-            <div>
-              <p
-                className="label label--accent"
-                style={{ marginBottom: "var(--space-3)" }}
-              >
-                Archive
-              </p>
-              <h1 className="display-lg writings-page__title">Writings</h1>
-              <p className="body-lg writings-page__intro">
-                Essays, opinion columns, and research across education reform,
-                technology policy, and governance. Published in leading Indian
-                and international media since 2016.
-              </p>
-
-              {/* Academic Profiles Section */}
-              <div className="writings-page__profiles">
-                <p className="label label--accent writings-page__profiles-label">
-                  Academic Profiles
-                </p>
-                <div className="writings-page__profiles-links">
-                  <a
-                    href="https://scholar.google.com/citations?hl=en&user=0_fGaLYAAAAJ"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="writings-page__profile-link"
-                  >
-                    Google Scholar
-                    <ArrowRight size={14} className="writings-page__profile-icon" />
-                  </a>
-                  <a
-                    href="https://orcid.org/0000-0002-2470-960X"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="writings-page__profile-link"
-                  >
-                    ORCID
-                    <ArrowRight size={14} className="writings-page__profile-icon" />
-                  </a>
-                </div>
-              </div>
-            </div>
+          <div>
+            <p className="label label--accent page-header__eyebrow">Archive</p>
+            <h1 className="display-lg page-header__title">Writings</h1>
+            <p className="body-lg page-header__intro">
+              Essays, opinion columns, and research across education reform,
+              technology policy, and governance. Published in leading Indian
+              and international media since {firstYear}.
+            </p>
           </div>
+        </div>
+      </header>
 
-          {/* Search */}
+      <div className="container writings-layout">
+        <aside className="writings-sidebar" aria-label="Filter writings">
           <div className="writings-search">
             <Search
               size={16}
@@ -161,6 +137,7 @@ export default function Writings() {
             />
             <input
               type="search"
+              id="writings-search"
               placeholder="Search writings…"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
@@ -178,30 +155,55 @@ export default function Writings() {
             )}
           </div>
 
-          {/* Category filters */}
-          <div
-            className="writings-filters"
-            role="tablist"
-            aria-label="Filter by category"
-          >
-            {CATEGORIES.map((cat) => (
-              <button
-                key={cat}
-                role="tab"
-                aria-selected={activeCategory === cat}
-                className={`writings-filter-btn ${activeCategory === cat ? "writings-filter-btn--active" : ""}`}
-                onClick={() => setActiveCategory(cat)}
-              >
-                {cat === "All" ? "All" : getCategoryShort(cat)}
-              </button>
-            ))}
+          <div className="writings-sidebar__group">
+            <p className="label writings-sidebar__label">Categories</p>
+            <div
+              className="writings-cats"
+              role="tablist"
+              aria-label="Filter by category"
+            >
+              {CATEGORIES.map((cat) => (
+                <button
+                  key={cat}
+                  role="tab"
+                  aria-selected={activeCategory === cat}
+                  className={`writings-cat ${activeCategory === cat ? "writings-cat--active" : ""}`}
+                  onClick={() => setActiveCategory(cat)}
+                >
+                  <span>{cat === "All" ? "All writings" : getCategoryShort(cat)}</span>
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
-      </div>
 
-      {/* Results */}
-      <div className="container">
-        {/* Article list */}
+          <div className="writings-sidebar__group writings-sidebar__profiles">
+            <p className="label writings-sidebar__label">Academic Profiles</p>
+            <a
+              href="https://scholar.google.com/citations?hl=en&user=0_fGaLYAAAAJ"
+              target="_blank"
+              rel="noreferrer"
+              className="writings-profile-link"
+            >
+              Google Scholar
+              <ArrowUpRight size={14} strokeWidth={1.5} />
+            </a>
+            <a
+              href="https://orcid.org/0000-0002-2470-960X"
+              target="_blank"
+              rel="noreferrer"
+              className="writings-profile-link"
+            >
+              ORCID
+              <ArrowUpRight size={14} strokeWidth={1.5} />
+            </a>
+          </div>
+        </aside>
+
+        <div className="writings-results">
+        <p className="writings-results__meta label" aria-live="polite">
+          {activeCategory === "All" ? "All writings" : getCategoryShort(activeCategory)}
+          {query.trim().length >= 2 && ` · Results for “${query.trim()}”`}
+        </p>
         {filtered.length > 0 ? (
           <ol className="writings-list" aria-label="Writings list">
             {filtered.map((article, idx) => (
@@ -215,7 +217,7 @@ export default function Writings() {
                       {/* Thumbnail */}
                       <div
                         className="writings-list-item__thumbnail"
-                        style={!article.thumbnail ? { background: getCategoryGradient(article.category) } : undefined}
+                        aria-label={`${article.publication} logo`}
                       >
                         {article.thumbnail ? (
                           <img
@@ -225,9 +227,19 @@ export default function Writings() {
                             loading="lazy"
                           />
                         ) : (
-                          <span className="writings-list-item__thumbnail-label">
-                            {getCategoryShort(article.category)}
-                          </span>
+                          <>
+                            {getPublicationDomain(article.publication) && (
+                              <img
+                                src={`https://www.google.com/s2/favicons?domain=${getPublicationDomain(article.publication)}&sz=128`}
+                                alt=""
+                                className="writings-list-item__publication-icon"
+                                loading="lazy"
+                              />
+                            )}
+                            <span className="writings-list-item__thumbnail-label">
+                              {getPublicationMark(article.publication)}
+                            </span>
+                          </>
                         )}
                       </div>
 
@@ -296,6 +308,7 @@ export default function Writings() {
             </button>
           </div>
         )}
+        </div>
       </div>
     </div>
   );

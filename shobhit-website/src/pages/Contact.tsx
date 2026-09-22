@@ -1,29 +1,8 @@
 import { useState, useRef } from "react";
 import { Send, CheckCircle } from "lucide-react";
 import { PROFILE } from "../data/profile";
-import { useInView } from "../hooks/useScroll";
+import FadeIn from "../components/FadeIn";
 import "./Contact.css";
-
-function FadeIn({
-  children,
-  className = "",
-  delay = 0,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  delay?: number;
-}) {
-  const { ref, inView } = useInView(0.1);
-  return (
-    <div
-      ref={ref as any}
-      className={`fade-in ${inView ? "fade-in--visible" : ""} ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {children}
-    </div>
-  );
-}
 
 export default function Contact() {
   const [formState, setFormState] = useState<"idle" | "sending" | "sent">(
@@ -304,8 +283,6 @@ export default function Contact() {
           </div>
         </div>
       </section>
-
-
 
     </div>
   );
