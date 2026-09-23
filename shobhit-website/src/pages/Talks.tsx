@@ -2,9 +2,17 @@ import { useState } from "react";
 import { Play, Calendar } from "lucide-react";
 import { VIDEOS, type Video } from "../data/videos";
 import FadeIn from "../components/FadeIn";
+import { useSEO } from "../hooks/useSEO";
 import "./Talks.css";
 
 export default function Talks() {
+  useSEO({
+    title: "Talks — Shobhit Mathur",
+    description:
+      "Talks, panels, and podcast appearances by Shobhit Mathur on education, public policy, and building institutions in India.",
+    path: "/talks",
+  });
+
   const [activeVideo, setActiveVideo] = useState<Video | null>(null);
   const [activeCategory, setActiveCategory] = useState<
     "All" | "Talks & Panels" | "Podcast" | "Short Clips"

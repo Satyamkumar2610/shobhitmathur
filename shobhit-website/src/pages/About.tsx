@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { PROFILE } from "../data/profile";
 import FadeIn from "../components/FadeIn";
+import { useSEO } from "../hooks/useSEO";
 import "./About.css";
 
 function AutoSlider({ children }: { children: React.ReactNode }) {
@@ -37,6 +38,13 @@ function AutoSlider({ children }: { children: React.ReactNode }) {
 }
 
 export default function About() {
+  useSEO({
+    title: "About — Shobhit Mathur",
+    description:
+      "Shobhit Mathur's journey from technology at Amazon to social transformation and building Rishihood University as Vice Chancellor and Co-Founder.",
+    path: "/about",
+  });
+
   return (
     <div className="about-page">
       {/* ── PAGE HEADER ── */}

@@ -10,6 +10,7 @@ import {
 } from "../data/articles";
 import type { Article } from "../data/articles";
 import FadeIn from "../components/FadeIn";
+import { useSEO } from "../hooks/useSEO";
 import "./Writings.css";
 
 const firstYear = Math.min(
@@ -17,6 +18,13 @@ const firstYear = Math.min(
 );
 
 export default function Writings() {
+  useSEO({
+    title: "Writings — Shobhit Mathur",
+    description:
+      "Essays and opinion pieces by Shobhit Mathur on education reform, public policy, and technology, published in The Hindu, ThePrint, The Economic Times, and other national outlets.",
+    path: "/writings",
+  });
+
   const [searchParams, setSearchParams] = useSearchParams();
   const initialCategory = (searchParams.get("category") ?? "All") as Category;
 

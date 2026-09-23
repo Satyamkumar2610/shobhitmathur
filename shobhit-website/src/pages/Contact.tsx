@@ -2,9 +2,17 @@ import { useState, useRef } from "react";
 import { Send, CheckCircle } from "lucide-react";
 import { PROFILE } from "../data/profile";
 import FadeIn from "../components/FadeIn";
+import { useSEO } from "../hooks/useSEO";
 import "./Contact.css";
 
 export default function Contact() {
+  useSEO({
+    title: "Contact — Shobhit Mathur",
+    description:
+      "Get in touch with Shobhit Mathur, Vice Chancellor and Co-Founder of Rishihood University, for speaking engagements, collaborations, or media inquiries.",
+    path: "/contact",
+  });
+
   const [formState, setFormState] = useState<"idle" | "sending" | "sent">(
     "idle"
   );

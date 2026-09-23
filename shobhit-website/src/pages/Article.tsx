@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import {
   ArrowLeft,
@@ -14,7 +13,10 @@ import {
   formatDate,
 } from "../data/articles";
 import ReadingProgress from "../components/ReadingProgress";
+import { useSEO } from "../hooks/useSEO";
 import "./Article.css";
+
+const SITE_URL = "https://www.shobhitmathur.in";
 
 function getCategoryShort(cat: string) {
   const map: Record<string, string> = {
@@ -39,13 +41,12 @@ export default function Article() {
     navigator.clipboard.writeText(window.location.href).catch(() => {});
   };
 
-  // Update page title for SEO
-  useEffect(() => {
-    document.title = `${article.title} — Shobhit Mathur`;
-    return () => {
-      document.title = "Shobhit Mathur — Writer, Researcher, Policy Thinker";
-    };
-  }, [article.title]);
+  useSEO({
+    title: `${article.title} — Shobhit Mathur`,
+    description: article.excerpt,
+    path: `/writings/${article.slug}`,
+    image: article.thumbnail ? `${SITE_URL}${article.thumbnail}` : undefined,
+  });
 
   return (
     <>
