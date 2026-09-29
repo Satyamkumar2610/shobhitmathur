@@ -633,11 +633,18 @@
 @media (max-width: 1024px) {
   .hero__inner {
     grid-template-columns: 1fr;
-    gap: var(--space-12);
+    gap: var(--space-10);
   }
 
   .hero__image-wrap {
-    display: none;
+    display: flex;
+    justify-content: center;
+    order: -1;
+  }
+
+  .hero__image-placeholder {
+    max-width: 280px;
+    aspect-ratio: 3 / 4;
   }
 
   .hero {

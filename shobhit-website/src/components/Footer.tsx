@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowUp, ArrowUpRight } from "lucide-react";
+import { ArrowUp, ArrowUpRight } from "lucide-react";
 import { PROFILE } from "../data/profile";
 import { CATEGORIES } from "../data/articles";
 import "./Footer.css";
@@ -53,21 +53,6 @@ export default function Footer() {
   return (
     <footer className="footer" role="contentinfo">
       <div className="container">
-        <div className="footer__cta">
-          <div className="footer__cta-text">
-            <p className="label footer__eyebrow">
-              Speaking · Media · Collaboration
-            </p>
-            <h2 className="heading-lg footer__cta-title">
-              Have an invitation or an idea to discuss?
-            </h2>
-          </div>
-          <Link to="/contact" className="footer__cta-btn">
-            Get in touch
-            <ArrowRight size={18} strokeWidth={1.5} />
-          </Link>
-        </div>
-
         <div className="footer__main">
           <div className="footer__brand">
             <Link to="/" className="footer__name">

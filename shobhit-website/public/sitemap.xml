@@ -1,8 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.shobhitmathur.in/</loc><priority>1.0</priority></url>
-  <url><loc>https://www.shobhitmathur.in/about</loc><priority>0.8</priority></url>
-  <url><loc>https://www.shobhitmathur.in/writings</loc><priority>0.9</priority></url>
-  <url><loc>https://www.shobhitmathur.in/talks</loc><priority>0.7</priority></url>
-  <url><loc>https://www.shobhitmathur.in/contact</loc><priority>0.6</priority></url>
+  <!-- Core pages -->
+  <url><loc>https://www.shobhitmathur.in/</loc><lastmod>2026-09-29</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.shobhitmathur.in/about</loc><lastmod>2026-09-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings</loc><lastmod>2026-09-29</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.shobhitmathur.in/talks</loc><lastmod>2026-09-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.shobhitmathur.in/contact</loc><lastmod>2026-09-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+
+  <!-- Article pages -->
+  <url><loc>https://www.shobhitmathur.in/writings/self-contained-civilisation-shenzhen-lesson-for-india</loc><lastmod>2026-09-24</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/can-indian-universities-close-the-ai-ethics-gap</loc><lastmod>2026-09-15</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/gen-z-rules-workplace-universities-out-of-touch</loc><lastmod>2026-09-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/judicial-resistance-efficiency-reforms-indian-courts</loc><lastmod>2026-08-06</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/neet-restructured-end-question-paper-leaks</loc><lastmod>2026-08-05</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/india-physics-olympiad-schools-built-for-exceptional-minds</loc><lastmod>2026-07-29</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/what-india-can-learn-from-america-at-250</loc><lastmod>2026-07-07</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/why-education-must-teach-systems-thinking</loc><lastmod>2026-06-15</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/indias-development-ladder-after-ai</loc><lastmod>2026-06-12</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/india-digital-sovereignty-data-localisation-traffic-system</loc><lastmod>2026-06-19</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/india-new-economics-of-constraint</loc><lastmod>2026-05-28</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/university-townships-india-america</loc><lastmod>2026-04-21</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/for-profit-medical-colleges-education-defined-by-outcomes</loc><lastmod>2026-02-11</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/technology-education-key-to-indias-sovereignty</loc><lastmod>2025-06-18</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/fit-to-learn-fit-to-lead-physical-education</loc><lastmod>2025-06-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/book-review-yuk-hui-technology-china</loc><lastmod>2025-06-04</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/outdated-laws-stifling-private-universities</loc><lastmod>2025-02-03</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/emerging-trends-public-policy-education-india</loc><lastmod>2024-11-15</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/integrating-indian-knowledge-systems-nep-2020-gen-z</loc><lastmod>2024-08-20</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/annual-cycle-leaks-stress-india-needs-new-exam-design</loc><lastmod>2024-06-25</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/educators-leverage-ai-educational-transformation</loc><lastmod>2024-06-19</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/india-policy-support-entrepreneurial-universities</loc><lastmod>2024-05-14</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/community-justice-systems-in-india</loc><lastmod>2024-05-19</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/india-needs-high-performing-private-universities-public-purpose</loc><lastmod>2024-03-08</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/reimagining-permanent-government-reforming-civil-service</loc><lastmod>2023-11-20</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/india-opportunity-lead-fourth-industrial-revolution</loc><lastmod>2023-08-23</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/universities-lead-way-future-of-work</loc><lastmod>2023-07-26</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/on-academic-disciplines-india-take-leaf-from-us</loc><lastmod>2023-06-15</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/biographies-great-academic-institutions</loc><lastmod>2023-01-04</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/indian-universities-prepare-foreign-competition-at-home</loc><lastmod>2022-12-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/state-capacity-civil-society-ngo-government-partnerships</loc><lastmod>2022-09-12</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/idea-of-rashtram-advanced-leadership-india</loc><lastmod>2020-03-09</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/haphazard-appointment-judges-high-court-delays</loc><lastmod>2018-02-11</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/why-judicial-reform-should-start-lower-courts</loc><lastmod>2017-03-31</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/mgnrega-index-assessing-implementation-states</loc><lastmod>2016-05-18</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shobhitmathur.in/writings/more-ngos-india-work-with-government</loc><lastmod>2016-01-21</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
 </urlset>

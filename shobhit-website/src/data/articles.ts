@@ -23,6 +23,45 @@ export interface Article {
 
 export const ARTICLES: Article[] = [
   {
+    id: "SM-033",
+    slug: "can-indian-universities-close-the-ai-ethics-gap",
+    title: "Can Indian universities close the AI ethics gap?",
+    excerpt:
+      "As artificial intelligence reshapes industry and governance, Indian universities face a critical challenge: building the ethical frameworks and institutional capacity needed to lead responsibly in the AI era.",
+    date: "2026-09-15",
+    year: 2026,
+    publication: "The Hindu",
+    publicationUrl: "https://www.thehindu.com",
+    category: "Technology & Innovation",
+    subcategory: "AI Implications",
+    coAuthors: [],
+    externalUrl:
+      "https://www.thehindu.com/education/can-indian-universities-close-the-ai-ethics-gap/article71459281.ece",
+    featured: false,
+    readingTime: 5,
+    tags: ["AI Ethics", "Higher Education", "Technology Policy"],
+  },
+  {
+    id: "SM-034",
+    slug: "self-contained-civilisation-shenzhen-lesson-for-india",
+    title:
+      "Self-contained civilisation: Indian co-founder visits Shenzhen, returns with a lesson for India",
+    excerpt:
+      "A visit to Shenzhen's vertically integrated manufacturing ecosystem reveals what India must build to compete — not just supply chain efficiency, but civilisational self-sufficiency in technology and production.",
+    date: "2026-09-24",
+    year: 2026,
+    publication: "Business Today",
+    publicationUrl: "https://www.businesstoday.in",
+    category: "Technology & Innovation",
+    subcategory: "Frugal Innovation",
+    coAuthors: [],
+    externalUrl:
+      "https://www.businesstoday.in/latest/trends/story/self-contained-civilisation-indian-co-founder-visits-shenzhen-returns-with-a-lesson-for-india-557571-2026-09-24",
+    featured: false,
+    readingTime: 6,
+    tags: ["Manufacturing", "China", "India", "Technology Policy"],
+  },
+  {
     id: "SM-RP-001",
     slug: "judicial-resistance-efficiency-reforms-indian-courts",
     title:

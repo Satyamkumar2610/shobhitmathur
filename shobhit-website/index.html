@@ -60,17 +60,53 @@
       rel="stylesheet"
     />
 
-    <!-- JSON-LD Person Schema -->
+    <!-- JSON-LD: WebSite -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Shobhit Mathur",
+        "url": "https://www.shobhitmathur.in",
+        "description": "Official website of Shobhit Mathur — education entrepreneur, institution builder, policy thinker, and writer.",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.shobhitmathur.in/writings?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+
+    <!-- JSON-LD: Person -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Shobhit Mathur",
-        "jobTitle": "Vice Chancellor, Rishihood University",
-        "description": "Education entrepreneur, institution builder, policy thinker, and writer working at the intersection of higher education, technology, public policy, and institutional design.",
-        "knowsAbout": ["Higher education", "Education reform", "Public policy", "Technology policy", "Institution building"],
+        "givenName": "Shobhit",
+        "familyName": "Mathur",
+        "jobTitle": "Vice Chancellor and Co-Founder, Rishihood University",
+        "description": "Shobhit Mathur is an education entrepreneur, institution builder, policy thinker, and writer. He is Vice Chancellor and Co-Founder of Rishihood University, writing on education reform, technology policy, public policy, and the future of Indian institutions.",
+        "knowsAbout": [
+          "Higher education",
+          "Education reform",
+          "Public policy",
+          "Technology policy",
+          "Institution building",
+          "AI and education",
+          "Governance",
+          "Civil service reform",
+          "Judicial reform",
+          "Digital sovereignty"
+        ],
         "url": "https://www.shobhitmathur.in",
-        "sameAs": ["https://www.linkedin.com/in/shobhitmathur/"],
+        "image": "https://www.shobhitmathur.in/images/profile.jpg",
+        "sameAs": [
+          "https://www.linkedin.com/in/shobhitmathur/",
+          "https://x.com/shobweet",
+          "https://www.instagram.com/shob.hit.mathur",
+          "https://theprint.in/author/shobhit-mathur/",
+          "https://rishihood.edu.in"
+        ],
         "alumniOf": [
           {
             "@type": "EducationalOrganization",
@@ -79,12 +115,36 @@
           {
             "@type": "EducationalOrganization",
             "name": "University of Washington"
+          },
+          {
+            "@type": "EducationalOrganization",
+            "name": "Indian School of Business"
           }
         ],
         "worksFor": {
-          "@type": "Organization",
+          "@type": "EducationalOrganization",
           "name": "Rishihood University",
-          "url": "https://rishihood.edu.in"
+          "url": "https://rishihood.edu.in",
+          "sameAs": "https://rishihood.edu.in"
+        },
+        "affiliation": [
+          {
+            "@type": "EducationalOrganization",
+            "name": "Rishihood University",
+            "url": "https://rishihood.edu.in"
+          },
+          {
+            "@type": "Organization",
+            "name": "Rashtram"
+          },
+          {
+            "@type": "Organization",
+            "name": "Vision India Foundation"
+          }
+        ],
+        "nationality": {
+          "@type": "Country",
+          "name": "India"
         }
       }
     </script>
@@ -92,5 +152,28 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Static content for search engines that do not execute JavaScript -->
+    <noscript>
+      <main style="font-family:sans-serif;max-width:800px;margin:0 auto;padding:2rem">
+        <h1>Shobhit Mathur</h1>
+        <p>Shobhit Mathur is an education entrepreneur, institution builder, policy thinker, and writer. He is Vice Chancellor and Co-Founder of Rishihood University.</p>
+        <p>Shobhit Mathur writes on education reform, higher education, public policy, technology policy, and India's institutional future. His work has been published in The Hindu, ThePrint, The Economic Times, Livemint, The Indian Express, Hindustan Times, NDTV, Swarajya, and Financial Express.</p>
+        <h2>About Shobhit Mathur</h2>
+        <p>Shobhit Mathur began his career in technology at Amazon's headquarters in Seattle. He then moved to social transformation, helping build Youth For Seva into a national volunteering movement. Through the Vision India Foundation he worked with young Indians engaged in public policy. He co-founded Rishihood University with the belief that India needs universities that prepare students to understand society, create knowledge, build enterprises, and shape the nation's future.</p>
+        <h2>Writings by Shobhit Mathur</h2>
+        <ul>
+          <li><a href="/writings/can-indian-universities-close-the-ai-ethics-gap">Can Indian universities close the AI ethics gap? — The Hindu</a></li>
+          <li><a href="/writings/self-contained-civilisation-shenzhen-lesson-for-india">Self-contained civilisation: Shenzhen's lesson for India — Business Today</a></li>
+          <li><a href="/writings/gen-z-rules-workplace-universities-out-of-touch">Gen Z rules the workplace — but Indian universities are out of touch — ThePrint</a></li>
+          <li><a href="/writings/neet-restructured-end-question-paper-leaks">How the NEET can be restructured to end question paper leaks — The Hindu</a></li>
+          <li><a href="/writings/india-physics-olympiad-schools-built-for-exceptional-minds">India topped the Physics Olympiad. Now it needs schools built for minds like these — ThePrint</a></li>
+          <li><a href="/writings/india-digital-sovereignty-data-localisation-traffic-system">India is mistaking data localisation for digital sovereignty — ThePrint</a></li>
+          <li><a href="/writings/annual-cycle-leaks-stress-india-needs-new-exam-design">To escape annual cycle of leaks and stress, India needs a new exam design — The Indian Express</a></li>
+          <li><a href="/writings">Browse all writings by Shobhit Mathur</a></li>
+        </ul>
+        <p>Connect with Shobhit Mathur: <a href="https://www.linkedin.com/in/shobhitmathur/">LinkedIn</a> · <a href="https://x.com/shobweet">X / Twitter</a></p>
+      </main>
+    </noscript>
   </body>
 </html>

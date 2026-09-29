@@ -84,8 +84,8 @@
 .footer__main {
   display: grid;
   grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr));
-  gap: var(--space-10);
-  padding: var(--space-10) 0;
+  gap: var(--space-14);
+  padding: var(--space-16) 0 var(--space-12);
 }
 
 .footer__brand {
@@ -131,14 +131,14 @@
 
 .footer__col-title {
   color: rgba(255, 255, 255, 0.45);
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-4);
 }
 
 .footer__list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--space-3);
 }
 
 .footer__link {
@@ -251,8 +251,8 @@
 
   .footer__main {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-8);
-    padding: var(--space-8) 0;
+    gap: var(--space-10);
+    padding: var(--space-12) 0 var(--space-10);
   }
 }
 

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { getRecentArticles, formatDate } from "../data/articles";
 import { PROFILE } from "../data/profile";
 import FadeIn from "../components/FadeIn";
@@ -242,70 +242,6 @@ export default function Home() {
         </section>
       </FadeIn> */}
 
-      {/* ── CTA PANEL ── */}
-      <section className="cta-panel" aria-labelledby="cta-heading">
-        <div className="container cta-panel__inner">
-          <FadeIn>
-            <div className="cta-panel__intro">
-              <p className="label label--accent">Continue exploring</p>
-              <h2 id="cta-heading" className="display-md cta-panel__title">
-                Interested in the work?
-              </h2>
-              <p className="body-md cta-panel__text">
-                Explore published essays, research pieces, and opinion columns
-                spanning education reform, public policy, and technology's role
-                in India's future.
-              </p>
-            </div>
-          </FadeIn>
-
-          <FadeIn>
-            <ul className="cta-panel__links">
-              <li>
-                <Link to="/writings" className="cta-link">
-                  <span className="cta-link__kicker label">Archive</span>
-                  <span className="cta-link__title heading-md">
-                    Browse all writings
-                  </span>
-                  <ArrowRight size={20} strokeWidth={1.5} className="cta-link__icon" />
-                </Link>
-              </li>
-              <li>
-                <Link to="/talks" className="cta-link">
-                  <span className="cta-link__kicker label">Media</span>
-                  <span className="cta-link__title heading-md">
-                    Watch talks &amp; interviews
-                  </span>
-                  <ArrowRight size={20} strokeWidth={1.5} className="cta-link__icon" />
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="cta-link">
-                  <span className="cta-link__kicker label">Contact</span>
-                  <span className="cta-link__title heading-md">
-                    Invite for a talk or collaboration
-                  </span>
-                  <ArrowRight size={20} strokeWidth={1.5} className="cta-link__icon" />
-                </Link>
-              </li>
-              <li>
-                <a
-                  href={PROFILE.social.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="cta-link"
-                >
-                  <span className="cta-link__kicker label">Network</span>
-                  <span className="cta-link__title heading-md">
-                    Connect on LinkedIn
-                  </span>
-                  <ArrowUpRight size={20} strokeWidth={1.5} className="cta-link__icon" />
-                </a>
-              </li>
-            </ul>
-          </FadeIn>
-        </div>
-      </section>
     </div>
   );
 }
