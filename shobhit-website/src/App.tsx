@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Writings from "./pages/Writings";
 import Article from "./pages/Article";
 import Talks from "./pages/Talks";
+import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 
 function ScrollToTop() {
@@ -43,6 +44,7 @@ function AnimatedRoutes() {
         <Route path="/writings" element={<Writings />} />
         <Route path="/writings/:slug" element={<Article />} />
         <Route path="/talks" element={<Talks />} />
+        <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

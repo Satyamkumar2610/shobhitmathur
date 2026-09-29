@@ -1,41 +1,10 @@
-import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, ExternalLink } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ExternalLink } from "lucide-react";
 import { PROFILE } from "../data/profile";
+import { GALLERY, FEATURED, thumbSrc } from "../data/gallery";
 import FadeIn from "../components/FadeIn";
 import { useSEO } from "../hooks/useSEO";
 import "./About.css";
-
-function AutoSlider({ children }: { children: React.ReactNode }) {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const slider = scrollRef.current;
-    if (!slider) return;
-    let intervalId: ReturnType<typeof setInterval>;
-
-    const scrollNext = () => {
-      if (!slider) return;
-      const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
-      if (slider.scrollLeft >= maxScrollLeft - 10) {
-        slider.scrollTo({ left: 0, behavior: "smooth" });
-      } else {
-        const slideWidth = slider.querySelector(".about-gallery__slide")?.clientWidth || 0;
-        slider.scrollBy({ left: slideWidth + 24, behavior: "smooth" });
-      }
-    };
-
-    intervalId = setInterval(scrollNext, 3000);
-
-    return () => clearInterval(intervalId);
-  }, []);
-
-  return (
-    <div className="about-gallery__slider" ref={scrollRef}>
-      {children}
-    </div>
-  );
-}
 
 export default function About() {
   useSEO({
@@ -54,8 +23,8 @@ export default function About() {
           <div className="about-hero__portrait-wrap" aria-hidden="true">
             <div className="about-hero__portrait img-reveal" style={{ "--d": "80ms" } as React.CSSProperties}>
               <img
-                src="/images/new-portrait.jpg"
-                alt="Shobhit Mathur"
+                src="/images/about-portrait-2026.jpg"
+                alt="Shobhit Mathur speaking on a panel"
                 loading="eager"
                 onError={(e) => {
                   (e.target as HTMLImageElement).style.display = "none";
@@ -248,28 +217,32 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── GALLERY ── */}
-      <section className="about-gallery" aria-label="Speaking and Engagements">
+      {/* ── GALLERY TEASER ── */}
+      <section className="about-gallery" aria-label="Photographs">
         <div className="container">
           <FadeIn>
             <div className="section-header">
               <h2 className="section-header__title label">In Action</h2>
+              <Link to="/gallery" className="section-header__link body-sm">
+                View all {GALLERY.length} photographs{" "}
+                <ArrowRight size={14} strokeWidth={2} />
+              </Link>
             </div>
           </FadeIn>
-          
+
           <FadeIn delay={100}>
-            <AutoSlider>
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
-                <div key={num} className="about-gallery__slide">
-                  <img
-                    src={`/images/gallery-${num}.jpg`}
-                    alt={`Shobhit Mathur gallery image ${num}`}
-                    className="about-gallery__img"
-                    loading="lazy"
-                  />
-                </div>
+            <div className="about-gallery__strip">
+              {FEATURED.map((img) => (
+                <Link
+                  key={img.file}
+                  to="/gallery"
+                  className="about-gallery__tile"
+                  aria-label={`Gallery — ${img.caption}`}
+                >
+                  <img src={thumbSrc(img.file)} alt={img.caption} loading="lazy" />
+                </Link>
               ))}
-            </AutoSlider>
+            </div>
           </FadeIn>
         </div>
       </section>

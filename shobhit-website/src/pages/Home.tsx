@@ -66,10 +66,9 @@ export default function Home() {
           <div className="hero__image-wrap" aria-hidden="true">
             <div className="hero__image-placeholder img-reveal" style={{ "--d": "220ms" } as React.CSSProperties}>
               <div className="hero__image-placeholder-inner">
-                {/* Replace src with actual photo path: /images/profile.jpg */}
                 <img
-                  src="/images/profile.jpg"
-                  alt="Shobhit Mathur"
+                  src="/images/hero-speaking.jpg"
+                  alt="Shobhit Mathur addressing students"
                   className="hero__portrait"
                   loading="eager"
                   onError={(e) => {
