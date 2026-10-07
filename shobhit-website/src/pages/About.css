@@ -206,23 +206,12 @@
   gap: var(--space-4);
 }
 
-.about-role__badge {
-  align-self: flex-start;
-  color: var(--color-accent-light);
-  border: 1px solid rgba(244, 239, 229, 0.3);
-  border-radius: 99px;
-  padding: var(--space-1) var(--space-3);
-  margin-bottom: auto;
-}
-
 .about-role--featured .about-role__title {
   color: #C9A66B;
-  margin-top: var(--space-16);
 }
 
 .about-role--featured .about-role__org {
   color: var(--color-white);
-  margin-top: 0;
 }
 
 .about-role__link {
@@ -245,6 +234,39 @@
 
 .about-role--featured .about-role__inner:hover .about-role__link svg {
   transform: translate(2px, -2px);
+}
+
+/* ===== COMMITTEES ===== */
+.about-committees-section {
+  padding: 0 0 var(--space-24);
+}
+
+.about-committees {
+  list-style: none;
+  border-top: 1px solid var(--color-border);
+}
+
+.about-committee {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: var(--space-6);
+  align-items: baseline;
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.about-committee__role {
+  padding-top: 3px;
+}
+
+.about-committee__title {
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+  text-wrap: balance;
+}
+
+.about-committee__meta {
+  color: var(--color-text-muted);
 }
 
 /* ===== EDUCATION ===== */
@@ -412,6 +434,15 @@
   .about-roles,
   .about-education__grid {
     grid-template-columns: 1fr;
+  }
+
+  .about-committee {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+
+  .about-committee__role {
+    padding-top: 0;
   }
 
   .about-role__inner,

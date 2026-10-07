@@ -142,11 +142,6 @@ export default function About() {
                 const featured = i === 0;
                 const body = (
                   <>
-                    {featured && (
-                      <span className="about-role__badge label">
-                        Current role
-                      </span>
-                    )}
                     <span className="about-role__title label">{a.role}</span>
                     <span
                       className={`about-role__org ${featured ? "display-sm" : "heading-md"}`}
@@ -181,6 +176,45 @@ export default function About() {
                   </li>
                 );
               })}
+            </ul>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── COMMITTEES ── */}
+      <section
+        className="about-committees-section"
+        aria-labelledby="committees-heading"
+      >
+        <div className="container">
+          <FadeIn>
+            <div className="section-header">
+              <h2
+                className="section-header__title label"
+                id="committees-heading"
+              >
+                Government & Policy Committees
+              </h2>
+            </div>
+          </FadeIn>
+
+          <FadeIn>
+            <ul className="about-committees" aria-label="Committee appointments">
+              {PROFILE.committees.map((c) => (
+                <li key={c.committee} className="about-committee">
+                  <span className="about-committee__role label label--accent">
+                    {c.role}
+                  </span>
+                  <div className="about-committee__body">
+                    <h3 className="about-committee__title heading-md">
+                      {c.committee}
+                    </h3>
+                    <p className="about-committee__meta body-sm">
+                      {c.body} · {c.date}
+                    </p>
+                  </div>
+                </li>
+              ))}
             </ul>
           </FadeIn>
         </div>

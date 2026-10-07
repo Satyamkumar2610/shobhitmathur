@@ -70,6 +70,23 @@ export const PROFILE = {
     { role: "Former Contributor", org: "amazon.com", url: null },
   ],
 
+  // National & state policy committee appointments
+  committees: [
+    {
+      role: "Member",
+      committee:
+        "Committee to Revise the Format for Virtual Visit of State Private Universities",
+      body: "University Grants Commission, Ministry of Education, Govt. of India",
+      date: "March 2026",
+    },
+    {
+      role: "Member",
+      committee: "Committee for Examination Reforms in Higher Education",
+      body: "Haryana State Higher Education Council",
+      date: "March 2026",
+    },
+  ],
+
   // Academic background
   education: [
     { degree: "Alumni", institution: "Indian Institute of Technology Bombay" },

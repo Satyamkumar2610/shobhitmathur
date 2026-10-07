@@ -23,6 +23,44 @@ export interface Article {
 
 export const ARTICLES: Article[] = [
   {
+    id: "SM-035",
+    slug: "let-experience-into-the-classroom",
+    title: "Let experience into the classroom",
+    excerpt:
+      "With faculty vacancies exceeding 28% across major institutions, India's rigid caps on Professors of Practice are holding higher education back. As AI reshapes what's worth teaching, universities need accomplished practitioners in permanent roles — not token four-year appointments.",
+    date: "2026-10-06",
+    year: 2026,
+    publication: "The Pioneer",
+    publicationUrl: "https://dailypioneer.com",
+    category: "Education & Pedagogy",
+    subcategory: "Higher Education",
+    coAuthors: ["Yashowardhan Tiwari"],
+    externalUrl:
+      "https://dailypioneer.com/news/slug-lite/let-experience-into--the-classroom?year=2026",
+    featured: true,
+    readingTime: 5,
+    tags: ["Professors of Practice", "Faculty Reform", "Higher Education"],
+  },
+  {
+    id: "SM-036",
+    slug: "india-uae-partnership-transform-indian-universities",
+    title: "Why the India-UAE partnership must now transform Indian universities",
+    excerpt:
+      "India and the UAE share a deep history of trade, energy, and migration ties. The next phase of this partnership will be judged by whether it can help India build the universities and research ecosystems the country needs for the age of artificial intelligence.",
+    date: "2026-10-01",
+    year: 2026,
+    publication: "Education World",
+    publicationUrl: "https://educationworld.in",
+    category: "Education & Pedagogy",
+    subcategory: "Higher Education",
+    coAuthors: [],
+    externalUrl:
+      "https://educationworld.in/why-the-india-uae-partnership-must-now-transform-indian-universities/",
+    featured: false,
+    readingTime: 6,
+    tags: ["India-UAE", "Higher Education", "Internationalisation"],
+  },
+  {
     id: "SM-033",
     slug: "can-indian-universities-close-the-ai-ethics-gap",
     title: "Can Indian universities close the AI ethics gap?",
