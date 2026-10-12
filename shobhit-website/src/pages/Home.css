@@ -638,8 +638,17 @@
 
   .hero__image-wrap {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     order: -1;
+  }
+
+  .hero__content {
+    max-width: 640px;
+  }
+
+  .featured-writings__list {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
   }
 
   .hero__image-placeholder {
