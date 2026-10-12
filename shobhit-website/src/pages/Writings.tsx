@@ -94,6 +94,7 @@ export default function Writings() {
       "LinkedIn / ThePrint": "linkedin.com",
       "LinkedIn Pulse": "linkedin.com",
       NDTV: "ndtv.com",
+      "The Times of India": "timesofindia.indiatimes.com",
       "Financial Express": "financialexpress.com",
       "The Indian Express": "indianexpress.com",
       Livemint: "livemint.com",

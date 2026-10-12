@@ -12,6 +12,15 @@ export interface Video {
 
 export const VIDEOS: Video[] = [
   {
+    id: "Sc7Lyna1Q2k",
+    title:
+      "FULL: 'America Is Kicking the Ladder!', Rishihood VC Shobhit Mathur Rebukes Trump's PERM Move",
+    duration: "",
+    channel: "NDTV World",
+    date: "2026-10-09",
+    category: "Talks & Panels",
+  },
+  {
     id: "gETrQVwjGis",
     title:
       "Why an IIT Bombay Graduate Left Amazon to Build a University 🤯 | JEE 2026 | Harsh Sir",

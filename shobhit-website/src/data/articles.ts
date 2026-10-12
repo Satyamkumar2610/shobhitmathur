@@ -23,6 +23,45 @@ export interface Article {
 
 export const ARTICLES: Article[] = [
   {
+    id: "SM-037",
+    slug: "us-kicking-the-ladder-h1b-ndtv",
+    title:
+      'US Is "Kicking The Ladder" After Climbing It: Ex-Amazon H-1B Insider To NDTV',
+    excerpt:
+      "Drawing on his years at Amazon on an H-1B visa, Shobhit Mathur argues that the US suspension of green card sponsorship for major tech firms abandons the skilled immigrants who helped build its technology leadership.",
+    date: "2026-10-09",
+    year: 2026,
+    publication: "NDTV",
+    publicationUrl: "https://www.ndtv.com",
+    category: "Public Policy & Governance",
+    subcategory: "Public Policy & Governance",
+    coAuthors: [],
+    externalUrl: "https://share.google/wsX7fstvaGCQqMXrz",
+    featured: false,
+    readingTime: 4,
+    tags: ["Interview", "H-1B", "Immigration", "Talent Mobility"],
+  },
+  {
+    id: "SM-038",
+    slug: "100-h1b-holders-amazon-initial-aws-team",
+    title:
+      "About 100 H-1B visa holders were on Amazon's initial team that built AWS: Ex-employee criticises US green card suspension for tech firms",
+    excerpt:
+      "Recalling his time at Amazon when the company was still loss-making, Shobhit Mathur notes that over 100 H-1B workers helped build AWS, and argues skilled immigrants create economic value rather than serving as cheap labour.",
+    date: "2026-10-09",
+    year: 2026,
+    publication: "The Times of India",
+    publicationUrl: "https://timesofindia.indiatimes.com",
+    category: "Public Policy & Governance",
+    subcategory: "Public Policy & Governance",
+    coAuthors: [],
+    externalUrl:
+      "https://timesofindia.indiatimes.com/world/us/about-100-h-1b-visa-holders-were-on-amazons-initial-team-that-built-aws-ex-employee-criticises-us-green-card-suspension-for-tech-firms/articleshow/134819819.cms",
+    featured: false,
+    readingTime: 3,
+    tags: ["Media Coverage", "H-1B", "Immigration", "AWS"],
+  },
+  {
     id: "SM-035",
     slug: "let-experience-into-the-classroom",
     title: "Let experience into the classroom",

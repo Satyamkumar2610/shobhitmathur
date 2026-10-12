@@ -148,9 +148,11 @@ export default function Talks() {
                           />
                         </div>
                       </div>
-                      <div className="video-card__duration label">
-                        {video.duration}
-                      </div>
+                      {video.duration && (
+                        <div className="video-card__duration label">
+                          {video.duration}
+                        </div>
+                      )}
                     </div>
 
                     <div className="video-card__content">
