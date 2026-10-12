@@ -71,6 +71,9 @@ export default function Home() {
                   alt="Shobhit Mathur addressing students"
                   className="hero__portrait"
                   loading="eager"
+                  fetchPriority="high"
+                  width={1092}
+                  height={1365}
                   onError={(e) => {
                     (e.target as HTMLImageElement).style.display = "none";
                   }}

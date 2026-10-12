@@ -1,14 +1,14 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import About from "./pages/About";
-import Writings from "./pages/Writings";
-import Article from "./pages/Article";
-import Talks from "./pages/Talks";
-import Gallery from "./pages/Gallery";
-import Contact from "./pages/Contact";
+const About = lazy(() => import("./pages/About"));
+const Writings = lazy(() => import("./pages/Writings"));
+const Article = lazy(() => import("./pages/Article"));
+const Talks = lazy(() => import("./pages/Talks"));
+const Gallery = lazy(() => import("./pages/Gallery"));
+const Contact = lazy(() => import("./pages/Contact"));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -38,6 +38,7 @@ function AnimatedRoutes() {
   const location = useLocation();
   return (
     <main id="main-content" key={location.pathname} className="route-view">
+      <Suspense fallback={<div style={{ minHeight: "100vh" }} />}>
       <Routes location={location}>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -48,6 +49,7 @@ function AnimatedRoutes() {
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      </Suspense>
     </main>
   );
 }
