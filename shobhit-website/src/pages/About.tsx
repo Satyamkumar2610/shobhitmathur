@@ -44,7 +44,6 @@ export default function About() {
             </p>
             <h1 className="display-md about-hero__name">Shobhit Mathur</h1>
             <p className="about-hero__title body-md">{PROFILE.title}</p>
-            <p className="about-hero__tagline heading-md">{PROFILE.mission}</p>
 
             <p className="body-lg about-hero__intro">{PROFILE.intro}</p>
 
@@ -90,38 +89,6 @@ export default function About() {
 
       {/* ── JOURNEY ── */}
       <JourneyDeck />
-
-      {/* ── AREAS OF FOCUS ── */}
-      <section className="about-focus" aria-labelledby="focus-heading">
-        <div className="container">
-          <FadeIn>
-            <div className="section-header">
-              <h2 className="section-header__title label" id="focus-heading">
-                Areas of Focus
-              </h2>
-            </div>
-          </FadeIn>
-
-          <div className="about-focus__grid">
-            {PROFILE.areasOfFocus.map((area, idx) => (
-              <FadeIn key={area.area} delay={idx * 100}>
-                <div className="about-focus__card">
-                  <h3 className="heading-md about-focus__card-title">
-                    {area.area}
-                  </h3>
-                  <p className="body-md">{area.description}</p>
-                  <Link
-                    to={`/writings?category=${encodeURIComponent(area.area)}`}
-                    className="about-focus__card-link label label--accent"
-                  >
-                    Browse essays →
-                  </Link>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── COMMITTEES ── */}
       <section

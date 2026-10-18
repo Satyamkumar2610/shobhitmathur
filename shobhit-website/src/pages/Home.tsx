@@ -195,36 +195,6 @@ export default function Home() {
         </section>
       </FadeIn>
 
-      {/* ── AREAS OF FOCUS ── */}
-      <section className="areas" aria-labelledby="areas-heading">
-        <div className="container">
-          <FadeIn>
-            <div className="section-header">
-              <h2 className="section-header__title label" id="areas-heading">
-                Areas of Focus
-              </h2>
-            </div>
-          </FadeIn>
-
-          <div className="areas__grid">
-            {PROFILE.areasOfFocus.map((area, idx) => (
-              <FadeIn key={area.area} delay={idx * 100}>
-                <div className="area-card">
-                  <h3 className="area-card__title heading-md">{area.area}</h3>
-                  <p className="area-card__desc body-md">{area.description}</p>
-                  <Link
-                    to={`/writings?category=${encodeURIComponent(area.area)}`}
-                    className="area-card__link label label--accent"
-                  >
-                    Read essays →
-                  </Link>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── PUBLICATIONS ──
       <FadeIn>
         <section className="publications-strip" aria-label="Published in">

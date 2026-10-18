@@ -775,3 +775,13 @@
 @media (max-width: 1024px) {
   .area-card:first-child { border-top-color: transparent; }
 }
+
+/* Phone: hero portrait spans the content width, aligned with the text */
+@media (max-width: 640px) {
+  .hero__image-wrap { justify-content: stretch; }
+  .hero__image-placeholder {
+    max-width: none;
+    aspect-ratio: 4 / 3;
+  }
+  .hero__portrait { object-position: center 12%; }
+}
