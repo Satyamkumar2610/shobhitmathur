@@ -3,6 +3,7 @@ import { ArrowRight, ArrowUpRight, ExternalLink } from "lucide-react";
 import { PROFILE } from "../data/profile";
 import { GALLERY, FEATURED, thumbSrc } from "../data/gallery";
 import FadeIn from "../components/FadeIn";
+import JourneyDeck from "../components/JourneyDeck";
 import { useSEO } from "../hooks/useSEO";
 import "./About.css";
 
@@ -119,67 +120,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── AFFILIATIONS ── */}
-      <section
-        className="about-affiliations"
-        aria-labelledby="affiliations-heading"
-      >
-        <div className="container">
-          <FadeIn>
-            <div className="section-header">
-              <h2
-                className="section-header__title label"
-                id="affiliations-heading"
-              >
-                Roles & Affiliations
-              </h2>
-            </div>
-          </FadeIn>
-
-          <FadeIn>
-            <ul className="about-roles" aria-label="Affiliations">
-              {PROFILE.affiliations.map((a, i) => {
-                const featured = i === 0;
-                const body = (
-                  <>
-                    <span className="about-role__title label">{a.role}</span>
-                    <span
-                      className={`about-role__org ${featured ? "display-sm" : "heading-md"}`}
-                    >
-                      {a.org}
-                    </span>
-                    {a.url && (
-                      <span className="about-role__link body-sm">
-                        {a.url.replace(/^https?:\/\//, "")}
-                        <ArrowUpRight size={14} strokeWidth={1.5} />
-                      </span>
-                    )}
-                  </>
-                );
-                return (
-                  <li
-                    key={a.org}
-                    className={`about-role ${featured ? "about-role--featured" : ""}`}
-                  >
-                    {a.url ? (
-                      <a
-                        href={a.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="about-role__inner"
-                      >
-                        {body}
-                      </a>
-                    ) : (
-                      <div className="about-role__inner">{body}</div>
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
-          </FadeIn>
-        </div>
-      </section>
+      {/* ── JOURNEY ── */}
+      <JourneyDeck />
 
       {/* ── COMMITTEES ── */}
       <section
