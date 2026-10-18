@@ -14,6 +14,7 @@ export default function JourneyDeck() {
   const [idx, setIdx] = useState(0);
   const [drag, setDrag] = useState(0);
   const [dragging, setDragging] = useState(false);
+  const [released, setReleased] = useState(false);
   const [lead, setLead] = useState<Record<number, number>>({});
   const startX = useRef<number | null>(null);
   const moved = useRef(false);
@@ -22,10 +23,11 @@ export default function JourneyDeck() {
   const last = JOURNEY.length - 1;
   const cur = JOURNEY[idx];
 
-  const go = (i: number) => {
+  const go = (i: number, fromSwipe = false) => {
     setIdx(Math.max(0, Math.min(last, i)));
     setDrag(0);
     setDragging(false);
+    setReleased(fromSwipe);
   };
 
   const onPointerDown = (e: PointerEvent<HTMLDivElement>) => {
@@ -52,11 +54,12 @@ export default function JourneyDeck() {
     const dx = e.clientX - startX.current;
     startX.current = null;
     if (!moved.current) return;
-    if (dx < -SWIPE) go(idx + 1);
-    else if (dx > SWIPE) go(idx - 1);
+    if (dx < -SWIPE) go(idx + 1, true);
+    else if (dx > SWIPE) go(idx - 1, true);
     else {
       setDrag(0);
       setDragging(false);
+      setReleased(true);
     }
   };
 
@@ -121,7 +124,7 @@ export default function JourneyDeck() {
       </div>
 
       <div
-        className={`journey__viewport${dragging ? " is-dragging" : ""}`}
+        className={`journey__viewport${dragging ? " is-dragging" : ""}${released ? " is-released" : ""}`}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={endDrag}

@@ -1,7 +1,13 @@
 /* ===== JOURNEY DECK (About page) ===== */
 .journey {
-  --cw: min(1000px, calc(100vw - 120px));
-  --gap: 32px;
+  /* Card width = the page's content column, so cards align with the heading and rail */
+  container-type: inline-size;
+  --cw: calc(min(var(--container-max), 100cqw) - 2 * var(--container-px));
+  --gap: 28px;
+  /* Calm, unhurried motion: gentle ease-in-out for slides, soft ease-out for content */
+  --j-slide: 1s cubic-bezier(0.65, 0.05, 0.36, 1);
+  --j-release: 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  --j-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
   padding: var(--space-20) 0 var(--space-24);
   overflow: hidden;
 }
@@ -11,10 +17,10 @@
 .journey__viewport,
 .journey__rail {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(32px);
   transition:
-    opacity 0.9s var(--ease-expo),
-    transform 0.9s var(--ease-expo);
+    opacity 1.1s var(--j-soft),
+    transform 1.1s var(--j-soft);
 }
 
 .journey--in .journey__head,
@@ -24,8 +30,8 @@
   transform: none;
 }
 
-.journey--in .journey__viewport { transition-delay: 120ms; }
-.journey--in .journey__rail { transition-delay: 240ms; }
+.journey--in .journey__viewport { transition-delay: 180ms; }
+.journey--in .journey__rail { transition-delay: 360ms; }
 
 .journey__head {
   display: flex;
@@ -80,7 +86,7 @@
   line-height: 1;
   font-variant-numeric: tabular-nums;
   color: var(--color-text-primary);
-  animation: journeyCount 0.5s var(--ease-expo) both;
+  animation: journeyCount 0.8s var(--j-soft) both;
 }
 
 .journey__count-of {
@@ -147,7 +153,7 @@
   transform: translateX(
     calc(var(--idx) * -1 * (var(--cw) + var(--gap)) + var(--drag, 0px))
   );
-  transition: transform 0.65s var(--ease-glide);
+  transition: transform var(--j-slide);
   will-change: transform;
 }
 
@@ -155,22 +161,27 @@
   transition: none;
 }
 
+/* After a swipe, continue from the finger's momentum instead of easing in again */
+.journey__viewport.is-released .journey__track {
+  transition: transform var(--j-release);
+}
+
 .journey-card {
   flex: 0 0 var(--cw);
-  height: 560px;
+  height: 580px;
   display: grid;
-  grid-template-columns: minmax(0, 56fr) minmax(0, 44fr);
+  grid-template-columns: minmax(0, 58fr) minmax(0, 42fr);
   background: var(--color-white);
   border: 1px solid var(--color-border-light);
   box-shadow: 0 8px 24px rgba(10, 31, 68, 0.05);
   overflow: hidden;
-  opacity: 0.38;
-  transform: scale(0.95);
+  opacity: 0.35;
+  transform: scale(0.94);
   cursor: pointer;
   transition:
-    opacity 0.6s var(--ease-glide),
-    transform 0.65s var(--ease-glide),
-    box-shadow 0.6s var(--ease-glide);
+    opacity var(--j-slide),
+    transform var(--j-slide),
+    box-shadow var(--j-slide);
 }
 
 .journey-card.is-active {
@@ -193,11 +204,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  animation: journeyFade 0.5s var(--ease-default) both;
+  animation: journeyFade 0.7s var(--j-soft) both;
 }
 
 .journey-card.is-active .journey-card__lead:not(.is-contain) {
-  animation: journeySettle 1.4s var(--ease-expo) both;
+  animation: journeySettle 2s var(--j-soft) 0.15s both;
 }
 
 .journey-card__lead.is-contain {
@@ -234,14 +245,14 @@
 
 /* Text staggers in each time a card becomes active */
 .journey-card.is-active .journey-card__body > * {
-  animation: journeyIn 0.7s var(--ease-expo) both;
+  animation: journeyIn 0.9s var(--j-soft) 0.35s both;
 }
-.journey-card.is-active .journey-card__body > :nth-child(2) { animation-delay: 60ms; }
-.journey-card.is-active .journey-card__body > :nth-child(3) { animation-delay: 120ms; }
-.journey-card.is-active .journey-card__body > :nth-child(4) { animation-delay: 180ms; }
-.journey-card.is-active .journey-card__body > :nth-child(5) { animation-delay: 240ms; }
-.journey-card.is-active .journey-card__body > :nth-child(6) { animation-delay: 300ms; }
-.journey-card.is-active .journey-card__body > :nth-child(7) { animation-delay: 360ms; }
+.journey-card.is-active .journey-card__body > :nth-child(2) { animation-delay: 0.43s; }
+.journey-card.is-active .journey-card__body > :nth-child(3) { animation-delay: 0.51s; }
+.journey-card.is-active .journey-card__body > :nth-child(4) { animation-delay: 0.59s; }
+.journey-card.is-active .journey-card__body > :nth-child(5) { animation-delay: 0.67s; }
+.journey-card.is-active .journey-card__body > :nth-child(6) { animation-delay: 0.75s; }
+.journey-card.is-active .journey-card__body > :nth-child(7) { animation-delay: 0.83s; }
 
 .journey-card__meta {
   margin: 0;
@@ -402,7 +413,7 @@
   height: 2px;
   background: var(--color-accent);
   transform-origin: left center;
-  transition: transform 0.65s var(--ease-glide);
+  transition: transform var(--j-slide);
 }
 
 .journey__stop {
@@ -427,7 +438,7 @@
   box-sizing: border-box;
   background: var(--color-bg);
   border: 2px solid var(--color-border);
-  transition: all 0.32s var(--ease-glide);
+  transition: all 0.6s var(--j-soft);
 }
 
 .journey__stop:hover .journey__dot {
@@ -471,12 +482,12 @@
 }
 
 @keyframes journeyIn {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: none; }
 }
 
 @keyframes journeySettle {
-  from { opacity: 0.4; transform: scale(1.07); }
+  from { opacity: 0.55; transform: scale(1.045); }
   to { opacity: 1; transform: none; }
 }
 
@@ -486,14 +497,14 @@
 }
 
 @keyframes journeyCount {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: none; }
 }
 
 /* Tablet & phone */
 @media (max-width: 900px) {
   .journey {
-    --cw: calc(100vw - 68px);
+    --cw: calc(100cqw - 2 * var(--container-px) - 24px);
     --gap: 12px;
     padding-top: var(--space-16);
   }
