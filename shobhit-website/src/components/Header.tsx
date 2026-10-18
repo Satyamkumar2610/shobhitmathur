@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { useScrolled } from "../hooks/useScroll";
+import { useScrolled, useHideOnScroll } from "../hooks/useScroll";
 import "./Header.css";
 
 const NAV_LINKS = [
@@ -14,6 +14,7 @@ const NAV_LINKS = [
 
 export default function Header() {
   const scrolled = useScrolled(40);
+  const hideOnScroll = useHideOnScroll(160);
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -35,7 +36,7 @@ export default function Header() {
   return (
     <>
       <header
-        className={`header ${scrolled ? "header--scrolled" : ""}`}
+        className={`header ${scrolled ? "header--scrolled" : ""} ${hideOnScroll && !menuOpen ? "header--hidden" : ""}`}
         role="banner"
       >
         <div className="header__inner">

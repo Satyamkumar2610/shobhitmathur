@@ -1,6 +1,8 @@
 export interface JourneyImage {
   src: string;
   alt: string;
+  contain?: boolean;
+  position?: string;
 }
 
 export interface JourneyStop {
@@ -14,7 +16,7 @@ export interface JourneyStop {
   text: string;
   quote?: { text: string; source?: string };
   facts?: string;
-  image: JourneyImage & { contain?: boolean; position?: string };
+  image: JourneyImage;
   thumbs?: JourneyImage[];
 }
 
@@ -94,7 +96,7 @@ export const JOURNEY: JourneyStop[] = [
     image: { src: `${J}/isb-graduation.jpg`, alt: "ISB graduation ceremony, PGP 2015" },
     thumbs: [
       { src: `${J}/isb-classroom.jpg`, alt: "Presenting in an ISB classroom" },
-      { src: `${J}/isb-et-cover.jpg`, alt: "The Economic Times Magazine cover, October 2014" },
+      { src: `${J}/isb-et-cover.jpg`, alt: "The Economic Times Magazine cover, October 2014", contain: true },
     ],
   },
   {
@@ -140,8 +142,8 @@ export const JOURNEY: JourneyStop[] = [
     image: { src: `${J}/rishihood-vc.jpg`, alt: "Shobhit Mathur, Vice Chancellor, speaking at a Rishihood University podium", position: "center 15%" },
     thumbs: [
       { src: "/images/about-portrait-2026.jpg", alt: "Addressing students at Rishihood University" },
-      { src: "/images/gallery/thumb/g08-arambh-class-of-2030.jpg", alt: "Arambh, welcoming the Class of 2030" },
-      { src: "/images/gallery/thumb/g12-universities-report-launch.jpg", alt: "Launch of the universities report" },
+      { src: "/images/gallery/full/g08-arambh-class-of-2030.jpg", alt: "Arambh, welcoming the Class of 2030" },
+      { src: "/images/gallery/full/g12-universities-report-launch.jpg", alt: "Launch of the universities report" },
     ],
   },
 ];

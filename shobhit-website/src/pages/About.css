@@ -470,3 +470,11 @@
     padding: var(--space-16) 0;
   }
 }
+
+/* Avoid a second rule directly under the section header */
+@media (min-width: 1025px) {
+  .about-focus__card { border-top-color: transparent; }
+}
+@media (max-width: 1024px) {
+  .about-focus__card:first-child { border-top-color: transparent; }
+}

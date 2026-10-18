@@ -767,3 +767,11 @@
     font-size: var(--text-4xl);
   }
 }
+
+/* Avoid a second rule directly under the section header */
+@media (min-width: 1025px) {
+  .area-card { border-top-color: transparent; }
+}
+@media (max-width: 1024px) {
+  .area-card:first-child { border-top-color: transparent; }
+}

@@ -2,27 +2,64 @@ import { useRef, useState } from "react";
 import type { CSSProperties, KeyboardEvent, PointerEvent } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { JOURNEY } from "../data/journey";
+import type { JourneyImage } from "../data/journey";
+import { useInView } from "../hooks/useScroll";
 import "./JourneyDeck.css";
 
 const pad = (n: number) => String(n).padStart(2, "0");
+const SWIPE = 60; // px needed to change card
+const EDGE_RESISTANCE = 0.3;
 
 export default function JourneyDeck() {
   const [idx, setIdx] = useState(0);
+  const [drag, setDrag] = useState(0);
+  const [dragging, setDragging] = useState(false);
+  const [lead, setLead] = useState<Record<number, number>>({});
   const startX = useRef<number | null>(null);
+  const moved = useRef(false);
+  const { ref, inView } = useInView(0.2);
+
   const last = JOURNEY.length - 1;
-  const go = (i: number) => setIdx(Math.max(0, Math.min(last, i)));
   const cur = JOURNEY[idx];
 
-  const onPointerDown = (e: PointerEvent) => {
-    startX.current = e.clientX;
+  const go = (i: number) => {
+    setIdx(Math.max(0, Math.min(last, i)));
+    setDrag(0);
+    setDragging(false);
   };
-  const onPointerUp = (e: PointerEvent) => {
+
+  const onPointerDown = (e: PointerEvent<HTMLDivElement>) => {
+    if ((e.target as HTMLElement).closest("button")) return;
+    startX.current = e.clientX;
+    moved.current = false;
+  };
+
+  const onPointerMove = (e: PointerEvent<HTMLDivElement>) => {
+    if (startX.current == null) return;
+    const dx = e.clientX - startX.current;
+    if (!moved.current && Math.abs(dx) < 6) return;
+    if (!moved.current) {
+      moved.current = true;
+      e.currentTarget.setPointerCapture(e.pointerId);
+    }
+    const atEdge = (idx === 0 && dx > 0) || (idx === last && dx < 0);
+    setDragging(true);
+    setDrag(atEdge ? dx * EDGE_RESISTANCE : dx);
+  };
+
+  const endDrag = (e: PointerEvent<HTMLDivElement>) => {
     if (startX.current == null) return;
     const dx = e.clientX - startX.current;
     startX.current = null;
-    if (dx < -45) go(idx + 1);
-    else if (dx > 45) go(idx - 1);
+    if (!moved.current) return;
+    if (dx < -SWIPE) go(idx + 1);
+    else if (dx > SWIPE) go(idx - 1);
+    else {
+      setDrag(0);
+      setDragging(false);
+    }
   };
+
   const onKeyDown = (e: KeyboardEvent) => {
     if (e.key === "ArrowRight") {
       e.preventDefault();
@@ -35,7 +72,8 @@ export default function JourneyDeck() {
 
   return (
     <section
-      className="journey"
+      ref={ref}
+      className={`journey${inView ? " journey--in" : ""}`}
       aria-labelledby="journey-heading"
       aria-roledescription="carousel"
       onKeyDown={onKeyDown}
@@ -52,7 +90,9 @@ export default function JourneyDeck() {
         </div>
         <div className="journey__controls">
           <p className="journey__count" aria-live="polite">
-            <span className="journey__count-n">{pad(idx + 1)}</span>
+            <span className="journey__count-n" key={idx}>
+              {pad(idx + 1)}
+            </span>
             <span className="journey__count-of">
               / {pad(JOURNEY.length)} · {cur.part}
             </span>
@@ -81,17 +121,21 @@ export default function JourneyDeck() {
       </div>
 
       <div
-        className="journey__viewport"
+        className={`journey__viewport${dragging ? " is-dragging" : ""}`}
         onPointerDown={onPointerDown}
-        onPointerUp={onPointerUp}
-        onPointerCancel={() => (startX.current = null)}
+        onPointerMove={onPointerMove}
+        onPointerUp={endDrag}
+        onPointerCancel={endDrag}
       >
         <div
           className="journey__track"
-          style={{ "--idx": idx } as CSSProperties}
+          style={{ "--idx": idx, "--drag": `${drag}px` } as CSSProperties}
         >
           {JOURNEY.map((s, i) => {
             const active = i === idx;
+            const photos: JourneyImage[] = [s.image, ...(s.thumbs ?? [])];
+            const li = lead[i] ?? 0;
+            const L = photos[li] ?? s.image;
             return (
               <article
                 key={s.id}
@@ -99,16 +143,24 @@ export default function JourneyDeck() {
                 aria-roledescription="slide"
                 aria-label={`${pad(i + 1)} of ${pad(JOURNEY.length)}: ${s.title}`}
                 aria-hidden={!active}
-                onClick={active ? undefined : () => go(i)}
+                onClick={
+                  active
+                    ? undefined
+                    : () => {
+                        if (!moved.current) go(i);
+                      }
+                }
               >
                 <div className="journey-card__media">
                   <img
-                    src={s.image.src}
-                    alt={s.image.alt}
+                    key={L.src}
+                    src={L.src}
+                    alt={L.alt}
                     draggable={false}
                     loading={Math.abs(i - idx) <= 1 ? "eager" : "lazy"}
-                    className={s.image.contain ? "is-contain" : undefined}
-                    style={s.image.position ? { objectPosition: s.image.position } : undefined}
+                    decoding="async"
+                    className={`journey-card__lead${L.contain ? " is-contain" : ""}`}
+                    style={L.position ? { objectPosition: L.position } : undefined}
                   />
                   <span className="journey-card__part">{s.part}</span>
                 </div>
@@ -130,10 +182,20 @@ export default function JourneyDeck() {
                     </blockquote>
                   )}
                   {s.facts && <p className="journey-card__facts">{s.facts}</p>}
-                  {s.thumbs && s.thumbs.length > 0 && (
-                    <div className="journey-card__thumbs">
-                      {s.thumbs.map((t) => (
-                        <img key={t.src} src={t.src} alt={t.alt} loading="lazy" draggable={false} />
+                  {photos.length > 1 && (
+                    <div className="journey-card__thumbs" role="group" aria-label="Photos">
+                      {photos.map((p, j) => (
+                        <button
+                          key={p.src}
+                          type="button"
+                          className={`journey-card__thumb${j === li ? " is-on" : ""}`}
+                          aria-label={`Show photo: ${p.alt}`}
+                          aria-pressed={j === li}
+                          tabIndex={active ? 0 : -1}
+                          onClick={() => setLead((m) => ({ ...m, [i]: j }))}
+                        >
+                          <img src={p.src} alt="" loading="lazy" draggable={false} />
+                        </button>
                       ))}
                     </div>
                   )}
@@ -146,7 +208,7 @@ export default function JourneyDeck() {
 
       <nav className="container journey__rail" aria-label="Journey chapters">
         <div className="journey__rail-line" aria-hidden="true">
-          <span style={{ width: `${(idx / last) * 100}%` }} />
+          <span style={{ transform: `scaleX(${idx / last})` }} />
         </div>
         <ol>
           {JOURNEY.map((s, i) => (

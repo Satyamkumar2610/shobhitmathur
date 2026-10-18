@@ -88,6 +88,9 @@ export default function About() {
         </div>
       </section>
 
+      {/* ── JOURNEY ── */}
+      <JourneyDeck />
+
       {/* ── AREAS OF FOCUS ── */}
       <section className="about-focus" aria-labelledby="focus-heading">
         <div className="container">
@@ -119,9 +122,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
-      {/* ── JOURNEY ── */}
-      <JourneyDeck />
 
       {/* ── COMMITTEES ── */}
       <section

@@ -43,11 +43,38 @@ export function useInView(threshold = 0.15) {
           observer.disconnect();
         }
       },
-      { threshold },
+      { threshold, rootMargin: "0px 0px -8% 0px" },
     );
     observer.observe(ref);
     return () => observer.disconnect();
   }, [ref, threshold]);
 
   return { ref: setRef, inView };
+}
+
+/** True while the user is scrolling down past `offset`; false on any upward scroll. */
+export function useHideOnScroll(offset = 160) {
+  const [hidden, setHidden] = useState(false);
+  useEffect(() => {
+    let last = window.scrollY;
+    let ticking = false;
+    const update = () => {
+      const y = window.scrollY;
+      const delta = y - last;
+      if (Math.abs(delta) > 6) {
+        setHidden(delta > 0 && y > offset);
+        last = y;
+      }
+      ticking = false;
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [offset]);
+  return hidden;
 }

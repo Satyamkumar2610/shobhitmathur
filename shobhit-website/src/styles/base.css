@@ -192,6 +192,7 @@ a {
 @keyframes pageIn {
   from {
     opacity: 0;
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -229,7 +230,7 @@ a {
 }
 
 .route-view {
-  animation: pageIn 0.6s var(--ease-default) backwards;
+  animation: pageIn 0.55s var(--ease-glide) backwards;
 }
 
 /* Scroll-triggered reveal (see components/FadeIn.tsx) */

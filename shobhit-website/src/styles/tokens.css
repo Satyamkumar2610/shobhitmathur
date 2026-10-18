@@ -115,6 +115,7 @@
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
   --ease-in: cubic-bezier(0.4, 0, 1, 1);
   --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-glide: cubic-bezier(0.22, 1, 0.36, 1);
   --duration-reveal: 900ms;
   --duration-fast: 150ms;
   --duration-normal: 250ms;

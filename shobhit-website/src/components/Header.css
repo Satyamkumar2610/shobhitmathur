@@ -18,9 +18,15 @@
   border-bottom: 1px solid transparent;
   animation: headerIn 0.8s var(--ease-expo) backwards;
   transition:
+    transform 0.45s var(--ease-glide),
     background-color var(--duration-normal) var(--ease-default),
     border-color var(--duration-normal) var(--ease-default),
     box-shadow var(--duration-normal) var(--ease-default);
+}
+
+.header--hidden {
+  transform: translateY(-100%);
+  box-shadow: none !important;
 }
 
 .header--scrolled {

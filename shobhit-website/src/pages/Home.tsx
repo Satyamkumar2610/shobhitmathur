@@ -152,7 +152,7 @@ export default function Home() {
                       <div className="writing-item__body">
                         <div className="writing-item__meta">
                           <span className="label label--accent">
-                            {article.category.split(" ")[0]}
+                            {({ "Education & Pedagogy": "Education", "Public Policy & Governance": "Policy", "Technology & Innovation": "Technology", "Academic Research": "Research" } as Record<string, string>)[article.category] ?? article.category}
                           </span>
                           <span className="label">{article.publication}</span>
                           <span className="label">{article.year}</span>
@@ -184,8 +184,8 @@ export default function Home() {
           <div className="container--text mission-strip__inner">
             <blockquote className="mission-strip__quote">
               <p className="display-md">
-                "Institutions shape societies. Education shapes the people who
-                build those institutions."
+                “Institutions shape societies. Education shapes the people who
+                build those institutions.”
               </p>
               <footer className="mission-strip__attribution">
                 <cite className="label">— Shobhit Mathur</cite>
