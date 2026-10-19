@@ -21,6 +21,13 @@ export const VIDEOS: Video[] = [
     category: "Talks & Panels",
   },
   {
+    id: "lPGLpKd-_Bs",
+    title: "Shobhit Mathur - \"My Lessons in Life\" at IIT Kanpur",
+    duration: "",
+    channel: "Vivekananda Samiti, IIT Kanpur",
+    category: "Talks & Panels",
+  },
+  {
     id: "gETrQVwjGis",
     title:
       "Why an IIT Bombay Graduate Left Amazon to Build a University 🤯 | JEE 2026 | Harsh Sir",

@@ -73,6 +73,13 @@ export const PROFILE = {
   // National & state policy committee appointments
   committees: [
     {
+      role: "Expert Witness",
+      committee:
+        "Joint Committee on the Foreign Contribution (Regulation) Amendment Bill, 2026",
+      body: "Parliament of India, Lok Sabha Secretariat",
+      date: "October 2026",
+    },
+    {
       role: "Member",
       committee:
         "Committee to Revise the Format for Virtual Visit of State Private Universities",
