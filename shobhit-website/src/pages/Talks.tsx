@@ -44,7 +44,7 @@ export default function Talks() {
             </h1>
             <p className="body-lg page-header__intro">
               A selection of keynote addresses, panel discussions, and
-              interviews on institutional building, public policy, and
+              interviews on institution building, public policy, and
               education reform.
             </p>
           </div>
@@ -181,7 +181,7 @@ export default function Talks() {
           ) : (
             <div className="talks-empty">
               <p className="body-lg">
-                No videos found. Run the scraper to populate.
+                No videos in this category yet.
               </p>
             </div>
           );

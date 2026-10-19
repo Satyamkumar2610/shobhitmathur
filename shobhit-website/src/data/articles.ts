@@ -182,7 +182,7 @@ export const ARTICLES: Article[] = [
     slug: "neet-restructured-end-question-paper-leaks",
     title: "How the NEET can be restructured to end question paper leaks",
     excerpt:
-      "Examination leaks erode student morale and damage institutional credibility. Rebuilding faith in national entrance tests like NEET requires integrating modern computerized testing infrastructure with accountable state governance.",
+      "Examination leaks erode student morale and damage institutional credibility. Rebuilding faith in national entrance tests like NEET requires integrating modern computerised testing infrastructure with accountable state governance.",
     date: "2026-08-05",
     year: 2026,
     publication: "The Hindu",
@@ -224,7 +224,7 @@ export const ARTICLES: Article[] = [
     title:
       "India topped the Physics Olympiad. Now it needs schools built for minds like these",
     excerpt:
-      "India's triumphant performance at the International Physics Olympiad demonstrates the immense raw intellect of our students. Yet our standard classrooms fail to nurture exceptional talent. We need specialized institutions designed for extraordinary minds.",
+      "India's triumphant performance at the International Physics Olympiad demonstrates the immense raw intellect of our students. Yet our standard classrooms fail to nurture exceptional talent. We need specialised institutions designed for extraordinary minds.",
     date: "2026-07-29",
     year: 2026,
     publication: "ThePrint",
@@ -285,7 +285,7 @@ export const ARTICLES: Article[] = [
     slug: "indias-development-ladder-after-ai",
     title: "India's development ladder after AI: What comes next?",
     excerpt:
-      "The traditional pathway of climbing the developmental ladder through low-cost services and manual labor is rapidly shifting due to artificial intelligence. How India navigates AI implications will determine our economic future.",
+      "The traditional pathway of climbing the developmental ladder through low-cost services and manual labour is rapidly shifting due to artificial intelligence. How India navigates AI implications will determine our economic future.",
     date: "2026-06-12",
     year: 2026,
     publication: "The Economic Times",
@@ -323,7 +323,7 @@ export const ARTICLES: Article[] = [
     slug: "why-education-must-teach-systems-thinking",
     title: "Why education must teach systems thinking",
     excerpt:
-      "For over a century, modern education has been organised around disciplines. The defining challenges of our time emerge at intersections. What is missing is ways of thinking that enable individuals to operate in a world of deeply interconnected systems.",
+      "For over a century, modern education has been organised around disciplines. The defining challenges of our time emerge at intersections. What is missing are ways of thinking that enable individuals to operate in a world of deeply interconnected systems.",
     date: "2026-06-15",
     year: 2026,
     publication: "LinkedIn / ThePrint",
@@ -403,7 +403,7 @@ export const ARTICLES: Article[] = [
     title:
       "Fit to learn, fit to lead: Why India must rescue physical education now",
     excerpt:
-      "Declining physical engagement and sedentary academic environments hinder cognitive growth. Re-integrating sports and movement into our classrooms and curriculum is vital for student leadership.",
+      "Declining physical engagement and sedentary academic environments hinder cognitive growth. Reintegrating sports and movement into our classrooms and curriculum is vital for student leadership.",
     date: "2025-06-10",
     year: 2025,
     publication: "The Economic Times",
@@ -423,7 +423,7 @@ export const ARTICLES: Article[] = [
     title:
       "Book Review: Yuk Hui's The Question Concerning Technology in China (2016)",
     excerpt:
-      "What if technology is not universal — but civilizational? Yuk Hui's groundbreaking book challenges one of modernity's deepest assumptions: that technology is a neutral, universal force. A profound exploration of digital cosmotechnics and sovereignty.",
+      "What if technology is not universal — but civilisational? Yuk Hui's groundbreaking book challenges one of modernity's deepest assumptions: that technology is a neutral, universal force. A profound exploration of digital cosmotechnics and sovereignty.",
     date: "2025-06-04",
     year: 2025,
     publication: "LinkedIn Pulse",
@@ -461,7 +461,7 @@ export const ARTICLES: Article[] = [
     slug: "emerging-trends-public-policy-education-india",
     title: "Emerging trends in Public Policy Education in India",
     excerpt:
-      "India's rapid socioeconomic evolution demands specialized public policy education that bridges grassroots realities with rigorous institutional governance and evidence-based policymaking.",
+      "India's rapid socioeconomic evolution demands specialised public policy education that bridges grassroots realities with rigorous institutional governance and evidence-based policymaking.",
     date: "2024-11-15",
     year: 2024,
     publication: "The Hindu",
@@ -502,7 +502,7 @@ export const ARTICLES: Article[] = [
     title:
       "To escape annual cycle of leaks and stress, India needs a new exam design",
     excerpt:
-      "High-stakes, single-day competitive exams create immense pressure on students and foster corrupt coaching cartels. We propose a computerized, multi-stage assessment system to drive genuine systemic reform in education policy.",
+      "High-stakes, single-day competitive exams create immense pressure on students and foster corrupt coaching cartels. We propose a computerised, multi-stage assessment system to drive genuine systemic reform in education policy.",
     date: "2024-06-25",
     year: 2024,
     publication: "The Indian Express",
@@ -522,7 +522,7 @@ export const ARTICLES: Article[] = [
     slug: "educators-leverage-ai-educational-transformation",
     title: "Educators should leverage AI for an educational transformation",
     excerpt:
-      "Artificial intelligence gives us an unprecedented opportunity to provide personalized tutoring at scale. Educational institutions and teachers must embrace EdTech and GenAI tools to personalize classroom pedagogy.",
+      "Artificial intelligence gives us an unprecedented opportunity to provide personalised tutoring at scale. Educational institutions and teachers must embrace EdTech and GenAI tools to personalise classroom pedagogy.",
     date: "2024-06-19",
     year: 2024,
     publication: "Livemint",
@@ -562,7 +562,7 @@ export const ARTICLES: Article[] = [
     title:
       "Why India needs high-performing private universities with public purpose",
     excerpt:
-      "Private universities must step up to meet global standards while grounding education in civic responsibility and nation-building values. Regulatory bodies should incentivize institutional autonomy.",
+      "Private universities must step up to meet global standards while grounding education in civic responsibility and nation-building values. Regulatory bodies should incentivise institutional autonomy.",
     date: "2024-03-08",
     year: 2024,
     publication: "NDTV",
@@ -620,7 +620,7 @@ export const ARTICLES: Article[] = [
     slug: "universities-lead-way-future-of-work",
     title: "Universities should lead the way as we adapt to the future of work",
     excerpt:
-      "As artificial intelligence and automation reshape industry demands, universities must overhaul curricula to prioritize critical thinking, adaptability, and multidisciplinary skills for the future of work.",
+      "As artificial intelligence and automation reshape industry demands, universities must overhaul curricula to prioritise critical thinking, adaptability, and multidisciplinary skills for the future of work.",
     date: "2023-07-26",
     year: 2023,
     publication: "Livemint",
@@ -639,7 +639,7 @@ export const ARTICLES: Article[] = [
     slug: "on-academic-disciplines-india-take-leaf-from-us",
     title: "On academic disciplines, India could take a leaf out of US' book",
     excerpt:
-      "Compartmentalizing education into rigid silos limits holistic thinking. Interdisciplinary learning and modern pedagogy are essential for equipping students with problem-solving skills for complex global challenges.",
+      "Compartmentalising education into rigid silos limits holistic thinking. Interdisciplinary learning and modern pedagogy are essential for equipping students with problem-solving skills for complex global challenges.",
     date: "2023-06-15",
     year: 2023,
     publication: "The Economic Times",
@@ -677,7 +677,7 @@ export const ARTICLES: Article[] = [
     slug: "indian-universities-prepare-foreign-competition-at-home",
     title: "Indian universities must prepare for foreign competition at home",
     excerpt:
-      "The entry of foreign universities into India presents both opportunities and challenges. Domestic higher education institutions must elevate research quality and pedagogical rigor to thrive in an open ecosystem.",
+      "The entry of foreign universities into India presents both opportunities and challenges. Domestic higher education institutions must elevate research quality and pedagogical rigour to thrive in an open ecosystem.",
     date: "2022-12-01",
     year: 2022,
     publication: "Livemint",
@@ -698,7 +698,7 @@ export const ARTICLES: Article[] = [
     title:
       "State capacity and civil society: Redefining NGO-government partnerships",
     excerpt:
-      "Civil society organizations and NGOs play an indispensable role in community-level governance and bridging policy delivery gaps. A collaborative model between the state and social innovators strengthens civic systems.",
+      "Civil society organisations and NGOs play an indispensable role in community-level governance and bridging policy delivery gaps. A collaborative model between the state and social innovators strengthens civic systems.",
     date: "2022-09-12",
     year: 2022,
     publication: "Swarajya",
@@ -718,7 +718,7 @@ export const ARTICLES: Article[] = [
     title:
       "The Idea of Rashtram Stems From the Urgent Need to Generate Advanced Leadership in India",
     excerpt:
-      "India requires visionary leaders grounded in the civilizational ethos of Bharat and capable of navigating modern public policy complexities. Rashtram aims to institutionalize nation-building leadership education.",
+      "India requires visionary leaders grounded in the civilisational ethos of Bharat and capable of navigating modern public policy complexities. Rashtram aims to institutionalise nation-building leadership education.",
     date: "2020-03-09",
     year: 2020,
     publication: "Swarajya",
@@ -738,7 +738,7 @@ export const ARTICLES: Article[] = [
     title:
       "Haphazard Appointment of Judges Worsening High Court Judicial Delays",
     excerpt:
-      "Empirical analysis of Department of Justice data shows ad-hoc judge allocations exacerbate pendency. Systematic judicial appointments and caseload rationalization are urgent for civic justice delivery.",
+      "Empirical analysis of Department of Justice data shows ad hoc judge allocations exacerbate pendency. Systematic judicial appointments and caseload rationalisation are urgent for civic justice delivery.",
     date: "2018-02-11",
     year: 2018,
     publication: "IndiaSpend",
@@ -758,7 +758,7 @@ export const ARTICLES: Article[] = [
     slug: "why-judicial-reform-should-start-lower-courts",
     title: "Why Judicial Reform Should Start With Lower Courts",
     excerpt:
-      "Immediate improvements in the judicial system could be achieved by focusing on lower courts, collecting standardized case data, and horizontally replicating procedural innovations.",
+      "Immediate improvements in the judicial system could be achieved by focusing on lower courts, collecting standardised case data, and horizontally replicating procedural innovations.",
     date: "2017-03-31",
     year: 2017,
     publication: "The Quint",
@@ -799,7 +799,7 @@ export const ARTICLES: Article[] = [
     title:
       "More NGOs in India Need to Work With the Government Instead of Opposing It",
     excerpt:
-      "Constructive civic development occurs when non-governmental organizations partner directly with state administrative machinery rather than engaging in reflexive antagonism.",
+      "Constructive civic development occurs when non-governmental organisations partner directly with state administrative machinery rather than engaging in reflexive antagonism.",
     date: "2016-01-21",
     year: 2016,
     publication: "Swarajya",

@@ -129,37 +129,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── EDUCATION ── */}
-      <section className="about-education" aria-labelledby="education-heading">
-        <div className="container">
-          <FadeIn>
-            <div className="section-header">
-              <h2
-                className="section-header__title label"
-                id="education-heading"
-              >
-                Academic Background
-              </h2>
-            </div>
-          </FadeIn>
-
-          <FadeIn>
-            <ul className="about-education__grid" aria-label="Education">
-              {PROFILE.education.map((e) => (
-                <li key={e.institution} className="about-education__card">
-                  <span className="about-education__degree label">
-                    {e.degree}
-                  </span>
-                  <span className="about-education__inst heading-md">
-                    {e.institution}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </FadeIn>
-        </div>
-      </section>
-
       {/* ── GALLERY TEASER ── */}
       <section className="about-gallery" aria-label="Photographs">
         <div className="container">

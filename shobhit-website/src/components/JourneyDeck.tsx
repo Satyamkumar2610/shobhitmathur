@@ -21,7 +21,6 @@ export default function JourneyDeck() {
   const { ref, inView } = useInView(0.2);
 
   const last = JOURNEY.length - 1;
-  const cur = JOURNEY[idx];
 
   const go = (i: number, fromSwipe = false) => {
     setIdx(Math.max(0, Math.min(last, i)));
@@ -97,7 +96,7 @@ export default function JourneyDeck() {
               {pad(idx + 1)}
             </span>
             <span className="journey__count-of">
-              / {pad(JOURNEY.length)} · {cur.part}
+              / {pad(JOURNEY.length)}
             </span>
           </p>
           <div className="journey__arrows">
@@ -165,7 +164,6 @@ export default function JourneyDeck() {
                     className={`journey-card__lead${L.contain ? " is-contain" : ""}`}
                     style={L.position ? { objectPosition: L.position } : undefined}
                   />
-                  <span className="journey-card__part">{s.part}</span>
                 </div>
                 <div className="journey-card__body">
                   <p className="journey-card__meta">
@@ -175,7 +173,6 @@ export default function JourneyDeck() {
                   <h3 className="journey-card__title">{s.title}</h3>
                   <p className="journey-card__role">
                     {s.role}
-                    {s.place && <span> · {s.place}</span>}
                   </p>
                   <p className="journey-card__text">{s.text}</p>
                   {s.quote && (
