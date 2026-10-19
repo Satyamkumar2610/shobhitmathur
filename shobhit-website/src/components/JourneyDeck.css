@@ -168,7 +168,7 @@
 
 .journey-card {
   flex: 0 0 var(--cw);
-  height: 580px;
+  min-height: 580px;
   display: grid;
   grid-template-columns: minmax(0, 58fr) minmax(0, 42fr);
   background: #fffefb;
@@ -420,7 +420,7 @@
 }
 
 .journey.is-playing .journey__timer span {
-  animation: journeyTimer 7s linear both;
+  animation: journeyTimer 4s linear both;
 }
 
 .journey__sr {

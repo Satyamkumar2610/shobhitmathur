@@ -9,7 +9,7 @@ import "./JourneyDeck.css";
 const pad = (n: number) => String(n).padStart(2, "0");
 const SWIPE = 60; // px needed to change card
 const EDGE_RESISTANCE = 0.3;
-const AUTOPLAY_MS = 7000; // time each chapter stays before moving on
+const AUTOPLAY_MS = 4000; // time each chapter stays before moving on
 
 export default function JourneyDeck() {
   const [idx, setIdx] = useState(0);
@@ -211,7 +211,6 @@ export default function JourneyDeck() {
                   />
                 </div>
                 <div className="journey-card__body">
-                  {s.years && <p className="journey-card__years">{s.years}</p>}
                   <h3 className="journey-card__title">{s.title}</h3>
                   <p className="journey-card__role">
                     {s.role}

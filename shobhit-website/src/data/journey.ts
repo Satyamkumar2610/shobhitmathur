@@ -84,7 +84,7 @@ export const JOURNEY: JourneyStop[] = [
     title: "Indian School of Business",
     years: "2014 – 2015",
     role: "PGP, Class of 2015",
-    text: "Building Youth For Seva meant constant decisions with little formal framework. I went to ISB for structured thinking — a path The Economic Times Magazine featured in its October 2014 cover story.",
+    text: "Building Youth For Seva meant constant decision-making with very little formal framework. I eventually joined ISB for structured thinking, a path The Economic Times Magazine featured in its October 2014 cover story. At ISB, I helped set up the Public Policy Club and led iDiya, India's largest social venture competition. For my work, I received the Young Leader Award for all-round excellence and was named to the Merit List and the Dean's List for top academic performance.",
     image: { src: `${J}/isb-graduation.jpg`, alt: "ISB graduation ceremony, PGP 2015" },
     thumbs: [
       { src: `${J}/isb-classroom.jpg`, alt: "Presenting in an ISB classroom" },
@@ -96,8 +96,8 @@ export const JOURNEY: JourneyStop[] = [
     part: "Institutions",
     short: "Vision India",
     title: "Vision India Foundation",
-    role: "Executive Director",
-    text: "I worked with young Indians committed to public policy and governance. Policy Bootcamp, “Deepening Democracy and Gearing-up Governance,” put them in direct conversation with policymakers.",
+    role: "Co-Founder & Executive Director",
+    text: "I helped set up Vision India Foundation, committed to training talented young Indians who wanted to engage more deeply with public policy and governance. Through VIF, I curated policy training programmes that prepare young Indians to join various facets of public life.",
     image: { src: `${J}/vif-bootcamp-speaking.jpg`, alt: "Speaking at the Vision India Foundation Policy Bootcamp" },
     thumbs: [
       { src: `${J}/vif-bootcamp-panel.jpg`, alt: "In conversation on stage at Policy Bootcamp" },
