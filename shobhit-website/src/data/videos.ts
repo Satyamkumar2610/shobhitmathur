@@ -112,46 +112,6 @@ export const VIDEOS: Video[] = [
     date: "2024-06-07",
     category: "Talks & Panels",
   },
-  {
-    id: "y3eLq8bEuCI",
-    title:
-      "The Career Decision Everyone Ignores | ft. Shobhit Mathur || Him eesh Madaan Clips",
-    duration: "5:49",
-    channel: "Him-eesh Madaan Clips",
-    views: 67,
-    date: "2026-07-04",
-    category: "Short Clips",
-  },
-  {
-    id: "ET6vNPl5OCA",
-    title:
-      "IIT Hostel Life: What They Don’t Show! | ft. Shobhit Mathur || Him eesh Madaan Clips",
-    duration: "3:20",
-    channel: "Him-eesh Madaan Clips",
-    views: 27,
-    date: "2026-07-02",
-    category: "Short Clips",
-  },
-  {
-    id: "aGHFdnNTa4Y",
-    title:
-      "School Never Told This! | ft. Shobhit Mathur || Him eesh Madaan Clips",
-    duration: "7:20",
-    channel: "Him-eesh Madaan Clips",
-    views: 50,
-    date: "2026-07-12",
-    category: "Short Clips",
-  },
-  {
-    id: "8tjiSwazaSE",
-    title:
-      "The Comfort Trap That Destroys Ambition  | ft. Shobhit Mathur || Him eesh Madaan Clips",
-    duration: "6:31",
-    channel: "Him-eesh Madaan Clips",
-    views: 388,
-    date: "2026-07-12",
-    category: "Short Clips",
-  },
 
   {
     id: "7JLHt_pkfyQ",
