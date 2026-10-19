@@ -22,7 +22,7 @@ export const PROFILE = {
   bioSections: [
     {
       heading: "From Technology to Social Transformation",
-      body: `I began my career in technology at Amazon's headquarters in Seattle, working at a time when the company was evolving from an e-commerce business into a technology company. That experience taught me the power of technology to transform systems at scale.\n\nI then moved from technology to social transformation, helping build Youth For Seva into a national volunteering movement that enabled young people to contribute to society. Later, through the Vision India Foundation, I worked with talented young Indians who wanted to engage more deeply with public policy and governance.`,
+      body: `I began my career in technology at Amazon's headquarters in Seattle, working at a time when the company was evolving from an e-commerce business into a technology company. That experience taught me the power of technology to transform systems at scale.\n\nI then moved from technology to social transformation, helping scale Youth For Seva into a national volunteering movement that enabled young people to contribute to society. Later, through the Vision India Foundation, I worked with talented young Indians who wanted to engage more deeply with public policy and governance.`,
     },
     {
       heading: "Building Rishihood University",
