@@ -102,7 +102,7 @@ export default function About() {
                 className="section-header__title label"
                 id="committees-heading"
               >
-                Government & Policy Committees
+                Government Committees
               </h2>
             </div>
           </FadeIn>
