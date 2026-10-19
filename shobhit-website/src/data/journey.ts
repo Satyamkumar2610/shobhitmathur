@@ -39,8 +39,8 @@ export const JOURNEY: JourneyStop[] = [
     short: "UW",
     title: "University of Washington",
     years: "2004 – 2006",
-    role: "M.S.",
-    text: "Graduate school in Seattle brought my first experience of volunteering: raising funds for Hurricane Katrina relief through SEVA in 2005.",
+    role: "M.S., Computer Science",
+    text: "While pursuing my postgraduate degree in Computer Science at the University of Washington in Seattle, I had my first experience of volunteering, raising funds for Hurricane Katrina relief through Sewa International in 2005.",
     image: { src: `${J}/uw-allen-school.jpg`, alt: "At the Paul G. Allen School, University of Washington", position: "center 30%" },
   },
   {
