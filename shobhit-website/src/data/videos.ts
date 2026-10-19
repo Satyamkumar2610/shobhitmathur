@@ -21,6 +21,13 @@ export const VIDEOS: Video[] = [
     category: "Talks & Panels",
   },
   {
+    id: "TTyMkL04V_c",
+    title: "From Brain Drain to Brain Gain: How India Can Benefit From US Immigration Changes | News18",
+    duration: "",
+    channel: "CNN-News18",
+    category: "Talks & Panels",
+  },
+  {
     id: "lPGLpKd-_Bs",
     title: "Shobhit Mathur - \"My Lessons in Life\" at IIT Kanpur",
     duration: "",

@@ -112,10 +112,6 @@ export const JOURNEY: JourneyStop[] = [
     title: "Rashtram School of Public Leadership",
     role: "Founding Dean",
     text: "An initiative of Vision India Foundation. As founding dean, I built a school to develop leaders grounded in India’s civilisational ethos and equipped for modern public policy.",
-    quote: {
-      text: "The idea of Rashtram stems from the urgent need to generate advanced leadership in India.",
-      source: "Interview with Swarajya, 2020",
-    },
     image: { src: `${J}/rashtram-speaking.jpg`, alt: "Speaking at a Rashtram School of Public Leadership event", position: "left center" },
     thumbs: [
       { src: `${J}/rashtram-cohort.jpg`, alt: "Rashtram cohort group photo" },
