@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { CSSProperties, KeyboardEvent, PointerEvent } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { JOURNEY } from "../data/journey";
@@ -9,6 +9,7 @@ import "./JourneyDeck.css";
 const pad = (n: number) => String(n).padStart(2, "0");
 const SWIPE = 60; // px needed to change card
 const EDGE_RESISTANCE = 0.3;
+const AUTOPLAY_MS = 7000; // time each chapter stays before moving on
 
 export default function JourneyDeck() {
   const [idx, setIdx] = useState(0);
@@ -19,6 +20,11 @@ export default function JourneyDeck() {
   const startX = useRef<number | null>(null);
   const moved = useRef(false);
   const { ref, inView } = useInView(0.2);
+  const [hovering, setHovering] = useState(false);
+  const [focusWithin, setFocusWithin] = useState(false);
+  const [onScreen, setOnScreen] = useState(false);
+  const [reduced, setReduced] = useState(false);
+  const sectionEl = useRef<HTMLElement | null>(null);
 
   const last = JOURNEY.length - 1;
 
@@ -28,6 +34,36 @@ export default function JourneyDeck() {
     setDragging(false);
     setReleased(fromSwipe);
   };
+
+  // Respect reduced-motion preference
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const set = () => setReduced(mq.matches);
+    set();
+    mq.addEventListener("change", set);
+    return () => mq.removeEventListener("change", set);
+  }, []);
+
+  // Only autoplay while the section is actually on screen
+  useEffect(() => {
+    const el = sectionEl.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => setOnScreen(e.isIntersecting), { threshold: 0.35 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const playing = onScreen && !hovering && !focusWithin && !dragging && !reduced;
+
+  // Advance to the next chapter; loop back to the first after the last
+  useEffect(() => {
+    if (!playing) return;
+    const t = window.setTimeout(() => {
+      setIdx((i) => (i >= last ? 0 : i + 1));
+      setReleased(false);
+    }, AUTOPLAY_MS);
+    return () => window.clearTimeout(t);
+  }, [playing, idx, last]);
 
   const onPointerDown = (e: PointerEvent<HTMLDivElement>) => {
     if ((e.target as HTMLElement).closest("button")) return;
@@ -74,8 +110,18 @@ export default function JourneyDeck() {
 
   return (
     <section
-      ref={ref}
-      className={`journey${inView ? " journey--in" : ""}`}
+      ref={(el) => {
+        ref(el);
+        sectionEl.current = el;
+      }}
+      className={`journey${inView ? " journey--in" : ""}${playing ? " is-playing" : ""}`}
+      onFocus={(e) => {
+        // Pause only for keyboard focus; mouse/touch clicks keep autoplay running
+        if ((e.target as HTMLElement).matches(":focus-visible")) setFocusWithin(true);
+      }}
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget as Node)) setFocusWithin(false);
+      }}
       aria-labelledby="journey-heading"
       aria-roledescription="carousel"
       onKeyDown={onKeyDown}
@@ -91,13 +137,8 @@ export default function JourneyDeck() {
           </p>
         </div>
         <div className="journey__controls">
-          <p className="journey__count" aria-live="polite">
-            <span className="journey__count-n" key={idx}>
-              {pad(idx + 1)}
-            </span>
-            <span className="journey__count-of">
-              / {pad(JOURNEY.length)}
-            </span>
+          <p className="journey__sr" aria-live="polite">
+            {JOURNEY[idx].title}
           </p>
           <div className="journey__arrows">
             <button
@@ -128,6 +169,10 @@ export default function JourneyDeck() {
         onPointerMove={onPointerMove}
         onPointerUp={endDrag}
         onPointerCancel={endDrag}
+        onPointerEnter={(e) => {
+          if (e.pointerType === "mouse") setHovering(true);
+        }}
+        onPointerLeave={() => setHovering(false)}
       >
         <div
           className="journey__track"
@@ -166,10 +211,7 @@ export default function JourneyDeck() {
                   />
                 </div>
                 <div className="journey-card__body">
-                  <p className="journey-card__meta">
-                    <span className="journey-card__n">{pad(i + 1)}</span>
-                    {s.years && <span className="journey-card__years">{s.years}</span>}
-                  </p>
+                  {s.years && <p className="journey-card__years">{s.years}</p>}
                   <h3 className="journey-card__title">{s.title}</h3>
                   <p className="journey-card__role">
                     {s.role}
@@ -181,7 +223,6 @@ export default function JourneyDeck() {
                       {s.quote.source && <cite>{s.quote.source}</cite>}
                     </blockquote>
                   )}
-                  {s.facts && <p className="journey-card__facts">{s.facts}</p>}
                   {photos.length > 1 && (
                     <div className="journey-card__thumbs" role="group" aria-label="Photos">
                       {photos.map((p, j) => (
@@ -204,6 +245,10 @@ export default function JourneyDeck() {
             );
           })}
         </div>
+      </div>
+
+      <div className="container journey__timer" aria-hidden="true">
+        <span key={idx} />
       </div>
 
       <nav className="container journey__rail" aria-label="Journey chapters">

@@ -60,7 +60,7 @@ export const JOURNEY: JourneyStop[] = [
     title: "Suriname",
     years: "2006",
     role: "Volunteer",
-    text: "Before starting at Amazon, I asked SEWA International to send me somewhere I had never heard of. In Suriname, which had no computer science department, I taught IT and computer science at the university in Paramaribo and helped set one up.",
+    text: "Before starting at Amazon, I asked SEWA International to send me somewhere I had never heard of, and eventually landed in Suriname. There was no Computer Science programme there, so I taught IT and Computer Science and helped set one up at the University in Paramaribo.",
     image: { src: `${J}/isb-et-story.jpg`, alt: "The Economic Times Magazine, Epiphany in Suriname, October 2014", contain: true },
   },
   {
@@ -68,9 +68,8 @@ export const JOURNEY: JourneyStop[] = [
     part: "Service",
     short: "Youth For Seva",
     title: "Youth For Seva",
-    role: "Co-founder",
-    text: "After leaving Amazon, I met NGOs across India and co-founded Youth For Seva to bring young people into volunteering — from school programmes to Uttarakhand flood relief and the Ekta Yatra to Kargil.",
-    facts: "16 chapters · 5 years full-time",
+    role: "National Organizing Secretary",
+    text: "After leaving Amazon, I helped scale Youth For Seva into a national volunteering movement that enabled young people to contribute to society — from school programmes to Uttarakhand flood relief and the Ekta Yatra to Kargil.",
     image: { src: `${J}/yfs-ekta-yatra.jpg`, alt: "Youth For Seva Ekta Yatra banner with volunteers and army officers" },
     thumbs: [
       { src: `${J}/yfs-gangotri.jpg`, alt: "Beside a Gangotri milestone in Uttarakhand" },
