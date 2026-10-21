@@ -29,38 +29,19 @@ export default function Contact() {
       return; // Silently reject if botcheck field is filled
     }
 
-    // Web3Forms access keys: each key delivers to its own inbox, so the same
-    // message is submitted once per key, in parallel.
-    const accessKeys: string[] = [
-      import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ||
-        atob("YTkxZTA3MzctNGZmMC00OWFmLWI2OTMtMWIyMzEzMmQyMjVl"),
-      import.meta.env.VITE_WEB3FORMS_ACCESS_KEY_2 ||
-        "da5c2337-5dbe-4430-9ddb-0c3ef448b201",
-    ];
-
-    const send = async (key: string) => {
-      const body = new FormData();
-      formData.forEach((value, name) => body.append(name, value));
-      body.set("access_key", key);
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body,
-      });
-      const data = await response.json();
-      if (!data.success) throw new Error(data.message || "Submission failed");
-    };
-
     try {
-      const results = await Promise.allSettled(accessKeys.map(send));
-      if (results.some((r) => r.status === "fulfilled")) {
-        results.forEach((r) => {
-          if (r.status === "rejected") console.error("A delivery failed", r.reason);
-        });
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(formData.entries())),
+      });
+      const data = await response.json().catch(() => ({ success: false }));
+      if (response.ok && data.success) {
         setFormState("sent");
         formRef.current?.reset();
         setTimeout(() => setFormState("idle"), 4000);
       } else {
-        console.error("Form submission failed", results);
+        console.error("Form submission failed", data);
         setFormState("idle");
         alert("Something went wrong. Please try again later.");
       }
