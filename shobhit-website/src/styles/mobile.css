@@ -86,10 +86,29 @@
     text-wrap: balance;
   }
 
-  html .body-lg,
-  html .body-md,
+  /* Paragraphs set flush on both edges. Hyphenation is what keeps a
+     390px justified column from opening rivers between the words, so the
+     two always travel together. `text-wrap: pretty` is dropped here:
+     justification already sets the line breaks. */
+  html .hero__bio,
   html .prose p,
-  html .hero__bio {
+  html .about-chapter__para,
+  html .about-hero__intro,
+  html .featured-article__excerpt,
+  html .writing-item__excerpt,
+  html .writings-list-item__excerpt,
+  html .page-header__intro,
+  html .journey__lede,
+  html .journey-card__text {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphenate-limit-chars: 6 3 2;
+    text-wrap: wrap;
+  }
+
+  html .body-lg,
+  html .body-md {
     text-wrap: pretty;
   }
 
