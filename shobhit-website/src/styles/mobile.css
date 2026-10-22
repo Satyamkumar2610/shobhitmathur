@@ -1,0 +1,386 @@
+/* ===========================================
+   PHONE COMPOSITION LAYER
+   Scoped to small screens; tablet and desktop are untouched.
+   Route stylesheets load in their own chunks after this file,
+   so selectors here carry an `html` prefix to stay on top.
+   =========================================== */
+
+@media (max-width: 640px) {
+  :root {
+    /* A fixed gutter rather than the fluid default, so every edge on the
+       page sits on the same vertical. */
+    --container-px: 22px;
+
+    /* One vertical step for every section, so the page keeps a single
+       rhythm instead of alternating 96px / 64px / 56px gaps. */
+    --phone-section: 3.5rem;
+
+    /* Reveals travel less and settle sooner on a small screen. */
+    --duration-reveal: 620ms;
+  }
+
+  html {
+    /* Anchor jumps clear the sticky header. */
+    scroll-padding-top: 76px;
+  }
+
+  /* ---------- Type scale ----------
+     The desktop clamps bottom out at 48px, too large for a 390px column:
+     it forces one-word lines. These keep the proportions at a size the
+     column can actually carry. */
+  html .display-2xl {
+    font-size: clamp(2.125rem, 9vw, 3.25rem);
+    line-height: 1.05;
+    letter-spacing: -0.028em;
+  }
+
+  html .display-xl {
+    font-size: clamp(2rem, 8.2vw, 3rem);
+    line-height: 1.08;
+    letter-spacing: -0.026em;
+  }
+
+  html .display-lg {
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+    line-height: 1.12;
+    letter-spacing: -0.022em;
+  }
+
+  html .display-md {
+    font-size: clamp(1.5rem, 5.8vw, 2.125rem);
+    line-height: 1.2;
+  }
+
+  html .display-sm {
+    font-size: clamp(1.3125rem, 5vw, 1.75rem);
+    line-height: 1.25;
+  }
+
+  html .heading-xl {
+    font-size: clamp(1.375rem, 5.2vw, 2rem);
+    line-height: 1.22;
+  }
+
+  html .heading-lg {
+    font-size: clamp(1.1875rem, 4.4vw, 1.625rem);
+    line-height: 1.28;
+  }
+
+  html .heading-md {
+    font-size: clamp(1.0625rem, 3.9vw, 1.375rem);
+    line-height: 1.32;
+  }
+
+  /* Even line lengths in headings; no one-word last line in body copy. */
+  html .display-2xl,
+  html .display-xl,
+  html .display-lg,
+  html .display-md,
+  html .display-sm,
+  html .heading-xl,
+  html .heading-lg,
+  html .heading-md,
+  html .hero__headline,
+  html .journey__title,
+  html .about-chapter__title {
+    text-wrap: balance;
+  }
+
+  html .body-lg,
+  html .body-md,
+  html .prose p,
+  html .hero__bio {
+    text-wrap: pretty;
+  }
+
+  html .body-lg {
+    font-size: var(--text-md);
+  }
+
+  /* ---------- Vertical rhythm ---------- */
+  html .featured-writings,
+  html .areas,
+  html .mission-strip,
+  html .cta-panel,
+  html .publications-strip,
+  html .about-bio,
+  html .about-focus,
+  html .about-affiliations,
+  html .about-closing,
+  html .about-committees-section,
+  html .about-gallery,
+  html .contact-main,
+  html .journey,
+  html .talks-empty,
+  html .writings-empty {
+    padding-top: var(--phone-section);
+    padding-bottom: var(--phone-section);
+  }
+
+  html .about-hero {
+    padding-top: var(--space-10);
+    padding-bottom: var(--phone-section);
+  }
+
+  html .contact-hero,
+  html .page-header {
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-8);
+  }
+
+  html .section-header {
+    margin-bottom: var(--space-8);
+    gap: var(--space-4);
+  }
+
+  /* ---------- Hero ---------- */
+  html .hero {
+    padding-top: calc(64px + var(--space-8));
+    padding-bottom: var(--space-8);
+  }
+
+  html .hero__inner {
+    gap: var(--space-8);
+  }
+
+  html .hero__image-placeholder {
+    aspect-ratio: 5 / 4;
+  }
+
+  html .hero__rule {
+    width: 40px;
+    margin-bottom: var(--space-5);
+  }
+
+  html .hero__headline {
+    font-size: clamp(2.125rem, 9vw, 3.25rem);
+    line-height: 1.06;
+    letter-spacing: -0.028em;
+    margin-bottom: var(--space-5);
+  }
+
+  html .hero__bio {
+    margin-bottom: var(--space-6);
+  }
+
+  html .hero__ctas {
+    gap: var(--space-3);
+    width: 100%;
+  }
+
+  html .btn {
+    min-height: 52px;
+  }
+
+  /* ---------- Home: recent writings ----------
+     The index column pushed every row in by 36px, so the list sat on a
+     different vertical to the section header and the lead story. Rows now
+     start at the gutter; the index moves to the right, where the arrow was
+     repeating an affordance the whole row already has. */
+  html .writing-item__inner {
+    display: block;
+    position: relative;
+    padding: var(--space-5) 0;
+  }
+
+  html .writing-item:hover .writing-item__inner {
+    padding-left: 0;
+  }
+
+  html .writing-item__num {
+    position: absolute;
+    top: var(--space-5);
+    right: 0;
+    min-width: 0;
+    padding-top: 0;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: var(--tracking-wide);
+  }
+
+  html .writing-item__arrow {
+    display: none;
+  }
+
+  html .writing-item__meta {
+    gap: var(--space-1) var(--space-3);
+    margin-bottom: var(--space-2);
+    padding-right: var(--space-8);
+  }
+
+  html .featured-article__inner {
+    padding: var(--space-5) 0 var(--space-6);
+  }
+
+  html .featured-article__meta {
+    gap: var(--space-1) var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+
+  html .featured-article__title {
+    margin-bottom: var(--space-4);
+  }
+
+  html .featured-article__excerpt {
+    margin-bottom: var(--space-5);
+  }
+
+  html .featured-writings__list {
+    gap: var(--space-4);
+  }
+
+  /* ---------- Mission strip ----------
+     Centred text in a narrow column leaves a ragged edge on both sides.
+     Left-aligned, with the opening quote hung into the margin so the first
+     line still begins on the gutter. */
+  html .mission-strip__inner {
+    text-align: left;
+  }
+
+  html .mission-strip__quote p {
+    text-indent: -0.4em;
+  }
+
+  html .mission-strip__attribution {
+    margin-top: var(--space-5);
+  }
+
+  /* ---------- Journey deck ----------
+     The track stretches every card to the tallest one. Letting the photo
+     absorb the slack keeps the cards equal without leaving a block of
+     empty paper under the shorter entries. */
+  html .journey-card {
+    min-height: 0;
+    grid-template-rows: minmax(190px, 1fr) auto;
+  }
+
+  html .journey-card__body {
+    padding: 22px 20px 24px;
+  }
+
+  html .journey__viewport {
+    margin-top: var(--space-6);
+  }
+
+  html .journey__rail {
+    margin-top: var(--space-5);
+  }
+
+  html .journey__controls {
+    margin-top: var(--space-6);
+  }
+
+  /* ---------- Filter chips ----------
+     Run the scroller to both edges, so a half-visible chip reads as "more
+     to the right" instead of as a clipped layout. */
+  html .writings-cats {
+    margin-inline: calc(var(--container-px) * -1);
+    padding-inline: var(--container-px);
+    scroll-padding-inline: var(--container-px);
+    scroll-snap-type: x proximity;
+    overscroll-behavior-x: contain;
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent 0,
+      #000 var(--container-px),
+      #000 calc(100% - 40px),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      90deg,
+      transparent 0,
+      #000 var(--container-px),
+      #000 calc(100% - 40px),
+      transparent 100%
+    );
+  }
+
+  html .writings-cat {
+    scroll-snap-align: start;
+    min-height: 40px;
+  }
+
+  /* ---------- Contact ----------
+     Every other page header on the site starts at the gutter, and the
+     boxed form set the fields in from it again. Both now share the one
+     left edge. */
+  html .contact-hero__inner {
+    text-align: left;
+    margin: 0;
+  }
+
+  html .contact-form-wrapper {
+    padding: 0;
+    border: 0;
+    background: none;
+    position: static;
+  }
+
+  html .contact-form-header {
+    padding-bottom: var(--space-5);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  /* ---------- Touch targets ---------- */
+  html .footer__social-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* ---------- Motion ----------
+     Shorter travel, one easing: blocks arrive as the thumb reaches them
+     instead of drifting up a beat later. */
+  html .fade-in {
+    transform: translateY(14px);
+    transition:
+      opacity var(--duration-reveal) var(--ease-glide),
+      transform var(--duration-reveal) var(--ease-glide);
+  }
+
+  html .fade-in--visible {
+    transform: none;
+  }
+
+  html .enter,
+  html .page-header .container > div > *,
+  html .about-hero__content > * {
+    animation-duration: var(--duration-reveal);
+    animation-timing-function: var(--ease-glide);
+  }
+
+  html .route-view {
+    animation-duration: 0.42s;
+  }
+
+  html .journey__head,
+  html .journey__viewport,
+  html .journey__rail {
+    transform: translateY(20px);
+    transition-duration: 0.7s;
+  }
+
+  html .journey--in .journey__head,
+  html .journey--in .journey__viewport,
+  html .journey--in .journey__rail {
+    transform: none;
+  }
+
+  html .journey--in .journey__viewport {
+    transition-delay: 120ms;
+  }
+
+  html .journey--in .journey__rail {
+    transition-delay: 240ms;
+  }
+
+  /* No hover on touch: these only ever land as a stuck state after a tap. */
+  html .area-card:hover,
+  html .hero__image-wrap:hover .hero__portrait {
+    transform: none;
+  }
+}
+
+@media (max-width: 380px) {
+  :root {
+    --container-px: 18px;
+  }
+}
